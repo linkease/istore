@@ -1,7 +1,6 @@
 module("luci.controller.store", package.seeall)
 
 local myopkg = "is-opkg"
-local opkg = "opkg --autoremove --force-removal-of-dependent-packages"
 local page_index = {"admin", "store", "pages"}
 
 function index()
@@ -145,9 +144,9 @@ function store_action(param)
                 if action == "upgrade" then
                     code, out, err = _action(myopkg, action, unpack(meta.depends), metapkg)
                 else -- remove
-                    code, out, err = _action(opkg, action, unpack(meta.depends), metapkg)
+                    code, out, err = _action(myopkg, action, unpack(meta.depends), metapkg)
                     if code ~= 0 then
-                        code, out0, err0 = _action(opkg, action, unpack(meta.depends), metapkg)
+                        code, out0, err0 = _action(myopkg, action, unpack(meta.depends), metapkg)
                         out = out .. out0
                         err = err .. err0
                     end

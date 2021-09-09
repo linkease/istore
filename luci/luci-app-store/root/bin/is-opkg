@@ -63,6 +63,7 @@ usage() {
     echo "      update                  Update list of available packages"
     echo "      upgrade <pkgs>          Upgrade packages"
     echo "      install <pkgs>          Install package(s)"
+    echo "      remove <pkgs>           Remove package(s)"
 }
 
 is_init >/dev/null 2>&1
@@ -76,6 +77,9 @@ case $action in
     ;;
     "upgrade")
         wrapped_in_update upgrade "$@"
+    ;;
+    "remove")
+        opkg_wrap --autoremove --force-removal-of-dependent-packages remove "$@"
     ;;
     *)
         usage
