@@ -4,7 +4,7 @@ IS_ROOT=/tmp/is-root
 DL_DIR=${IS_ROOT}/tmp/dl
 LISTS_DIR_O=/tmp/opkg-lists
 LISTS_DIR=${IS_ROOT}${LISTS_DIR_O}
-CUSTOMFEEDS=${IS_ROOT}/etc/opkg/customfeeds.conf
+OPKG_CONF_DIR=${IS_ROOT}/etc/opkg
 FEEDS_SERVER=https://istore.linkease.com/repo
 ARCH=`opkg -f /dev/null print-architecture | grep -v 'arch all' | grep -v 'arch noarch' | cut -d ' ' -f2`
 
@@ -26,25 +26,25 @@ is_init() {
     [ -e ${IS_ROOT}/var/lock ] || {
         cp -a /etc/opkg ${IS_ROOT}/etc/
 
-        rm -f ${CUSTOMFEEDS}
-
         ln -s /var/lock ${IS_ROOT}/var/lock
     }
 }
 
 opkg_wrap() {
-    OPKG_CONF_DIR=${IS_ROOT}/etc/opkg opkg -f ${IS_ROOT}/etc/opkg.conf "$@"
+    OPKG_CONF_DIR=${OPKG_CONF_DIR} opkg -f ${IS_ROOT}/etc/opkg.conf "$@"
 }
 
 update() {
-    curl -o ${CUSTOMFEEDS} "${FEEDS_SERVER}/${ARCH}/isfeeds.conf" && \
+    curl -o ${OPKG_CONF_DIR}/meta.conf "${FEEDS_SERVER}/all/meta.conf" && \
+      curl -o ${OPKG_CONF_DIR}/all.conf "${FEEDS_SERVER}/all/isfeeds.conf" && \
+      curl -o ${OPKG_CONF_DIR}/arch.conf "${FEEDS_SERVER}/${ARCH}/isfeeds.conf" && \
       opkg -f ${IS_ROOT}/etc/opkg_o.conf --offline-root ${IS_ROOT} update
 
     return 0
 }
 
 check_mtime() {
-    find ${CUSTOMFEEDS} -mtime -1 2>/dev/null | grep -q .  || update
+    find ${OPKG_CONF_DIR}/arch.conf -mtime -1 2>/dev/null | grep -q .  || update
 }
 
 wrapped_in_update() {
