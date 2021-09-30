@@ -150,6 +150,7 @@ function store_action(param)
                         out = out .. out0
                         err = err .. err0
                     end
+                    fs.unlink("/tmp/luci-indexcache")
                 end
             end
         else

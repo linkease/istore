@@ -18,3 +18,5 @@ if [ -z "$HASH" ]; then
 fi
 
 echo "{\"arch\":\"${ARCH}\", \"uid\":\"${HASH}\"}" > /etc/.app_store.id
+
+rm -rf /tmp/luci-indexcache /tmp/luci-modulecache
