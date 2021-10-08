@@ -35,7 +35,9 @@ local function user_id()
     local id
     if data ~= nil then
         id = json_parse(data)
-    else
+    end
+    if id == nil then
+        fs.unlink("/etc/.app_store.id")
         id = {arch="",uid=""}
     end
 
