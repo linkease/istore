@@ -57,6 +57,19 @@ wrapped_in_update() {
     opkg_wrap "$@"
 }
 
+new_upgrade() {
+    local metapkg=`echo "$@" | sed 's/ /\n/g' | grep -F app-meta-`
+    if [ -n "$metapkg" ] && opkg_wrap info $metapkg | grep -qF not-installed ; then
+        true
+    else
+        local idle_t=$((`date '+%s'` - `date -r ${IS_ROOT}/.last_force_ts '+%s' 2>/dev/null || echo '0'`))
+        if [ $idle_t -gt 120 ]; then
+            update && touch ${IS_ROOT}/.last_force_ts
+        fi
+    fi
+    wrapped_in_update upgrade "$@"
+}
+
 usage() {
     echo "usage: is-opkg sub-command [arguments...]"
     echo "where sub-command is one of:"
@@ -76,7 +89,7 @@ case $action in
         wrapped_in_update install "$@"
     ;;
     "upgrade")
-        wrapped_in_update upgrade "$@"
+        new_upgrade "$@"
     ;;
     "remove")
         opkg_wrap --autoremove --force-removal-of-dependent-packages remove "$@"
