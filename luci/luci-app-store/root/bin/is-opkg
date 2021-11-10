@@ -35,10 +35,10 @@ opkg_wrap() {
 }
 
 update() {
-    curl -o ${OPKG_CONF_DIR}/meta.conf "${FEEDS_SERVER}/all/meta.conf" && \
-      curl -o ${OPKG_CONF_DIR}/all.conf "${FEEDS_SERVER}/all/isfeeds.conf" && \
-      curl -o ${OPKG_CONF_DIR}/arch.conf "${FEEDS_SERVER}/${ARCH}/isfeeds.conf" && \
-      opkg -f ${IS_ROOT}/etc/opkg_o.conf --offline-root ${IS_ROOT} update
+    uclient-fetch -O ${OPKG_CONF_DIR}/meta.conf "${FEEDS_SERVER}/all/meta.conf" && \
+    uclient-fetch -O ${OPKG_CONF_DIR}/all.conf "${FEEDS_SERVER}/all/isfeeds.conf" && \
+    uclient-fetch -O ${OPKG_CONF_DIR}/arch.conf "${FEEDS_SERVER}/${ARCH}/isfeeds.conf" && \
+    opkg -f ${IS_ROOT}/etc/opkg_o.conf --offline-root ${IS_ROOT} update
 
     return 0
 }
@@ -70,6 +70,96 @@ new_upgrade() {
     wrapped_in_update upgrade "$@"
 }
 
+function ipk_build() {
+    PACKAGE=$1
+    UCI_BAK_DIR="/etc/istore/uci-defaults_bak/"
+    UCI_DEF_DIR="etc/uci-defaults"
+    OPKG_INFO_DIR="/usr/lib/opkg/info/"
+
+    PKG_NAME=`cat ${OPKG_INFO_DIR}${PACKAGE}.control | grep Package |  cut -d ' ' -f2`
+    PKG_VER=`cat ${OPKG_INFO_DIR}${PKG_NAME}.control | grep Version |  cut -d ' ' -f2`
+    PKG_ARCH=`cat ${OPKG_INFO_DIR}${PKG_NAME}.control | grep Architecture |  cut -d ' ' -f2`
+    IPK_FILE_NAME="${PKG_NAME}-${PKG_VER}_${PKG_ARCH}"
+
+    rm -rf ${IS_ROOT}/${IPK_FILE_NAME}
+    mkdir -p ${IS_ROOT}/${IPK_FILE_NAME}
+    mkdir -p ${IS_ROOT}/ipk_out
+
+
+    #(1)make CONTROL dir; (2)copy control file to dir
+    cd ${IS_ROOT}/${IPK_FILE_NAME}
+    mkdir -p CONTROL
+    for control_file in `ls  /usr/lib/opkg/info/${PKG_NAME}.* | grep -v ".list"`; do
+        cp ${control_file} CONTROL/`echo ${control_file} | cut -d "." -f 2`
+    done
+
+    #(1)make DATA depend dir; (2)copy uci-defaults_bak file to dir; (3)copy other file to dir
+    cat ${OPKG_INFO_DIR}${PKG_NAME}.list | xargs -I {} dirname {} | cut -b 2- | xargs -I {} mkdir -p {}
+    cat ${OPKG_INFO_DIR}${PKG_NAME}.list | cut -b 2- | grep "${UCI_DEF_DIR}" | \
+        xargs -I {} basename {} | xargs -I {} cp "${UCI_BAK_DIR}{}" "${UCI_DEF_DIR}/{}"
+    cat ${OPKG_INFO_DIR}${PKG_NAME}.list | cut -b 2- | grep -v "${UCI_DEF_DIR}" | xargs -I {} cp /{} {}
+
+    cd -
+
+    #call ipkg-build script to build ipk
+    ipkg-build ${IS_ROOT}/${IPK_FILE_NAME} ${IS_ROOT}/ipk_out
+   rm -rf ${IS_ROOT}/${IPK_FILE_NAME}
+}
+
+backup() {
+    #1.add all istore self data to sysupgrade config file,
+    #sysupgrade will backup/restore it auto when flash new firmware
+    echo "/etc/.app_store.id" > /lib/upgrade/keep.d/luci-app-store
+    cat /usr/lib/opkg/info/luci-app-store.list >> /lib/upgrade/keep.d/luci-app-store
+    echo "/etc/rc.d/S45istore" >> /lib/upgrade/keep.d/luci-app-store
+    echo "/etc/istore/uci-defaults_bak" >> /lib/upgrade/keep.d/luci-app-store
+
+
+    #2.backup all installed package lists to config file
+    update  #if want not depend this, need record package list by istore to file when is-opkg update
+
+    #get feed list
+    opkg_conf_list="meta all arch"
+    feed_name_list=""
+    for conf in ${opkg_conf_list}; do
+        feed_name=`cat ${OPKG_CONF_DIR}/${conf}.conf | cut -d ' ' -f2`
+        feed_name_list="${feed_name} ${feed_name_list}"
+    done
+    echo ${feed_name_list}
+
+    istore_package_list=""
+    #get istore package list
+    for feed_name in ${feed_name_list}; do
+        package_list=`cat ${LISTS_DIR}/${feed_name} | gunzip | grep Package | cut -d ' ' -f2`
+        istore_package_list="${package_list} ${istore_package_list}"
+    done
+    echo ${istore_package_list}
+
+    #write istore package list to file
+    echo ${istore_package_list} | tr " " "\n" > ${IS_ROOT}/istore_package.list
+
+    #write installed package list to file
+    find /overlay/upper/ | \
+        while read -r FILE; do opkg search "${FILE#/overlay/upper}"; done | \
+        sed -n -e "s/\s.*//p" | \
+        sort -u > ${IS_ROOT}/installed_package.list
+
+    #get installed package list by istore feed
+    cat ${IS_ROOT}/istore_package.list ${IS_ROOT}/installed_package.list | \
+        sort -n | uniq -d > ${IS_ROOT}/istore_installed_package.list
+
+
+    #3.rebuild all istore installed package to ipk and backup to userdata partation
+    rm -rf ${IS_ROOT}/ipk_out
+    for pkg_name in `cat istore_installed_package.list`; do
+        ipk_build ${pkg_name}
+    done
+}
+
+restore() {
+    echo "TODO: restore"
+}
+
 usage() {
     echo "usage: is-opkg sub-command [arguments...]"
     echo "where sub-command is one of:"
@@ -77,6 +167,8 @@ usage() {
     echo "      upgrade <pkgs>          Upgrade packages"
     echo "      install <pkgs>          Install package(s)"
     echo "      remove <pkgs>           Remove package(s)"
+    echo "      backup                  Backup istore and all installed package(s)"
+    echo "      restore                 Restore package(s)"
 }
 
 is_init >/dev/null 2>&1
@@ -93,6 +185,12 @@ case $action in
     ;;
     "remove")
         opkg_wrap --autoremove --force-removal-of-dependent-packages remove "$@"
+    ;;
+    "backup")
+        backup "$@"
+    ;;
+    "restore")
+        restore "$@"
     ;;
     *)
         usage
