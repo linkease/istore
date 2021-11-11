@@ -175,9 +175,10 @@ backup() {
     echo "backup installed package list to /etc/istore/app.list"
     [ -n "${BACKUP_PATH}" ] || exit
 
+
+####TODO: generate appdep_list by sequence####
     #write installed packages and depends list by istore feed to file
     appdep_list=`cat ${IS_ROOT}/istore_installed_package.list | sed 's/^/\t/'`
-#    appdep_list=""
     temp_list=`cat ${IS_ROOT}/istore_installed_package.list | xargs -t opkg depends | grep -v "depends on:" | sort -u`
     while [ "A" != "A${temp_list}" ]
     do
