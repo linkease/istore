@@ -216,6 +216,32 @@ backup() {
 
 restore() {
     echo "TODO: restore"
+    if [ "A$1" == "A" ]; then
+        echo "install package by /etc/istore/app.list"
+        update
+        for app in `cat /etc/istore/app.list`; do
+            opkg_wrap install ${app}
+            exit
+        done
+    else
+        BACKUP_PATH=$1
+    fi
+
+    if [ ! -d "${BACKUP_PATH}" ];then
+        echo "invalid backup path, can not restore ipk"
+        exit
+    fi
+
+    if [ ! -f "${BACKUP_PATH}/appdep.list" ];then
+        echo "no available appdep.list, can not restore ipk"
+        exit
+    fi
+
+    #install ipk by backup path
+    for app in `cat ${BACKUP_PATH}/appdep.list`; do
+        opkg_wrap install ${app}
+        exit
+    done
 }
 
 usage() {
@@ -225,8 +251,8 @@ usage() {
     echo "      upgrade <pkgs>          Upgrade packages"
     echo "      install <pkgs>          Install package(s)"
     echo "      remove <pkgs>           Remove package(s)"
-    echo "      backup <dir>            Backup all installed package(s) to <directory>"
-    echo "      restore                 Restore package(s)"
+    echo "      backup [dir]            Backup all installed package(s) to [directory]"
+    echo "      restore [dir]           Restore package(s) by [directory]"
 }
 
 is_init >/dev/null 2>&1
