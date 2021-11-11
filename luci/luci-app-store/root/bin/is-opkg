@@ -1,4 +1,7 @@
 #!/bin/sh
+#set -x
+
+#IS_DEBUG=1
 
 IS_ROOT=/tmp/is-root
 DL_DIR=${IS_ROOT}/tmp/dl
@@ -70,43 +73,57 @@ new_upgrade() {
     wrapped_in_update upgrade "$@"
 }
 
-function ipk_build() {
-    PACKAGE=$1
+ipk_build() {
+    PKG_NAME_TEMP=$1
+    IPK_OUTPUT_DIR=$2
+
     UCI_BAK_DIR="/etc/istore/uci-defaults_bak/"
     UCI_DEF_DIR="etc/uci-defaults"
     OPKG_INFO_DIR="/usr/lib/opkg/info/"
 
-    PKG_NAME=`cat ${OPKG_INFO_DIR}${PACKAGE}.control | grep Package |  cut -d ' ' -f2`
-    PKG_VER=`cat ${OPKG_INFO_DIR}${PKG_NAME}.control | grep Version |  cut -d ' ' -f2`
-    PKG_ARCH=`cat ${OPKG_INFO_DIR}${PKG_NAME}.control | grep Architecture |  cut -d ' ' -f2`
-    IPK_FILE_NAME="${PKG_NAME}-${PKG_VER}_${PKG_ARCH}"
+    [ "A" != "A${PKG_NAME_TEMP}" ] || exit
+    #get real pkg name in opkg
+    PKG_NAME_TEMP=`cat ${IS_ROOT}/all_installed_package.list | sort -u | grep "^${PKG_NAME_TEMP}" | head -n 1`
+    [ "A" != "A${PKG_NAME_TEMP}" ] || exit
+
+    PKG_NAME=`cat ${OPKG_INFO_DIR}${PKG_NAME_TEMP}.control | grep "^Package: " |  cut -d ' ' -f2`
+    PKG_VER=`cat ${OPKG_INFO_DIR}${PKG_NAME}.control | grep "^Version: " |  cut -d ' ' -f2`
+    PKG_ARCH=`cat ${OPKG_INFO_DIR}${PKG_NAME}.control | grep "^Architecture: " |  cut -d ' ' -f2`
+    IPK_FILE_NAME="${PKG_NAME}_${PKG_VER}_${PKG_ARCH}"
 
     rm -rf ${IS_ROOT}/${IPK_FILE_NAME}
     mkdir -p ${IS_ROOT}/${IPK_FILE_NAME}
-    mkdir -p ${IS_ROOT}/ipk_out
-
 
     #(1)make CONTROL dir; (2)copy control file to dir
     cd ${IS_ROOT}/${IPK_FILE_NAME}
     mkdir -p CONTROL
-    for control_file in `ls  /usr/lib/opkg/info/${PKG_NAME}.* | grep -v ".list"`; do
-        cp ${control_file} CONTROL/`echo ${control_file} | cut -d "." -f 2`
+    for control_file in `ls  ${OPKG_INFO_DIR}${PKG_NAME}.* | grep -v ".list$"`; do
+        file=${control_file##*/}
+        suffix=${file##*.}
+        cp ${control_file} CONTROL/${suffix}
     done
 
     #(1)make DATA depend dir; (2)copy uci-defaults_bak file to dir; (3)copy other file to dir
-    cat ${OPKG_INFO_DIR}${PKG_NAME}.list | xargs -I {} dirname {} | cut -b 2- | xargs -I {} mkdir -p {}
-    cat ${OPKG_INFO_DIR}${PKG_NAME}.list | cut -b 2- | grep "${UCI_DEF_DIR}" | \
-        xargs -I {} basename {} | xargs -I {} cp "${UCI_BAK_DIR}{}" "${UCI_DEF_DIR}/{}"
-    cat ${OPKG_INFO_DIR}${PKG_NAME}.list | cut -b 2- | grep -v "${UCI_DEF_DIR}" | xargs -I {} cp /{} {}
-
+    for pkgfile in `cat ${OPKG_INFO_DIR}${PKG_NAME}.list | cut -b 2-`; do
+        file=${pkgfile##*/}
+        path=${pkgfile%/*}
+        mkdir -p ${path}
+        if [ `echo "${path}" | grep "^${UCI_DEF_DIR}"` ]; then
+            cp "${UCI_BAK_DIR}${file}" "${pkgfile}"
+        else
+            cp "/${pkgfile}" "${pkgfile}"
+        fi
+    done
     cd -
 
     #call ipkg-build script to build ipk
-    ipkg-build ${IS_ROOT}/${IPK_FILE_NAME} ${IS_ROOT}/ipk_out
-   rm -rf ${IS_ROOT}/${IPK_FILE_NAME}
+    ipkg-build ${IS_ROOT}/${IPK_FILE_NAME} ${IPK_OUTPUT_DIR}
+    rm -rf ${IS_ROOT}/${IPK_FILE_NAME}
 }
 
 backup() {
+    [ "A$1" == "A" ] || BACKUP_PATH=$1
+
     #1.add all istore self data to sysupgrade config file,
     #sysupgrade will backup/restore it auto when flash new firmware
     echo "/etc/.app_store.id" > /lib/upgrade/keep.d/luci-app-store
@@ -125,34 +142,75 @@ backup() {
         feed_name=`cat ${OPKG_CONF_DIR}/${conf}.conf | cut -d ' ' -f2`
         feed_name_list="${feed_name} ${feed_name_list}"
     done
-    echo ${feed_name_list}
+    [ -n "${IS_DEBUG}" ] && echo ${feed_name_list}
 
     istore_package_list=""
     #get istore package list
     for feed_name in ${feed_name_list}; do
-        package_list=`cat ${LISTS_DIR}/${feed_name} | gunzip | grep Package | cut -d ' ' -f2`
+        package_list=`cat ${LISTS_DIR}/${feed_name} | gunzip | grep "^Package: " | cut -d ' ' -f2`
         istore_package_list="${package_list} ${istore_package_list}"
     done
-    echo ${istore_package_list}
+    [ -n "${IS_DEBUG}" ] && echo ${istore_package_list}
 
     #write istore package list to file
     echo ${istore_package_list} | tr " " "\n" > ${IS_ROOT}/istore_package.list
 
-    #write installed package list to file
-    find /overlay/upper/ | \
-        while read -r FILE; do opkg search "${FILE#/overlay/upper}"; done | \
-        sed -n -e "s/\s.*//p" | \
-        sort -u > ${IS_ROOT}/installed_package.list
+    #write all installed package list to file
+    opkg-list-all-installed-packages.sh 2>/dev/null | cut -d ' ' -f2 | sort -u > ${IS_ROOT}/all_installed_package.list
 
-    #get installed package list by istore feed
-    cat ${IS_ROOT}/istore_package.list ${IS_ROOT}/installed_package.list | \
+    #write user installed package list to file
+    opkg-list-user-installed-packages.sh 2>/dev/null | cut -d ' ' -f2 | sort -u > ${IS_ROOT}/user_installed_package.list
+
+    #write system pre installed package list to file
+    cat ${IS_ROOT}/all_installed_package.list ${IS_ROOT}/user_installed_package.list \
+        ${IS_ROOT}/user_installed_package.list | sort -n | uniq -u > ${IS_ROOT}/pre_installed_package.list
+
+    #write installed package list by istore feed to file
+    cat ${IS_ROOT}/istore_package.list ${IS_ROOT}/user_installed_package.list | \
         sort -n | uniq -d > ${IS_ROOT}/istore_installed_package.list
+
+    #if no input backup path, only back app.list
+    mkdir -p /etc/istore
+    cp ${IS_ROOT}/istore_installed_package.list /etc/istore/app.list
+    echo "backup installed package list to /etc/istore/app.list"
+    [ -n "${BACKUP_PATH}" ] || exit
+
+    #write installed packages and depends list by istore feed to file
+    appdep_list=`cat ${IS_ROOT}/istore_installed_package.list | sed 's/^/\t/'`
+#    appdep_list=""
+    temp_list=`cat ${IS_ROOT}/istore_installed_package.list | xargs -t opkg depends | grep -v "depends on:" | sort -u`
+    while [ "A" != "A${temp_list}" ]
+    do
+        [ -n "${IS_DEBUG}" ] && echo -e "temp_list:\n""${temp_list}"
+        appdep_list=`echo -e "${temp_list}\n${appdep_list}" | sort -u`
+        [ -n "${IS_DEBUG}" ] && echo -e "appdep_list:\n""${appdep_list}"
+
+        for PKG_NAME_TEMP in ${temp_list}; do
+            #get real pkg name in opkg
+            REAL_PKG_NAME=`cat ${IS_ROOT}/all_installed_package.list | sort -u | grep "^${PKG_NAME_TEMP}" | head -n 1`
+            if [ ${REAL_PKG_NAME} != ${PKG_NAME_TEMP} ]; then
+                temp_list=`echo "${temp_list}" | sed 's/'"${PKG_NAME_TEMP}"'/'"${REAL_PKG_NAME}"'/'`
+            fi
+        done
+        temp_list=`echo "${temp_list}" | xargs -t opkg depends | grep -v "depends on:" | sort -u`
+        [ -n "${IS_DEBUG}" ] && echo -e "temp_list_new:\n""${temp_list}"
+    done
+
+    appdep_list_all=`echo "${appdep_list}" | cut -f2 | grep -v "^$"`
+    [ -n "${IS_DEBUG}" ] && echo -e "appdep_list_all:\n""${appdep_list_all}"
+    echo "${appdep_list_all}" > ${IS_ROOT}/appdep.list
 
 
     #3.rebuild all istore installed package to ipk and backup to userdata partation
-    rm -rf ${IS_ROOT}/ipk_out
-    for pkg_name in `cat istore_installed_package.list`; do
-        ipk_build ${pkg_name}
+    if [ ! -d "${BACKUP_PATH}" ];then
+        echo "invalid backup path, can not backup ipk"
+        exit
+    fi
+    cp ${IS_ROOT}/istore_installed_package.list ${BACKUP_PATH}/app.list
+    cp ${IS_ROOT}/appdep.list ${BACKUP_PATH}/appdep.list
+    mkdir -p ${BACKUP_PATH}
+    for pkg_name in `cat ${BACKUP_PATH}/app.list ${BACKUP_PATH}/appdep.list | sort -u`; do
+        ipk_build ${pkg_name} ${BACKUP_PATH}
     done
 }
 
@@ -167,7 +225,7 @@ usage() {
     echo "      upgrade <pkgs>          Upgrade packages"
     echo "      install <pkgs>          Install package(s)"
     echo "      remove <pkgs>           Remove package(s)"
-    echo "      backup                  Backup istore and all installed package(s)"
+    echo "      backup <dir>            Backup all installed package(s) to <directory>"
     echo "      restore                 Restore package(s)"
 }
 
