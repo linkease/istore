@@ -209,8 +209,8 @@ backup() {
     cp ${IS_ROOT}/istore_installed_package.list ${BACKUP_PATH}/app.list
     cp ${IS_ROOT}/appdep.list ${BACKUP_PATH}/appdep.list
     mkdir -p ${BACKUP_PATH}
-    rm -f ${IPK_OUTPUT_DIR}/appdepipk.list
-    for pkg_name in `cat ${BACKUP_PATH}/app.list ${BACKUP_PATH}/appdep.list | sort -u`; do
+    rm -f ${BACKUP_PATH}/appdepipk.list
+    for pkg_name in `cat ${BACKUP_PATH}/appdep.list | sort -u`; do
         echo "build ipk"
         ipk_build ${pkg_name} ${BACKUP_PATH}
     done
