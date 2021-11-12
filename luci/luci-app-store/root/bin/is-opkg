@@ -119,6 +119,7 @@ ipk_build() {
     #call ipkg-build script to build ipk
     ipkg-build ${IS_ROOT}/${IPK_FILE_NAME} ${IPK_OUTPUT_DIR}
     rm -rf ${IS_ROOT}/${IPK_FILE_NAME}
+    echo "${IPK_FILE_NAME}.ipk" >> ${IPK_OUTPUT_DIR}/appdepipk.list
 }
 
 backup() {
@@ -175,29 +176,27 @@ backup() {
     echo "backup installed package list to /etc/istore/app.list"
     [ -n "${BACKUP_PATH}" ] || exit
 
-
-####TODO: generate appdep_list by sequence####
-    #write installed packages and depends list by istore feed to file
-    appdep_list=`cat ${IS_ROOT}/istore_installed_package.list | sed 's/^/\t/'`
-    temp_list=`cat ${IS_ROOT}/istore_installed_package.list | xargs -t opkg depends | grep -v "depends on:" | sort -u`
+    #write installed packages and depends list by istore feed to file by depend sequence
+    appdep_list=""
+    temp_list=`cat ${IS_ROOT}/istore_installed_package.list | sed 's/^/\t/'`
     while [ "A" != "A${temp_list}" ]
     do
-        [ -n "${IS_DEBUG}" ] && echo -e "temp_list:\n""${temp_list}"
-        appdep_list=`echo -e "${temp_list}\n${appdep_list}" | sort -u`
-        [ -n "${IS_DEBUG}" ] && echo -e "appdep_list:\n""${appdep_list}"
-
+        #get real pkg name
         for PKG_NAME_TEMP in ${temp_list}; do
-            #get real pkg name in opkg
             REAL_PKG_NAME=`cat ${IS_ROOT}/all_installed_package.list | sort -u | grep "^${PKG_NAME_TEMP}" | head -n 1`
             if [ ${REAL_PKG_NAME} != ${PKG_NAME_TEMP} ]; then
                 temp_list=`echo "${temp_list}" | sed 's/'"${PKG_NAME_TEMP}"'/'"${REAL_PKG_NAME}"'/'`
             fi
         done
+
+        appdep_list=`echo -e "${temp_list}\n${appdep_list}"`
+        [ -n "${IS_DEBUG}" ] && echo -e "temp_list:\n""${temp_list}"
+        [ -n "${IS_DEBUG}" ] && echo -e "appdep_list:\n""${appdep_list}"
+
         temp_list=`echo "${temp_list}" | xargs -t opkg depends | grep -v "depends on:" | sort -u`
-        [ -n "${IS_DEBUG}" ] && echo -e "temp_list_new:\n""${temp_list}"
     done
 
-    appdep_list_all=`echo "${appdep_list}" | cut -f2 | grep -v "^$"`
+    appdep_list_all=`echo "${appdep_list}" | cut -f2 | grep -v "^$" | awk '!seen[$0]++'`
     [ -n "${IS_DEBUG}" ] && echo -e "appdep_list_all:\n""${appdep_list_all}"
     echo "${appdep_list_all}" > ${IS_ROOT}/appdep.list
 
@@ -210,7 +209,9 @@ backup() {
     cp ${IS_ROOT}/istore_installed_package.list ${BACKUP_PATH}/app.list
     cp ${IS_ROOT}/appdep.list ${BACKUP_PATH}/appdep.list
     mkdir -p ${BACKUP_PATH}
+    rm -f ${IPK_OUTPUT_DIR}/appdepipk.list
     for pkg_name in `cat ${BACKUP_PATH}/app.list ${BACKUP_PATH}/appdep.list | sort -u`; do
+        echo "build ipk"
         ipk_build ${pkg_name} ${BACKUP_PATH}
     done
 }
@@ -239,9 +240,8 @@ restore() {
     fi
 
     #install ipk by backup path
-    for app in `cat ${BACKUP_PATH}/appdep.list`; do
-        opkg_wrap install ${app}
-        exit
+    for app in `cat ${BACKUP_PATH}/appdepipk.list`; do
+        opkg_wrap install ${BACKUP_PATH}/${app}
     done
 }
 
