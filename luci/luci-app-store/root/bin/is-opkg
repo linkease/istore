@@ -1,6 +1,5 @@
 #!/bin/sh
 #set -x
-
 #IS_DEBUG=1
 
 IS_ROOT=/tmp/is-root
@@ -73,6 +72,40 @@ new_upgrade() {
     wrapped_in_update upgrade "$@"
 }
 
+opkg_list_installed_packages() {
+    target=$1
+    case $target in
+        "preinstalled")
+            OPKG_INFO_DIR="/rom/usr/lib/opkg/info"
+        ;;
+        "userinstalled")
+            OPKG_INFO_DIR="/overlay/upper/usr/lib/opkg/info"
+        ;;
+        "allinstalled")
+            OPKG_INFO_DIR="/usr/lib/opkg/info"
+        ;;
+        *)
+            echo "invalid target"
+            exit
+        ;;
+    esac
+
+    awk -v D="cd $OPKG_INFO_DIR &&" 'BEGIN {
+        C=D"ls *.list"
+        S="sort -n"
+        while(C|getline>0) {
+            P=substr(F=$1,1,length($1)-5)
+            J=D"du -sk $(cat "F")"
+            s=0
+            while(J|getline>0) s+=$1
+            close(J)
+            t+=s
+            print s" "P|S
+        }
+        close(S)
+    }'
+}
+
 ipk_build() {
     PKG_NAME_TEMP=$1
     IPK_OUTPUT_DIR=$2
@@ -118,8 +151,7 @@ ipk_build() {
 
     #call ipkg-build script to build ipk
     ipkg-build ${IS_ROOT}/${IPK_FILE_NAME} ${IPK_OUTPUT_DIR}
-    rm -rf ${IS_ROOT}/${IPK_FILE_NAME}
-    echo "${IPK_FILE_NAME}.ipk" >> ${IPK_OUTPUT_DIR}/appdepipk.list
+    [ -n "${IS_DEBUG}" ] || rm -rf ${IS_ROOT}/${IPK_FILE_NAME}
 }
 
 backup() {
@@ -131,7 +163,6 @@ backup() {
     cat /usr/lib/opkg/info/luci-app-store.list >> /lib/upgrade/keep.d/luci-app-store
     echo "/etc/rc.d/S45istore" >> /lib/upgrade/keep.d/luci-app-store
     echo "/etc/istore/uci-defaults_bak" >> /lib/upgrade/keep.d/luci-app-store
-
 
     #2.backup all installed package lists to config file
     update  #if want not depend this, need record package list by istore to file when is-opkg update
@@ -154,20 +185,19 @@ backup() {
     [ -n "${IS_DEBUG}" ] && echo ${istore_package_list}
 
     #write istore package list to file
-    echo ${istore_package_list} | tr " " "\n" > ${IS_ROOT}/istore_package.list
+    echo ${istore_package_list} | tr " " "\n" > ${IS_ROOT}/istore_support_package.list
 
     #write all installed package list to file
-    opkg-list-all-installed-packages.sh 2>/dev/null | cut -d ' ' -f2 | sort -u > ${IS_ROOT}/all_installed_package.list
+    opkg_list_installed_packages "allinstalled" 2>/dev/null | cut -d ' ' -f2 | sort -u > ${IS_ROOT}/all_installed_package.list
 
     #write user installed package list to file
-    opkg-list-user-installed-packages.sh 2>/dev/null | cut -d ' ' -f2 | sort -u > ${IS_ROOT}/user_installed_package.list
+    opkg_list_installed_packages "userinstalled" 2>/dev/null | cut -d ' ' -f2 | sort -u > ${IS_ROOT}/user_installed_package.list
 
     #write system pre installed package list to file
-    cat ${IS_ROOT}/all_installed_package.list ${IS_ROOT}/user_installed_package.list \
-        ${IS_ROOT}/user_installed_package.list | sort -n | uniq -u > ${IS_ROOT}/pre_installed_package.list
+    opkg_list_installed_packages "preinstalled" 2>/dev/null | cut -d ' ' -f2 | sort -u > ${IS_ROOT}/pre_installed_package.list
 
     #write installed package list by istore feed to file
-    cat ${IS_ROOT}/istore_package.list ${IS_ROOT}/user_installed_package.list | \
+    cat ${IS_ROOT}/istore_support_package.list ${IS_ROOT}/user_installed_package.list | \
         sort -n | uniq -d > ${IS_ROOT}/istore_installed_package.list
 
     #if no input backup path, only back app.list
@@ -209,8 +239,13 @@ backup() {
     cp ${IS_ROOT}/istore_installed_package.list ${BACKUP_PATH}/app.list
     cp ${IS_ROOT}/appdep.list ${BACKUP_PATH}/appdep.list
     mkdir -p ${BACKUP_PATH}
-    rm -f ${BACKUP_PATH}/appdepipk.list
-    for pkg_name in `cat ${BACKUP_PATH}/appdep.list | sort -u`; do
+    cp ${IS_ROOT}/appdep.list ${BACKUP_PATH}/appdepipk.list
+    #only backup non pre installed ipk
+    for pre_installed_pkg in `cat ${IS_ROOT}/appdep.list ${IS_ROOT}/pre_installed_package.list | sort -n | uniq -d`; do
+        sed -i '/'"$pre_installed_pkg"'/d' ${BACKUP_PATH}/appdepipk.list
+    done
+
+    for pkg_name in `cat ${BACKUP_PATH}/appdepipk.list`; do
         echo "build ipk"
         ipk_build ${pkg_name} ${BACKUP_PATH}
     done
@@ -222,9 +257,11 @@ restore() {
         echo "install package by /etc/istore/app.list"
         update
         for app in `cat /etc/istore/app.list`; do
+            #skip resotre istore self
+            [ "A${app}" == "A""luci-app-store" ] || continue
             opkg_wrap install ${app}
-            exit
         done
+        exit
     else
         BACKUP_PATH=$1
     fi
