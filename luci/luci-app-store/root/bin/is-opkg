@@ -165,6 +165,7 @@ backup() {
     cat /usr/lib/opkg/info/luci-app-store.list >> /lib/upgrade/keep.d/luci-app-store
     echo "/etc/rc.d/S45istore" >> /lib/upgrade/keep.d/luci-app-store
     echo "/etc/istore/uci-defaults_bak" >> /lib/upgrade/keep.d/luci-app-store
+    echo "/etc/istore/app.list" >> /lib/upgrade/keep.d/luci-app-store
 
     #2.backup all installed package lists to config file
     update  #if want not depend this, need record package list by istore to file when is-opkg update
@@ -261,7 +262,7 @@ restore() {
         update
         for app in `cat /etc/istore/app.list`; do
             #skip resotre istore self
-            [ "A${app}" == "A""luci-app-store" ] || continue
+            [ "A${app}" == "A""luci-app-store" ] && continue
             opkg_wrap install ${app}
         done
         exit
