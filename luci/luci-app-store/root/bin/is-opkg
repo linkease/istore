@@ -151,6 +151,8 @@ ipk_build() {
 
     #call ipkg-build script to build ipk
     ipkg-build ${IS_ROOT}/${IPK_FILE_NAME} ${IPK_OUTPUT_DIR}
+    echo "${IPK_FILE_NAME}.ipk" >> ${IPK_OUTPUT_DIR}/appdepipk.list
+
     [ -n "${IS_DEBUG}" ] || rm -rf ${IS_ROOT}/${IPK_FILE_NAME}
 }
 
@@ -238,14 +240,15 @@ backup() {
     fi
     cp ${IS_ROOT}/istore_installed_package.list ${BACKUP_PATH}/app.list
     cp ${IS_ROOT}/appdep.list ${BACKUP_PATH}/appdep.list
-    mkdir -p ${BACKUP_PATH}
-    cp ${IS_ROOT}/appdep.list ${BACKUP_PATH}/appdepipk.list
+
     #only backup non pre installed ipk
+    cp ${IS_ROOT}/appdep.list ${IS_ROOT}/appdep_strip.list
     for pre_installed_pkg in `cat ${IS_ROOT}/appdep.list ${IS_ROOT}/pre_installed_package.list | sort -n | uniq -d`; do
-        sed -i '/'"$pre_installed_pkg"'/d' ${BACKUP_PATH}/appdepipk.list
+        sed -i '/'"$pre_installed_pkg"'/d' ${IS_ROOT}/appdep_strip.list
     done
 
-    for pkg_name in `cat ${BACKUP_PATH}/appdepipk.list`; do
+    rm -f ${BACKUP_PATH}/appdepipk.list
+    for pkg_name in `cat ${IS_ROOT}/appdep_strip.list`; do
         echo "build ipk"
         ipk_build ${pkg_name} ${BACKUP_PATH}
     done
