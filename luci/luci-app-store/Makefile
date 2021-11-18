@@ -8,7 +8,7 @@ include $(TOPDIR)/rules.mk
 LUCI_TITLE:=LuCI based ipk store
 LUCI_DESCRIPTION:=luci-app-store is a ipk store developed by LinkEase team
 #TODO: need remove tar coreutils-stat depend
-LUCI_DEPENDS:=+tar +coreutils +coreutils-stat
+LUCI_DEPENDS:=+tar +coreutils +coreutils-stat +luci-lib-ipkg
 LUCI_PKGARCH:=all
 PKG_VERSION:=0.1.1
 PKG_RELEASE:=1
