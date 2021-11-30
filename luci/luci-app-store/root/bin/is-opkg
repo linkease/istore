@@ -188,7 +188,7 @@ backup() {
     [ -n "${IS_DEBUG}" ] && echo ${istore_package_list}
 
     #write istore package list to file
-    echo ${istore_package_list} | tr " " "\n" | sort -n | uniq -d > ${IS_ROOT}/istore_support_package.list
+    echo ${istore_package_list} | tr " " "\n" | sort -n | uniq > ${IS_ROOT}/istore_support_package.list
 
     #write all installed package list to file
     opkg_list_installed_packages "allinstalled" 2>/dev/null | cut -d ' ' -f2 | sort -u > ${IS_ROOT}/all_installed_package.list
