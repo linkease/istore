@@ -288,14 +288,15 @@ restore() {
     fi
 
     #1. Unzip file to dir
-    BACKUP_PATH=${BACKUP_PATH_FILE%.backup.tar.gz*}
+    BACKUP_PATH_FILE_NAME=${BACKUP_PATH_FILE##*/} 
+    BACKUP_PATH=/tmp/${BACKUP_PATH_FILE_NAME%.backup.tar.gz*}
     echo "$BACKUP_PATH 11111"
     if [ -d "$BACKUP_PATH" ];then
         rm -rf $BACKUP_PATH
     fi
     mkdir -p $BACKUP_PATH
     # fix tar path error
-    tar -zxf ${BACKUP_PATH_FILE} -C $BACKUP_PATH/../
+    tar -zxf ${BACKUP_PATH_FILE} -C /tmp/
     if [ ! -f "${BACKUP_PATH}/appdep.list" ];then
         echo "no available appdep.list, can not restore ipk"
         exit 1
