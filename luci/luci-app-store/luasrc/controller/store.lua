@@ -53,8 +53,8 @@ local function is_exec(cmd)
     local os   = require "os"
     local fs   = require "nixio.fs"
 
-    local oflags = nixio.open_flags("rdonly", "creat")
-	local lock, code, msg = nixio.open(target, oflags)
+    local oflags = nixio.open_flags("wronly", "creat")
+	local lock, code, msg = nixio.open("/var/lock/istore.lock", oflags)
 	if not lock then
 		return 255, "", "Open lock failed: " .. msg
 	end
@@ -113,7 +113,7 @@ function check_self_upgrade()
         ret.msg = e
     else
         ret.code = o == "" and 304 or 200
-        ret.msg = o
+        ret.msg = o:gsub("[\r\n]", "")
     end
     luci.http.prepare_content("application/json")
     luci.http.write_json(ret)
