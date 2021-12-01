@@ -14,6 +14,9 @@ function index()
 
     entry({"admin", "store"}, call("redirect_index"), _("iStore"), 31)
     entry({"admin", "store", "pages"}, call("store_index")).leaf = true
+    if nixio.fs.access("/usr/lib/lua/luci/view/store/main_dev.htm") then
+        entry({"admin", "store", "dev"}, call("store_dev")).leaf = true
+    end
     entry({"admin", "store", "token"}, call("store_token"))
     entry({"admin", "store", "log"}, call("store_log"))
     entry({"admin", "store", "uid"}, call("action_user_id"))
@@ -84,6 +87,10 @@ end
 
 function store_index()
     luci.template.render("store/main", {prefix=luci.dispatcher.build_url(unpack(page_index)),id=user_id()})
+end
+
+function store_dev()
+    luci.template.render("store/main_dev", {prefix=luci.dispatcher.build_url(unpack({"admin", "store", "dev"})),id=user_id()})
 end
 
 function store_log()
