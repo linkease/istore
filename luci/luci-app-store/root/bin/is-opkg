@@ -239,8 +239,14 @@ backup() {
         echo "invalid backup path, can not backup ipk"
         exit
     fi
-    cp ${IS_ROOT}/istore_installed_package.list ${BACKUP_PATH}/app.list
-    cp ${IS_ROOT}/appdep.list ${BACKUP_PATH}/appdep.list
+    
+    # 4. create dir
+    date=$(date +%Y-%m%d-%H%M)
+    if [ ! -d "$BACKUP_PATH/backup_istore_$date" ];then
+        mkdir $BACKUP_PATH/backup_istore_$date
+    fi
+    cp ${IS_ROOT}/istore_installed_package.list $BACKUP_PATH/backup_istore_$date/app.list
+    cp ${IS_ROOT}/appdep.list $BACKUP_PATH/backup_istore_$date/appdep.list
 
     #only backup non pre installed ipk
     cp ${IS_ROOT}/appdep.list ${IS_ROOT}/appdep_strip.list
@@ -248,11 +254,17 @@ backup() {
         sed -i '/'"$pre_installed_pkg"'/d' ${IS_ROOT}/appdep_strip.list
     done
 
-    rm -f ${BACKUP_PATH}/appdepipk.list
+    rm -f $BACKUP_PATH/backup_istore_$date/appdepipk.list
     for pkg_name in `cat ${IS_ROOT}/appdep_strip.list`; do
         echo "build ipk"
-        ipk_build ${pkg_name} ${BACKUP_PATH}
+        ipk_build ${pkg_name} $BACKUP_PATH/backup_istore_$date
     done
+
+    # 5. create tar.gz file,and remove fir
+    cd $BACKUP_PATH
+    tar -czf $BACKUP_PATH/backup_istore_$date.backup.tar.gz backup_istore_$date
+    rm -rf $BACKUP_PATH/backup_istore_$date
+    cd -
 }
 
 restore() {
@@ -267,34 +279,50 @@ restore() {
         done
         exit
     else
-        BACKUP_PATH=$1
+        BACKUP_PATH_FILE=$1
     fi
 
-    if [ ! -d "${BACKUP_PATH}" ];then
-        echo "invalid backup path, can not restore ipk"
-        exit
+    if [ ! -f "${BACKUP_PATH_FILE}" ];then
+        echo "invalid backup file, can not restore ipk"
+        exit 1
     fi
 
+    #1. Unzip file to dir
+    BACKUP_PATH_FILE_NAME=${BACKUP_PATH_FILE##*/} 
+    BACKUP_PATH=/tmp/${BACKUP_PATH_FILE_NAME%.backup.tar.gz*}
+    echo "$BACKUP_PATH 11111"
+    if [ -d "$BACKUP_PATH" ];then
+        rm -rf $BACKUP_PATH
+    fi
+    mkdir -p $BACKUP_PATH
+    # fix tar path error
+    tar -zxf ${BACKUP_PATH_FILE} -C /tmp/
     if [ ! -f "${BACKUP_PATH}/appdep.list" ];then
         echo "no available appdep.list, can not restore ipk"
-        exit
+        exit 1
     fi
 
-    #install ipk by backup path
+    #2. install ipk by backup path
     for app in `cat ${BACKUP_PATH}/appdepipk.list`; do
         opkg_wrap install ${BACKUP_PATH}/${app}
     done
+    #3. rm dir
+    rm -rf ${BACKUP_PATH}
 }
 
 usage() {
     echo "usage: is-opkg sub-command [arguments...]"
     echo "where sub-command is one of:"
-    echo "      update                  Update list of available packages"
-    echo "      upgrade <pkgs>          Upgrade packages"
-    echo "      install <pkgs>          Install package(s)"
-    echo "      remove <pkgs>           Remove package(s)"
-    echo "      backup [dir]            Backup all installed package(s) to [directory]"
-    echo "      restore [dir]           Restore package(s) by [directory]"
+    echo "      update                          Update list of available packages"
+    echo "      upgrade <pkgs>                  Upgrade packages"
+    echo "      install <pkgs>                  Install package(s)"
+    echo "      remove <pkgs>                   Remove package(s)"
+    echo "      backup [dir]                    Backup all installed package(s) to [directory]"
+    echo "      restore [dir]                   Restore package(s) by [directory]"
+    echo "      get_support_backup_features     get device support backup features"
+    echo "      get_backup_app_list_file_path   get light backup app list file path"
+    echo "      get_backup_app_list             get light backup app list"
+    echo "      get_available_backup_file_list  get local available backup file list"
 }
 
 is_init >/dev/null 2>&1
@@ -312,12 +340,58 @@ case $action in
     "remove")
         opkg_wrap --autoremove --force-removal-of-dependent-packages remove "$@"
     ;;
+    # get device support backup features
+    "get_support_backup_features")
+        echo "TODO: get device support backup features"
+        echo "light_backup"
+        # sda3 and userdata is exist
+        tmp_result=`block info | grep /dev/sda3 | grep userdata`
+        if [ -n "${tmp_result}" ];then
+            echo "local_backup"                                             
+        fi
+    ;;
+    # if arg is 0, light backup
+    # if arg is path, local backup
     "backup")
         backup "$@"
     ;;
+    # if arg is 0, light restore
+    # if arg is path, local restore
     "restore")
         restore "$@"
     ;;
+    # get light backup app list file path
+    "get_backup_app_list_file_path")
+        echo "/etc/istore/app.list"
+    ;;
+    #get light backup app list
+    "get_backup_app_list")
+        if [ ! -f "/etc/istore/app.list" ];then
+            echo "no app.list, can not get backup app list"
+            exit 1
+        fi
+        # read file
+        cat /etc/istore/app.list
+    ;;
+    # get local available backup file list
+    "get_available_backup_file_list")
+        if [ -n "$1" ];then
+            for backup_file in `ls $1/*.backup.tar.gz`; do
+                echo "$backup_file"
+            done
+        else
+            echo "path is null"
+            exit 1
+        fi
+    ;;
+    # set local backup dir path
+    #"set_local_backup_dir_path")
+    #    set_local_backup_dir_path "$@"
+    #;;
+    # get local backup dir path
+    #"get_local_backup_dir_path")
+    #    get_local_backup_dir_path "$@"
+    #;;
     *)
         usage
     ;;
