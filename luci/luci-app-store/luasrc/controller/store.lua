@@ -23,6 +23,16 @@ function index()
     entry({"admin", "store", "upload"}, post("store_upload"))
     entry({"admin", "store", "check_self_upgrade"}, call("check_self_upgrade"))
     entry({"admin", "store", "do_self_upgrade"}, post("do_self_upgrade"))
+
+    entry({"admin", "store", "get_support_backup_features"}, call("get_support_backup_features"))
+    entry({"admin", "store", "backup"}, post("backup"))
+    entry({"admin", "store", "restore"}, post("restore"))
+    entry({"admin", "store", "get_backup_app_list_file_path"}, call("get_backup_app_list_file_path"))
+    entry({"admin", "store", "get_backup_app_list"}, call("get_backup_app_list"))
+    entry({"admin", "store", "get_available_backup_file_list"}, call("get_available_backup_file_list"))
+    entry({"admin", "store", "set_local_backup_dir_path"}, post("set_local_backup_dir_path"))
+    entry({"admin", "store", "get_local_backup_dir_path"}, call("get_local_backup_dir_path"))
+
     for _, action in ipairs({"update", "install", "upgrade", "remove"}) do
         store_api(action, true)
     end
@@ -280,6 +290,151 @@ function store_upload()
         stdout = out,
         stderr = err
     }
+    luci.http.prepare_content("application/json")
+    luci.http.write_json(ret)
+end
+
+-- call get_support_backup_features
+function get_support_backup_features()
+    local ret = {
+        code = 500,
+        msg = "Unknown"
+    }
+    local r,o,e = is_exec(myopkg .. " get_support_backup_features")
+    if r ~= 0 then
+        ret.msg = e
+    else
+        ret.code = o == "" and 304 or 200
+        ret.msg = o:gsub("[\r\n]", "")
+    end
+    luci.http.prepare_content("application/json")
+    luci.http.write_json(ret)
+end
+
+-- post backup
+function backup()
+    local code, out, err, ret
+    local path = luci.http.formvalue("path")
+    ret = 200
+    stdout = path
+    luci.http.prepare_content("application/json")
+    luci.http.write_json(ret)
+    if path ~= "" then
+        code,out,err = is_exec(myopkg .. " backup" .. path)
+    else
+        code,out,err = is_exec(myopkg .. " backup")
+    end
+    ret = {
+        code = code,
+        stdout = out,
+        stderr = err
+    }
+    luci.http.prepare_content("application/json")
+    luci.http.write_json(ret)
+end
+
+-- post restore
+function restore()
+    local path = luci.http.formvalue("path")
+    local code, out, err, ret
+    if path ~= "" then
+        code,out,err = is_exec(myopkg .. " restore" .. path)
+    else
+        code,out,err = is_exec(myopkg .. " restore")
+    end
+    ret = {
+        code = code,
+        stdout = out,
+        stderr = err
+    }
+    luci.http.prepare_content("application/json")
+    luci.http.write_json(ret)
+end
+
+-- call get_backup_app_list_file_path
+function get_backup_app_list_file_path()
+    local ret = {
+        code = 500,
+        msg = "Unknown"
+    }
+    local r,o,e = is_exec(myopkg .. " get_backup_app_list_file_path")
+    if r ~= 0 then
+        ret.msg = e
+    else
+        ret.code = o == "" and 304 or 200
+        ret.msg = o:gsub("[\r\n]", "")
+    end
+    luci.http.prepare_content("application/json")
+    luci.http.write_json(ret)
+end
+
+-- call get_backup_app_list
+function get_backup_app_list()
+    local ret = {
+        code = 500,
+        msg = "Unknown"
+    }
+    local r,o,e = is_exec(myopkg .. " get_backup_app_list")
+    if r ~= 0 then
+        ret.msg = e
+    else
+        ret.code = o == "" and 304 or 200
+        ret.msg = o:gsub("[\r\n]", "")
+    end
+    luci.http.prepare_content("application/json")
+    luci.http.write_json(ret)
+end
+
+-- call get_backget_available_backup_file_listup_app_list
+function get_available_backup_file_list()
+    local ret = {
+        code = 500,
+        msg = "Unknown"
+    }
+    local r,o,e = is_exec(myopkg .. " get_available_backup_file_list")
+    if r ~= 0 then
+        ret.msg = e
+    else
+        ret.code = o == "" and 304 or 200
+        ret.msg = o:gsub("[\r\n]", "")
+    end
+    luci.http.prepare_content("application/json")
+    luci.http.write_json(ret)
+end
+
+-- post set_local_backup_dir_path
+function set_local_backup_dir_path()
+    local path = luci.http.formvalue("path")
+    local code, out, err, ret
+    if path ~= "" then
+        code,out,err = is_exec(myopkg .. " set_local_backup_dir_path" .. path)
+    else
+        code = 500
+        out = ""
+        err = "path Unknown!"
+    end
+    ret = {
+        code = code,
+        stdout = out,
+        stderr = err
+    }
+    luci.http.prepare_content("application/json")
+    luci.http.write_json(ret)
+end
+
+-- call get_local_backup_dir_path
+function get_local_backup_dir_path()
+    local ret = {
+        code = 500,
+        msg = "Unknown"
+    }
+    local r,o,e = is_exec(myopkg .. " get_local_backup_dir_path")
+    if r ~= 0 then
+        ret.msg = e
+    else
+        ret.code = o == "" and 304 or 200
+        ret.msg = o:gsub("[\r\n]", "")
+    end
     luci.http.prepare_content("application/json")
     luci.http.write_json(ret)
 end
