@@ -20,7 +20,7 @@ iStore 的无法弥补的缺陷：
 
 ## 编译依赖
 
-[istore-ui](https://github.com/linkease/istore-ui)
+编译需要依赖前端 UI： [istore-ui](https://github.com/linkease/istore-ui)
 
 ## 功能预览
 
