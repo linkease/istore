@@ -18,6 +18,10 @@ iStore 的无法弥补的缺陷：
 
 我们建议固件开发者集成 iStore，这样固件开发者只需要发布一个精简固件，用户可以按需安装自己喜欢的插件。还能共享插件的教程，独立更新某个插件版本。
 
+## 编译依赖
+
+[istore-ui](https://github.com/linkease/istore-ui)
+
 ## 功能预览
 
 ![istore-preview.png](./preview/istore-preview.png)
