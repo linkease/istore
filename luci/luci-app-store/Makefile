@@ -11,7 +11,7 @@ LUCI_DEPENDS:=+curl +opkg +luci-lib-ipkg +tar +coreutils +coreutils-stat +libuci
 LUCI_PKGARCH:=all
 
 PKG_VERSION:=0.1.8
-PKG_RELEASE:=4
+PKG_RELEASE:=5
 
 ISTORE_UI_VERSION:=1.0
 ISTORE_UI_RELEASE:=10

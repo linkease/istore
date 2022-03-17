@@ -137,21 +137,7 @@ opkg_list_installed_packages() {
             exit
         ;;
     esac
-
-    awk -v D="cd $OPKG_INFO_DIR &&" 'BEGIN {
-        C=D"ls *.list"
-        S="sort -n"
-        while(C|getline>0) {
-            P=substr(F=$1,1,length($1)-5)
-            J=D"du -sk $(cat "F")"
-            s=0
-            while(J|getline>0) s+=$1
-            close(J)
-            t+=s
-            print s" "P|S
-        }
-        close(S)
-    }'
+    (cd $OPKG_INFO_DIR && find . -depth -maxdepth 1 -name "*.list" -type f | sed 's#^\./\(.*\)\.list$#\1#g')
 }
 
 ipk_build() {
@@ -216,41 +202,12 @@ backup() {
     echo "${APP_LIST_FILE}" >> /lib/upgrade/keep.d/luci-app-store
     echo "${BACKUP_CONFIG_FILE}" >> /lib/upgrade/keep.d/luci-app-store
 
-    #2.backup all installed package lists to config file
-    update  #if want not depend this, need record package list by istore to file when is-opkg update
-
-    #get feed list
-    opkg_conf_list="meta all arch"
-    feed_name_list=""
-    for conf in ${opkg_conf_list}; do
-        feed_name=`cat ${OPKG_CONF_DIR}/${conf}.conf | cut -d ' ' -f2`
-        feed_name_list="${feed_name} ${feed_name_list}"
-    done
-    [ -n "${IS_DEBUG}" ] && echo ${feed_name_list}
-
-    istore_package_list=""
-    #get istore package list
-    for feed_name in ${feed_name_list}; do
-        package_list=`cat ${LISTS_DIR}/${feed_name} | gunzip | grep "^Package: " | cut -d ' ' -f2`
-        istore_package_list="${package_list} ${istore_package_list}"
-    done
-    [ -n "${IS_DEBUG}" ] && echo ${istore_package_list}
-
-    #write istore package list to file
-    echo ${istore_package_list} | tr " " "\n" | sort -n | uniq > ${IS_ROOT}/istore_support_package.list
-
-    #write all installed package list to file
-    opkg_list_installed_packages "allinstalled" 2>/dev/null | cut -d ' ' -f2 | sort -u > ${IS_ROOT}/all_installed_package.list
-
     #write user installed package list to file
-    opkg_list_installed_packages "userinstalled" 2>/dev/null | cut -d ' ' -f2 | sort -u > ${IS_ROOT}/user_installed_package.list
-
-    #write system pre installed package list to file
-    opkg_list_installed_packages "preinstalled" 2>/dev/null | cut -d ' ' -f2 | sort -u > ${IS_ROOT}/pre_installed_package.list
+    opkg_list_installed_packages "userinstalled" 2>/dev/null | sort -u > ${IS_ROOT}/user_installed_package.list
 
     #write installed package list by istore feed to file
-    cat ${IS_ROOT}/istore_support_package.list ${IS_ROOT}/user_installed_package.list | \
-        sort -n | uniq -d > ${IS_ROOT}/istore_installed_package.list
+    cat ${IS_ROOT}/user_installed_package.list | \
+        grep '^app-meta-' > ${IS_ROOT}/istore_installed_package.list
 
     #if no input backup path, only back app.list
     mkdir -p /etc/istore
@@ -261,6 +218,12 @@ backup() {
         echo "backup success"
         exit 0
     fi
+
+    #write all installed package list to file
+    opkg_list_installed_packages "allinstalled" 2>/dev/null | sort -u > ${IS_ROOT}/all_installed_package.list
+
+    #write system pre installed package list to file
+    opkg_list_installed_packages "preinstalled" 2>/dev/null | sort -u > ${IS_ROOT}/pre_installed_package.list
 
     #write installed packages and depends list by istore feed to file by depend sequence
     appdep_list=""
