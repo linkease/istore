@@ -95,7 +95,7 @@ local function is_exec(cmd)
 
     e = e or ""
     if r == 256 and e == "" then
-        e = "os.execute failed, is /var/log full or not existed?"
+        e = "os.execute exit code 1"
     end
     return rshift(r,8), o or "", e or ""
 end
