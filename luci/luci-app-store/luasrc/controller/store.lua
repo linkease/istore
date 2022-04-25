@@ -285,7 +285,7 @@ function store_upload()
     out = ""
     if finished then
         if string.lower(string.sub(path, -4, -1)) == ".run" then
-            code, out, err = _action("sh", "-c", "chmod 755 \"%s\" && \"%s\"" %{ path, path })
+            code, out, err = _action("sh", "-c", "ls -l \"%s\"; md5sum \"%s\" 2>/dev/null; chmod 755 \"%s\" && \"%s\"" %{ path, path, path, path })
         else
             code, out, err = _action("opkg", "install", path)
         end
