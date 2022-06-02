@@ -1,4 +1,4 @@
-# istore
+# iStore
 
 ## 介绍
 
