@@ -1,0 +1,334 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: zh-cn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: src/components/app/index.vue:24
+msgid "%{name} downloads"
+msgstr "%{name} 次下载"
+
+#: src/components/app/index.vue:31
+msgid "%{name} links"
+msgstr "%{name} 次点赞"
+
+#: src/components/tabs/index.vue:27
+msgid "all app"
+msgstr "全部软件"
+
+#: src/pages/maintance/index.vue:8
+msgid "app backup"
+msgstr "软件备份"
+
+#: src/components/app/index.vue:180
+msgid "are you sure you want to uninstall %{name}?"
+msgstr "确定要卸载 %{name} 吗?"
+
+#: src/components/app/index.vue:51
+msgid "author"
+msgstr "作者"
+
+#: src/pages/maintance/lightBackup.vue:42
+#: src/pages/maintance/localBackup.vue:208
+msgid "backup fail"
+msgstr "备份失败"
+
+#: src/pages/maintance/lightBackup.vue:18
+#: src/pages/maintance/localBackup.vue:34
+msgid "backup now"
+msgstr "立即备份"
+
+#: src/pages/maintance/localBackup.vue:62
+msgid ""
+"backup now backs up installed software (unlimited installation sources) to "
+"external storage"
+msgstr "立即备份将备份已安装软件（不限安装来源）到外部存储"
+
+#: src/pages/maintance/lightBackup.vue:9
+msgid "backup now will download a list of iStore installed software"
+msgstr "立即备份将下载iStore已安装的软件列表"
+
+#: src/pages/maintance/lightBackup.vue:41
+#: src/pages/maintance/localBackup.vue:200
+msgid "backup success"
+msgstr "备份成功"
+
+#: src/pages/maintance/lightBackup.vue:40
+#: src/pages/maintance/localBackup.vue:195
+msgid "backuping"
+msgstr "正在备份"
+
+#: src/pages/store/components/sort.vue:24
+msgid "By download"
+msgstr "按下载"
+
+#: src/pages/store/components/sort.vue:28
+msgid "By rating"
+msgstr "按评分"
+
+#: src/pages/maintance/update.vue:4
+msgid "checking for latest version"
+msgstr "正在检查最新版本"
+
+#: src/pages/maintance/localBackup.vue:22
+msgid "choose"
+msgstr "请选择"
+
+#: src/pages/maintance/localBackup.vue:41
+msgid "choose backup file"
+msgstr "选择备份文件"
+
+#: src/pages/maintance/lightBackup.vue:43
+msgid "click to download"
+msgstr "点此下载"
+
+#: src/pages/maintance/update.vue:11
+msgid "click to update"
+msgstr "点我更新"
+
+#: src/components/app/index.vue:132 src/components/app/index.vue:155
+#: src/components/app/index.vue:189 src/components/toast/index.vue:3
+#: src/pages/upload/index.vue:86
+msgid "closed"
+msgstr "关闭"
+
+#: src/pages/maintance/localBackup.vue:26
+msgid "customize"
+msgstr "自定义"
+
+#: src/pages/store/components/sort.vue:20 src/pages/store/components/tag.vue:8
+msgid "default"
+msgstr "默认"
+
+#: src/components/app/index.vue:131 src/components/app/index.vue:154
+#: src/components/app/index.vue:188 src/pages/upload/index.vue:85
+msgid "do not refresh this page during plugin installation/uninstallation"
+msgstr "插件安装/卸载过程中请勿刷新此页面"
+
+#: src/pages/maintance/lightBackup.vue:4 src/pages/maintance/localBackup.vue:4
+msgid "explain"
+msgstr "说明"
+
+#: src/pages/maintance/localBackup.vue:16
+msgid "external storage directory"
+msgstr "外部存储目录"
+
+#: src/pages/upload/index.vue:6
+msgid "from this page, you can upload plugin packages to install plugins"
+msgstr "通过本页，你可以上传插件包来安装插件"
+
+#: src/components/app/index.vue:6
+msgid "Icon is gone"
+msgstr "图标出走啦"
+
+#: src/components/app/index.vue:84
+msgid "install"
+msgstr "安装"
+
+#: src/components/app/index.vue:173
+msgid "installation failed, error code"
+msgstr "安装失败,错误码"
+
+#: src/components/app/index.vue:170
+msgid "installation is complete, please close the current window"
+msgstr "安装完成，请关闭当前窗口"
+
+#: src/components/tabs/index.vue:23
+msgid "installed"
+msgstr "已安装"
+
+#. `正在安装插件`,
+#: src/components/app/index.vue:153
+msgid "installing plugin"
+msgstr "正在安装插件"
+
+#: src/pages/maintance/update.vue:9
+msgid "last version"
+msgstr "最新版本"
+
+#: src/pages/maintance/index.vue:13
+msgid "light backup"
+msgstr "轻量备份"
+
+#: src/components/app/index.vue:41
+msgid "like"
+msgstr "点赞"
+
+#: src/components/app/index.vue:38
+msgid "liked"
+msgstr "已点赞"
+
+#: src/pages/store/components/apps.vue:7
+msgid "loading data"
+msgstr "正在努力的获取数据"
+
+#: src/pages/maintance/index.vue:18
+msgid "local backup"
+msgstr "本地备份"
+
+#: src/components/tabs/index.vue:35
+msgid "maintain"
+msgstr "维护"
+
+#: src/components/tabs/index.vue:31
+msgid "manual install"
+msgstr "手动安装"
+
+#: src/pages/upload/index.vue:14 src/pages/upload/index.vue:15
+msgid "no files selected"
+msgstr "未选择任何文件"
+
+#: src/pages/maintance/localBackup.vue:12
+msgid "no internet required for recovery"
+msgstr "恢复时不需要网络"
+
+#: src/pages/upload/index.vue:4
+msgid "offline install"
+msgstr "离线安装"
+
+#: src/pages/upload/index.vue:101
+msgid "offline installation failed with error code"
+msgstr "离线安装失败,错误码"
+
+#: src/pages/upload/index.vue:98
+msgid "offline installation is successful, please close the current window"
+msgstr "离线安装成功，请关闭当前窗口"
+
+#: src/components/app/index.vue:75
+msgid "open"
+msgstr "打开"
+
+#: src/pages/store/components/sort.vue:3
+msgid "order"
+msgstr "排序"
+
+#: src/pages/maintance/localBackup.vue:29
+msgid "please enter an absolute path starting with %{name}"
+msgstr "请输入 %{name} 开头的绝对路径"
+
+#: src/pages/maintance/localBackup.vue:140
+msgid "please enter the path, give up the input, please clear the input box"
+msgstr "请输入路径，放弃输入请清空输入框"
+
+#: src/pages/store/components/search.vue:6
+msgid "please enter the search keyword"
+msgstr "请输入搜索关键词"
+
+#: src/pages/maintance/localBackup.vue:158
+#: src/pages/maintance/localBackup.vue:192
+msgid "please fill in the external storage directory"
+msgstr "请填写外部存储目录"
+
+#: src/pages/maintance/localBackup.vue:225
+msgid "please select a backup file to restore"
+msgstr "请选择要恢复的备份文件"
+
+#: src/pages/maintance/lightBackup.vue:21
+#: src/pages/maintance/localBackup.vue:36
+msgid "restore backup"
+msgstr "恢复备份"
+
+#: src/pages/maintance/localBackup.vue:47
+msgid "restore now"
+msgstr "立即恢复"
+
+#: src/pages/maintance/localBackup.vue:228
+msgid "restoring backup"
+msgstr "正在恢复备份"
+
+#: src/pages/upload/index.vue:17
+msgid "select or drag and drop files"
+msgstr "选择或拖放文件"
+
+#: src/pages/upload/index.vue:9
+msgid "support .ipk plug-in, .run self-extracting format"
+msgstr "支持 .ipk 插件，.run 自解压格式"
+
+#: src/pages/store/components/tag.vue:4
+msgid "tag"
+msgstr "标签"
+
+#: src/pages/maintance/localBackup.vue:241
+msgid "the backup was restored fail"
+msgstr "恢复备份失败"
+
+#: src/pages/maintance/localBackup.vue:233
+msgid "the backup was restored success"
+msgstr "恢复备份成功"
+
+#: src/pages/maintance/update.vue:13
+msgid "the is last version"
+msgstr "当前已经是最新版本"
+
+#: src/components/app/index.vue:142
+msgid "the update is success, please close the current window"
+msgstr "更新成功，请关闭当前窗口"
+
+#: src/pages/maintance/localBackup.vue:168
+msgid "there are no backup files in this path"
+msgstr "此路径下没有备份文件"
+
+#: src/components/app/index.vue:78 src/components/app/index.vue:79
+msgid "uninstall"
+msgstr "卸载"
+
+#: src/components/app/index.vue:202
+msgid "uninstall failed, error code"
+msgstr "卸载失败,错误码"
+
+#: src/components/app/index.vue:199
+msgid "uninstallation succeeded, please close the current window"
+msgstr "卸载完成，请关闭当前窗口"
+
+#: src/components/app/index.vue:187
+msgid "uninstalling plugin"
+msgstr "正在卸载插件"
+
+#: src/components/app/index.vue:55
+msgid "update date"
+msgstr "更新日期"
+
+#: src/pages/maintance/update.vue:46
+msgid "update error"
+msgstr "更新失败"
+
+#: src/components/app/index.vue:145
+msgid "update failed with error code"
+msgstr "更新失败，错误代码"
+
+#: src/pages/maintance/update.vue:37
+msgid "update success"
+msgstr "更新成功"
+
+#: src/pages/maintance/update.vue:32
+msgid "updateing"
+msgstr "正在更新中"
+
+#. `正在更新插件`,
+#: src/components/app/index.vue:130
+msgid "updating plugin"
+msgstr "正在更新插件"
+
+#: src/components/app/index.vue:69 src/pages/maintance/index.vue:4
+msgid "upgrade"
+msgstr "更新"
+
+#: src/pages/maintance/lightBackup.vue:13
+msgid "upload software list and install from iStore when restoring backup"
+msgstr "复备份时上传软件列表并从iStore安装"
+
+#: src/pages/upload/index.vue:84
+msgid "uploading plugin"
+msgstr "正在上传插件"
+
+#: src/components/app/index.vue:62
+msgid "website"
+msgstr "官网"
+
+#: src/components/app/index.vue:224
+msgid "you have already liked"
+msgstr "您已经点赞过啦"
