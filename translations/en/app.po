@@ -31,7 +31,7 @@ msgstr ""
 
 #: src/components/app/index.vue:51
 msgid "author"
-msgstr "author"
+msgstr "Author"
 
 #: src/pages/maintance/lightBackup.vue:42
 #: src/pages/maintance/localBackup.vue:208
@@ -141,7 +141,7 @@ msgstr ""
 #: src/components/tabs/index.vue:23
 #, fuzzy
 msgid "installed"
-msgstr "install"
+msgstr "installed"
 
 #. `正在安装插件`,
 #: src/components/app/index.vue:153
