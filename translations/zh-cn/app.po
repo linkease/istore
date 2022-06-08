@@ -109,6 +109,10 @@ msgstr "默认"
 msgid "do not refresh this page during plugin installation/uninstallation"
 msgstr "插件安装/卸载过程中请勿刷新此页面"
 
+#: src/pages/store/components/tag.vue:33
+msgid "download"
+msgstr "下载"
+
 #: src/pages/maintance/lightBackup.vue:4 src/pages/maintance/localBackup.vue:4
 msgid "explain"
 msgstr "说明"
@@ -178,6 +182,26 @@ msgstr "维护"
 msgid "manual install"
 msgstr "手动安装"
 
+#: src/pages/store/components/tag.vue:37
+msgid "monitor"
+msgstr "监控"
+
+#: src/pages/store/components/tag.vue:35
+msgid "multimedia"
+msgstr "多媒体"
+
+#: src/pages/store/components/tag.vue:36
+msgid "nas"
+msgstr "NAS"
+
+#: src/pages/store/components/tag.vue:31
+msgid "net"
+msgstr "网络"
+
+#: src/pages/store/components/tag.vue:39
+msgid "networking"
+msgstr "组网"
+
 #: src/pages/upload/index.vue:14 src/pages/upload/index.vue:15
 msgid "no files selected"
 msgstr "未选择任何文件"
@@ -244,9 +268,17 @@ msgstr "正在恢复备份"
 msgid "select or drag and drop files"
 msgstr "选择或拖放文件"
 
+#: src/pages/store/components/tag.vue:34
+msgid "service"
+msgstr "服务"
+
 #: src/pages/upload/index.vue:9
 msgid "support .ipk plug-in, .run self-extracting format"
 msgstr "支持 .ipk 插件，.run 自解压格式"
+
+#: src/pages/store/components/tag.vue:38
+msgid "system"
+msgstr "系统"
 
 #: src/pages/store/components/tag.vue:4
 msgid "tag"
@@ -271,6 +303,10 @@ msgstr "更新成功，请关闭当前窗口"
 #: src/pages/maintance/localBackup.vue:168
 msgid "there are no backup files in this path"
 msgstr "此路径下没有备份文件"
+
+#: src/pages/store/components/tag.vue:32
+msgid "tool"
+msgstr "工具"
 
 #: src/components/app/index.vue:78 src/components/app/index.vue:79
 msgid "uninstall"
