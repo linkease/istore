@@ -10,12 +10,16 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: src/components/app/index.vue:24
-msgid "%{name} downloads"
-msgstr "%{name} downloads"
+msgid "%{ num } download"
+msgid_plural "%{ num } downloads"
+msgstr[0] "%{name} download"
+msgstr[1] "%{name} downloads"
 
 #: src/components/app/index.vue:31
-msgid "%{name} links"
-msgstr "%{name} links"
+msgid "%{ num } like"
+msgid_plural "%{ num } likes"
+msgstr[0] "%{name} like"
+msgstr[1] "%{name} likes"
 
 #: src/components/tabs/index.vue:27
 msgid "all app"
@@ -25,11 +29,11 @@ msgstr "all app"
 msgid "app backup"
 msgstr "app backup"
 
-#: src/components/app/index.vue:180
+#: src/components/app/index.vue:179
 msgid "are you sure you want to uninstall %{name}?"
 msgstr "are you sure you want to uninstall %{name}?"
 
-#: src/components/app/index.vue:51
+#: src/components/app/index.vue:50
 msgid "author"
 msgstr "author"
 
@@ -93,8 +97,8 @@ msgstr "click to download"
 msgid "click to update"
 msgstr "click to update"
 
-#: src/components/app/index.vue:132 src/components/app/index.vue:155
-#: src/components/app/index.vue:189 src/components/toast/index.vue:3
+#: src/components/app/index.vue:131 src/components/app/index.vue:154
+#: src/components/app/index.vue:188 src/components/toast/index.vue:3
 #: src/pages/upload/index.vue:86
 msgid "closed"
 msgstr "closed"
@@ -107,12 +111,12 @@ msgstr "customize"
 msgid "default"
 msgstr "default"
 
-#: src/components/app/index.vue:131 src/components/app/index.vue:154
-#: src/components/app/index.vue:188 src/pages/upload/index.vue:85
+#: src/components/app/index.vue:130 src/components/app/index.vue:153
+#: src/components/app/index.vue:187 src/pages/upload/index.vue:85
 msgid "do not refresh this page during plugin installation/uninstallation"
 msgstr "do not refresh this page during plugin installation/uninstallation"
 
-#: src/plugins/i18n/index.ts:33
+#: src/plugins/i18n/index.ts:38
 msgid "download"
 msgstr "Download"
 
@@ -132,15 +136,15 @@ msgstr "from this page, you can upload plugin packages to install plugins"
 msgid "Icon is gone"
 msgstr "Icon is gone"
 
-#: src/components/app/index.vue:84
+#: src/components/app/index.vue:83
 msgid "install"
 msgstr "install"
 
-#: src/components/app/index.vue:173
+#: src/components/app/index.vue:172
 msgid "installation failed, error code"
 msgstr "installation failed, error code"
 
-#: src/components/app/index.vue:170
+#: src/components/app/index.vue:169
 msgid "installation is complete, please close the current window"
 msgstr "installation is complete, please close the current window"
 
@@ -149,7 +153,7 @@ msgid "installed"
 msgstr "installed"
 
 #. `正在安装插件`,
-#: src/components/app/index.vue:153
+#: src/components/app/index.vue:152
 msgid "installing plugin"
 msgstr "installing plugin"
 
@@ -161,11 +165,11 @@ msgstr "last version"
 msgid "light backup"
 msgstr "light backup"
 
-#: src/components/app/index.vue:41
+#: src/components/app/index.vue:40
 msgid "like"
 msgstr "like"
 
-#: src/components/app/index.vue:38
+#: src/components/app/index.vue:37
 msgid "liked"
 msgstr "liked"
 
@@ -185,23 +189,23 @@ msgstr "maintain"
 msgid "manual install"
 msgstr "Manual install"
 
-#: src/plugins/i18n/index.ts:37
+#: src/plugins/i18n/index.ts:42
 msgid "monitor"
 msgstr "Monitor"
 
-#: src/plugins/i18n/index.ts:35
+#: src/plugins/i18n/index.ts:40
 msgid "multimedia"
 msgstr "Multimedia"
 
-#: src/plugins/i18n/index.ts:36
+#: src/plugins/i18n/index.ts:41
 msgid "nas"
 msgstr "NAS"
 
-#: src/plugins/i18n/index.ts:31
+#: src/plugins/i18n/index.ts:36
 msgid "net"
 msgstr "Net"
 
-#: src/plugins/i18n/index.ts:39
+#: src/plugins/i18n/index.ts:44
 msgid "networking"
 msgstr "Networking"
 
@@ -225,7 +229,7 @@ msgstr "offline installation failed with error code"
 msgid "offline installation is successful, please close the current window"
 msgstr "offline installation is successful, please close the current window"
 
-#: src/components/app/index.vue:75
+#: src/components/app/index.vue:74
 msgid "open"
 msgstr "open"
 
@@ -271,7 +275,7 @@ msgstr "restoring backup"
 msgid "select or drag and drop files"
 msgstr "select or drag and drop files"
 
-#: src/plugins/i18n/index.ts:34
+#: src/plugins/i18n/index.ts:39
 msgid "service"
 msgstr "Service"
 
@@ -279,7 +283,7 @@ msgstr "Service"
 msgid "support .ipk plug-in, .run self-extracting format"
 msgstr "support .ipk plug-in, .run self-extracting format"
 
-#: src/plugins/i18n/index.ts:38
+#: src/plugins/i18n/index.ts:43
 msgid "system"
 msgstr "System"
 
@@ -299,7 +303,7 @@ msgstr "the backup was restored success"
 msgid "the is last version"
 msgstr "the is last version"
 
-#: src/components/app/index.vue:142
+#: src/components/app/index.vue:141
 msgid "the update is success, please close the current window"
 msgstr "the update is success, please close the current window"
 
@@ -307,27 +311,27 @@ msgstr "the update is success, please close the current window"
 msgid "there are no backup files in this path"
 msgstr "there are no backup files in this path"
 
-#: src/plugins/i18n/index.ts:32
+#: src/plugins/i18n/index.ts:37
 msgid "tool"
 msgstr "Tool"
 
-#: src/components/app/index.vue:78 src/components/app/index.vue:79
+#: src/components/app/index.vue:77 src/components/app/index.vue:78
 msgid "uninstall"
 msgstr "uninstall"
 
-#: src/components/app/index.vue:202
+#: src/components/app/index.vue:201
 msgid "uninstall failed, error code"
 msgstr "uninstall failed, error code"
 
-#: src/components/app/index.vue:199
+#: src/components/app/index.vue:198
 msgid "uninstallation succeeded, please close the current window"
 msgstr "uninstallation succeeded, please close the current window"
 
-#: src/components/app/index.vue:187
+#: src/components/app/index.vue:186
 msgid "uninstalling plugin"
 msgstr "uninstalling plugin"
 
-#: src/components/app/index.vue:55
+#: src/components/app/index.vue:54
 msgid "update date"
 msgstr "update date"
 
@@ -335,7 +339,7 @@ msgstr "update date"
 msgid "update error"
 msgstr "update error"
 
-#: src/components/app/index.vue:145
+#: src/components/app/index.vue:144
 msgid "update failed with error code"
 msgstr "update failed with error code"
 
@@ -348,11 +352,11 @@ msgid "updateing"
 msgstr "updateing"
 
 #. `正在更新插件`,
-#: src/components/app/index.vue:130
+#: src/components/app/index.vue:129
 msgid "updating plugin"
 msgstr "updating plugin"
 
-#: src/components/app/index.vue:69 src/pages/maintance/index.vue:4
+#: src/components/app/index.vue:68 src/pages/maintance/index.vue:4
 msgid "upgrade"
 msgstr "upgrade"
 
@@ -364,10 +368,10 @@ msgstr "upload software list and install from iStore when restoring backup"
 msgid "uploading plugin"
 msgstr "uploading plugin"
 
-#: src/components/app/index.vue:62
+#: src/components/app/index.vue:61
 msgid "website"
 msgstr "website"
 
-#: src/components/app/index.vue:224
+#: src/components/app/index.vue:223
 msgid "you have already liked"
 msgstr "you have already liked"

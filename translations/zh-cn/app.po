@@ -9,12 +9,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: src/components/app/index.vue:24
-msgid "%{name} downloads"
-msgstr "%{name} 次下载"
+msgid "%{ num } download"
+msgid_plural "%{ num } downloads"
+msgstr[0] "%{name} 次下载"
+msgstr[1] "%{name} 次下载"
 
 #: src/components/app/index.vue:31
-msgid "%{name} links"
-msgstr "%{name} 次点赞"
+msgid "%{ num } like"
+msgid_plural "%{ num } likes"
+msgstr[0] "%{name} 次点赞"
+msgstr[1] "%{name} 次点赞"
 
 #: src/components/tabs/index.vue:27
 msgid "all app"
@@ -24,11 +28,11 @@ msgstr "全部软件"
 msgid "app backup"
 msgstr "软件备份"
 
-#: src/components/app/index.vue:180
+#: src/components/app/index.vue:179
 msgid "are you sure you want to uninstall %{name}?"
 msgstr "确定要卸载 %{name} 吗?"
 
-#: src/components/app/index.vue:51
+#: src/components/app/index.vue:50
 msgid "author"
 msgstr "作者"
 
@@ -90,8 +94,8 @@ msgstr "点此下载"
 msgid "click to update"
 msgstr "点我更新"
 
-#: src/components/app/index.vue:132 src/components/app/index.vue:155
-#: src/components/app/index.vue:189 src/components/toast/index.vue:3
+#: src/components/app/index.vue:131 src/components/app/index.vue:154
+#: src/components/app/index.vue:188 src/components/toast/index.vue:3
 #: src/pages/upload/index.vue:86
 msgid "closed"
 msgstr "关闭"
@@ -104,12 +108,12 @@ msgstr "自定义"
 msgid "default"
 msgstr "默认"
 
-#: src/components/app/index.vue:131 src/components/app/index.vue:154
-#: src/components/app/index.vue:188 src/pages/upload/index.vue:85
+#: src/components/app/index.vue:130 src/components/app/index.vue:153
+#: src/components/app/index.vue:187 src/pages/upload/index.vue:85
 msgid "do not refresh this page during plugin installation/uninstallation"
 msgstr "插件安装/卸载过程中请勿刷新此页面"
 
-#: src/plugins/i18n/index.ts:33
+#: src/plugins/i18n/index.ts:38
 msgid "download"
 msgstr "下载"
 
@@ -129,15 +133,15 @@ msgstr "通过本页，你可以上传插件包来安装插件"
 msgid "Icon is gone"
 msgstr "图标出走啦"
 
-#: src/components/app/index.vue:84
+#: src/components/app/index.vue:83
 msgid "install"
 msgstr "安装"
 
-#: src/components/app/index.vue:173
+#: src/components/app/index.vue:172
 msgid "installation failed, error code"
 msgstr "安装失败,错误码"
 
-#: src/components/app/index.vue:170
+#: src/components/app/index.vue:169
 msgid "installation is complete, please close the current window"
 msgstr "安装完成，请关闭当前窗口"
 
@@ -146,7 +150,7 @@ msgid "installed"
 msgstr "已安装"
 
 #. `正在安装插件`,
-#: src/components/app/index.vue:153
+#: src/components/app/index.vue:152
 msgid "installing plugin"
 msgstr "正在安装插件"
 
@@ -158,11 +162,11 @@ msgstr "最新版本"
 msgid "light backup"
 msgstr "轻量备份"
 
-#: src/components/app/index.vue:41
+#: src/components/app/index.vue:40
 msgid "like"
 msgstr "点赞"
 
-#: src/components/app/index.vue:38
+#: src/components/app/index.vue:37
 msgid "liked"
 msgstr "已点赞"
 
@@ -182,23 +186,23 @@ msgstr "维护"
 msgid "manual install"
 msgstr "手动安装"
 
-#: src/plugins/i18n/index.ts:37
+#: src/plugins/i18n/index.ts:42
 msgid "monitor"
 msgstr "监控"
 
-#: src/plugins/i18n/index.ts:35
+#: src/plugins/i18n/index.ts:40
 msgid "multimedia"
 msgstr "多媒体"
 
-#: src/plugins/i18n/index.ts:36
+#: src/plugins/i18n/index.ts:41
 msgid "nas"
 msgstr "NAS"
 
-#: src/plugins/i18n/index.ts:31
+#: src/plugins/i18n/index.ts:36
 msgid "net"
 msgstr "网络"
 
-#: src/plugins/i18n/index.ts:39
+#: src/plugins/i18n/index.ts:44
 msgid "networking"
 msgstr "组网"
 
@@ -222,7 +226,7 @@ msgstr "离线安装失败,错误码"
 msgid "offline installation is successful, please close the current window"
 msgstr "离线安装成功，请关闭当前窗口"
 
-#: src/components/app/index.vue:75
+#: src/components/app/index.vue:74
 msgid "open"
 msgstr "打开"
 
@@ -268,7 +272,7 @@ msgstr "正在恢复备份"
 msgid "select or drag and drop files"
 msgstr "选择或拖放文件"
 
-#: src/plugins/i18n/index.ts:34
+#: src/plugins/i18n/index.ts:39
 msgid "service"
 msgstr "服务"
 
@@ -276,7 +280,7 @@ msgstr "服务"
 msgid "support .ipk plug-in, .run self-extracting format"
 msgstr "支持 .ipk 插件，.run 自解压格式"
 
-#: src/plugins/i18n/index.ts:38
+#: src/plugins/i18n/index.ts:43
 msgid "system"
 msgstr "系统"
 
@@ -296,7 +300,7 @@ msgstr "恢复备份成功"
 msgid "the is last version"
 msgstr "当前已经是最新版本"
 
-#: src/components/app/index.vue:142
+#: src/components/app/index.vue:141
 msgid "the update is success, please close the current window"
 msgstr "更新成功，请关闭当前窗口"
 
@@ -304,27 +308,27 @@ msgstr "更新成功，请关闭当前窗口"
 msgid "there are no backup files in this path"
 msgstr "此路径下没有备份文件"
 
-#: src/plugins/i18n/index.ts:32
+#: src/plugins/i18n/index.ts:37
 msgid "tool"
 msgstr "工具"
 
-#: src/components/app/index.vue:78 src/components/app/index.vue:79
+#: src/components/app/index.vue:77 src/components/app/index.vue:78
 msgid "uninstall"
 msgstr "卸载"
 
-#: src/components/app/index.vue:202
+#: src/components/app/index.vue:201
 msgid "uninstall failed, error code"
 msgstr "卸载失败,错误码"
 
-#: src/components/app/index.vue:199
+#: src/components/app/index.vue:198
 msgid "uninstallation succeeded, please close the current window"
 msgstr "卸载完成，请关闭当前窗口"
 
-#: src/components/app/index.vue:187
+#: src/components/app/index.vue:186
 msgid "uninstalling plugin"
 msgstr "正在卸载插件"
 
-#: src/components/app/index.vue:55
+#: src/components/app/index.vue:54
 msgid "update date"
 msgstr "更新日期"
 
@@ -332,7 +336,7 @@ msgstr "更新日期"
 msgid "update error"
 msgstr "更新失败"
 
-#: src/components/app/index.vue:145
+#: src/components/app/index.vue:144
 msgid "update failed with error code"
 msgstr "更新失败，错误代码"
 
@@ -345,11 +349,11 @@ msgid "updateing"
 msgstr "正在更新中"
 
 #. `正在更新插件`,
-#: src/components/app/index.vue:130
+#: src/components/app/index.vue:129
 msgid "updating plugin"
 msgstr "正在更新插件"
 
-#: src/components/app/index.vue:69 src/pages/maintance/index.vue:4
+#: src/components/app/index.vue:68 src/pages/maintance/index.vue:4
 msgid "upgrade"
 msgstr "更新"
 
@@ -361,10 +365,10 @@ msgstr "复备份时上传软件列表并从iStore安装"
 msgid "uploading plugin"
 msgstr "正在上传插件"
 
-#: src/components/app/index.vue:62
+#: src/components/app/index.vue:61
 msgid "website"
 msgstr "官网"
 
-#: src/components/app/index.vue:224
+#: src/components/app/index.vue:223
 msgid "you have already liked"
 msgstr "您已经点赞过啦"
