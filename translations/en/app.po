@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Last-Translator: Automatically generated\n"
+"Project-Id-Version: istore 0.1\n"
+"Last-Translator: jjm2473\n"
 "Language-Team: none\n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
@@ -187,7 +187,7 @@ msgstr "maintain"
 
 #: src/components/tabs/index.vue:31
 msgid "manual install"
-msgstr "Manual install"
+msgstr "manual install"
 
 #: src/plugins/i18n/index.ts:42
 msgid "monitor"
