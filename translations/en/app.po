@@ -112,7 +112,7 @@ msgstr "default"
 msgid "do not refresh this page during plugin installation/uninstallation"
 msgstr "do not refresh this page during plugin installation/uninstallation"
 
-#: src/pages/store/components/tag.vue:33
+#: src/plugins/i18n/index.ts:33
 msgid "download"
 msgstr "Download"
 
@@ -185,23 +185,23 @@ msgstr "maintain"
 msgid "manual install"
 msgstr "Manual install"
 
-#: src/pages/store/components/tag.vue:37
+#: src/plugins/i18n/index.ts:37
 msgid "monitor"
 msgstr "Monitor"
 
-#: src/pages/store/components/tag.vue:35
+#: src/plugins/i18n/index.ts:35
 msgid "multimedia"
 msgstr "Multimedia"
 
-#: src/pages/store/components/tag.vue:36
+#: src/plugins/i18n/index.ts:36
 msgid "nas"
 msgstr "NAS"
 
-#: src/pages/store/components/tag.vue:31
+#: src/plugins/i18n/index.ts:31
 msgid "net"
 msgstr "Net"
 
-#: src/pages/store/components/tag.vue:39
+#: src/plugins/i18n/index.ts:39
 msgid "networking"
 msgstr "Networking"
 
@@ -271,7 +271,7 @@ msgstr "restoring backup"
 msgid "select or drag and drop files"
 msgstr "select or drag and drop files"
 
-#: src/pages/store/components/tag.vue:34
+#: src/plugins/i18n/index.ts:34
 msgid "service"
 msgstr "Service"
 
@@ -279,7 +279,7 @@ msgstr "Service"
 msgid "support .ipk plug-in, .run self-extracting format"
 msgstr "support .ipk plug-in, .run self-extracting format"
 
-#: src/pages/store/components/tag.vue:38
+#: src/plugins/i18n/index.ts:38
 msgid "system"
 msgstr "System"
 
@@ -307,7 +307,7 @@ msgstr "the update is success, please close the current window"
 msgid "there are no backup files in this path"
 msgstr "there are no backup files in this path"
 
-#: src/pages/store/components/tag.vue:32
+#: src/plugins/i18n/index.ts:32
 msgid "tool"
 msgstr "Tool"
 
