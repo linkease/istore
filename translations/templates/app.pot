@@ -106,6 +106,10 @@ msgstr ""
 msgid "do not refresh this page during plugin installation/uninstallation"
 msgstr ""
 
+#: src/plugins/i18n/index.ts:33
+msgid "download"
+msgstr ""
+
 #: src/pages/maintance/lightBackup.vue:4
 #: src/pages/maintance/localBackup.vue:4
 msgid "explain"
@@ -176,6 +180,26 @@ msgstr ""
 msgid "manual install"
 msgstr ""
 
+#: src/plugins/i18n/index.ts:37
+msgid "monitor"
+msgstr ""
+
+#: src/plugins/i18n/index.ts:35
+msgid "multimedia"
+msgstr ""
+
+#: src/plugins/i18n/index.ts:36
+msgid "nas"
+msgstr ""
+
+#: src/plugins/i18n/index.ts:31
+msgid "net"
+msgstr ""
+
+#: src/plugins/i18n/index.ts:39
+msgid "networking"
+msgstr ""
+
 #: src/pages/upload/index.vue:14
 #: src/pages/upload/index.vue:15
 msgid "no files selected"
@@ -243,8 +267,16 @@ msgstr ""
 msgid "select or drag and drop files"
 msgstr ""
 
+#: src/plugins/i18n/index.ts:34
+msgid "service"
+msgstr ""
+
 #: src/pages/upload/index.vue:9
 msgid "support .ipk plug-in, .run self-extracting format"
+msgstr ""
+
+#: src/plugins/i18n/index.ts:38
+msgid "system"
 msgstr ""
 
 #: src/pages/store/components/tag.vue:4
@@ -269,6 +301,10 @@ msgstr ""
 
 #: src/pages/maintance/localBackup.vue:168
 msgid "there are no backup files in this path"
+msgstr ""
+
+#: src/plugins/i18n/index.ts:32
+msgid "tool"
 msgstr ""
 
 #: src/components/app/index.vue:78
