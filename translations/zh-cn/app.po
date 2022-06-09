@@ -11,14 +11,14 @@ msgstr ""
 #: src/components/app/index.vue:24
 msgid "%{ num } download"
 msgid_plural "%{ num } downloads"
-msgstr[0] "%{name} 次下载"
-msgstr[1] "%{name} 次下载"
+msgstr[0] "%{ num } 次下载"
+msgstr[1] "%{ num } 次下载"
 
 #: src/components/app/index.vue:31
 msgid "%{ num } like"
 msgid_plural "%{ num } likes"
-msgstr[0] "%{name} 次点赞"
-msgstr[1] "%{name} 次点赞"
+msgstr[0] "%{ num } 次点赞"
+msgstr[1] "%{ num } 次点赞"
 
 #: src/components/tabs/index.vue:27
 msgid "all app"
