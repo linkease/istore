@@ -28,7 +28,7 @@ msgstr "全部软件"
 msgid "app backup"
 msgstr "软件备份"
 
-#: src/components/app/index.vue:179
+#: src/components/app/index.vue:189
 msgid "are you sure you want to uninstall %{name}?"
 msgstr "确定要卸载 %{name} 吗?"
 
@@ -94,8 +94,8 @@ msgstr "点此下载"
 msgid "click to update"
 msgstr "点我更新"
 
-#: src/components/app/index.vue:131 src/components/app/index.vue:154
-#: src/components/app/index.vue:188 src/components/toast/index.vue:3
+#: src/components/app/index.vue:131 src/components/app/index.vue:159
+#: src/components/app/index.vue:198 src/components/toast/index.vue:3
 #: src/pages/upload/index.vue:86
 msgid "closed"
 msgstr "关闭"
@@ -108,8 +108,8 @@ msgstr "自定义"
 msgid "default"
 msgstr "默认"
 
-#: src/components/app/index.vue:130 src/components/app/index.vue:153
-#: src/components/app/index.vue:187 src/pages/upload/index.vue:85
+#: src/components/app/index.vue:130 src/components/app/index.vue:158
+#: src/components/app/index.vue:197 src/pages/upload/index.vue:85
 msgid "do not refresh this page during plugin installation/uninstallation"
 msgstr "插件安装/卸载过程中请勿刷新此页面"
 
@@ -137,11 +137,11 @@ msgstr "图标出走啦"
 msgid "install"
 msgstr "安装"
 
-#: src/components/app/index.vue:172
+#: src/components/app/index.vue:175 src/components/app/index.vue:182
 msgid "installation failed, error code"
 msgstr "安装失败,错误码"
 
-#: src/components/app/index.vue:169
+#: src/components/app/index.vue:178
 msgid "installation is complete, please close the current window"
 msgstr "安装完成，请关闭当前窗口"
 
@@ -150,7 +150,7 @@ msgid "installed"
 msgstr "已安装"
 
 #. `正在安装插件`,
-#: src/components/app/index.vue:152
+#: src/components/app/index.vue:157
 msgid "installing plugin"
 msgstr "正在安装插件"
 
@@ -300,7 +300,7 @@ msgstr "恢复备份成功"
 msgid "the is last version"
 msgstr "当前已经是最新版本"
 
-#: src/components/app/index.vue:141
+#: src/components/app/index.vue:145
 msgid "the update is success, please close the current window"
 msgstr "更新成功，请关闭当前窗口"
 
@@ -316,15 +316,15 @@ msgstr "工具"
 msgid "uninstall"
 msgstr "卸载"
 
-#: src/components/app/index.vue:201
+#: src/components/app/index.vue:211
 msgid "uninstall failed, error code"
 msgstr "卸载失败,错误码"
 
-#: src/components/app/index.vue:198
+#: src/components/app/index.vue:208
 msgid "uninstallation succeeded, please close the current window"
 msgstr "卸载完成，请关闭当前窗口"
 
-#: src/components/app/index.vue:186
+#: src/components/app/index.vue:196
 msgid "uninstalling plugin"
 msgstr "正在卸载插件"
 
@@ -336,7 +336,7 @@ msgstr "更新日期"
 msgid "update error"
 msgstr "更新失败"
 
-#: src/components/app/index.vue:144
+#: src/components/app/index.vue:142 src/components/app/index.vue:149
 msgid "update failed with error code"
 msgstr "更新失败，错误代码"
 
@@ -369,6 +369,6 @@ msgstr "正在上传插件"
 msgid "website"
 msgstr "官网"
 
-#: src/components/app/index.vue:223
+#: src/components/app/index.vue:233
 msgid "you have already liked"
 msgstr "您已经点赞过啦"

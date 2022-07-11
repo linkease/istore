@@ -29,7 +29,7 @@ msgstr "all app"
 msgid "app backup"
 msgstr "app backup"
 
-#: src/components/app/index.vue:179
+#: src/components/app/index.vue:189
 msgid "are you sure you want to uninstall %{name}?"
 msgstr "are you sure you want to uninstall %{name}?"
 
@@ -97,8 +97,8 @@ msgstr "click to download"
 msgid "click to update"
 msgstr "click to update"
 
-#: src/components/app/index.vue:131 src/components/app/index.vue:154
-#: src/components/app/index.vue:188 src/components/toast/index.vue:3
+#: src/components/app/index.vue:131 src/components/app/index.vue:159
+#: src/components/app/index.vue:198 src/components/toast/index.vue:3
 #: src/pages/upload/index.vue:86
 msgid "closed"
 msgstr "closed"
@@ -111,8 +111,8 @@ msgstr "customize"
 msgid "default"
 msgstr "default"
 
-#: src/components/app/index.vue:130 src/components/app/index.vue:153
-#: src/components/app/index.vue:187 src/pages/upload/index.vue:85
+#: src/components/app/index.vue:130 src/components/app/index.vue:158
+#: src/components/app/index.vue:197 src/pages/upload/index.vue:85
 msgid "do not refresh this page during plugin installation/uninstallation"
 msgstr "do not refresh this page during plugin installation/uninstallation"
 
@@ -140,11 +140,11 @@ msgstr "Icon is gone"
 msgid "install"
 msgstr "install"
 
-#: src/components/app/index.vue:172
+#: src/components/app/index.vue:175 src/components/app/index.vue:182
 msgid "installation failed, error code"
 msgstr "installation failed, error code"
 
-#: src/components/app/index.vue:169
+#: src/components/app/index.vue:178
 msgid "installation is complete, please close the current window"
 msgstr "installation is complete, please close the current window"
 
@@ -153,7 +153,7 @@ msgid "installed"
 msgstr "installed"
 
 #. `正在安装插件`,
-#: src/components/app/index.vue:152
+#: src/components/app/index.vue:157
 msgid "installing plugin"
 msgstr "installing plugin"
 
@@ -303,7 +303,7 @@ msgstr "the backup was restored success"
 msgid "the is last version"
 msgstr "the is last version"
 
-#: src/components/app/index.vue:141
+#: src/components/app/index.vue:145
 msgid "the update is success, please close the current window"
 msgstr "the update is success, please close the current window"
 
@@ -319,15 +319,15 @@ msgstr "Tool"
 msgid "uninstall"
 msgstr "uninstall"
 
-#: src/components/app/index.vue:201
+#: src/components/app/index.vue:211
 msgid "uninstall failed, error code"
 msgstr "uninstall failed, error code"
 
-#: src/components/app/index.vue:198
+#: src/components/app/index.vue:208
 msgid "uninstallation succeeded, please close the current window"
 msgstr "uninstallation succeeded, please close the current window"
 
-#: src/components/app/index.vue:186
+#: src/components/app/index.vue:196
 msgid "uninstalling plugin"
 msgstr "uninstalling plugin"
 
@@ -339,7 +339,7 @@ msgstr "update date"
 msgid "update error"
 msgstr "update error"
 
-#: src/components/app/index.vue:144
+#: src/components/app/index.vue:142 src/components/app/index.vue:149
 msgid "update failed with error code"
 msgstr "update failed with error code"
 
@@ -372,6 +372,6 @@ msgstr "uploading plugin"
 msgid "website"
 msgstr "website"
 
-#: src/components/app/index.vue:223
+#: src/components/app/index.vue:233
 msgid "you have already liked"
 msgstr "you have already liked"
