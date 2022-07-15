@@ -218,11 +218,12 @@ msgstr ""
 msgid "offline install"
 msgstr ""
 
-#: src/pages/upload/index.vue:101
+#: src/pages/upload/index.vue:106
+#: src/pages/upload/index.vue:99
 msgid "offline installation failed with error code"
 msgstr ""
 
-#: src/pages/upload/index.vue:98
+#: src/pages/upload/index.vue:102
 msgid "offline installation is successful, please close the current window"
 msgstr ""
 

@@ -218,11 +218,11 @@ msgstr "恢复时不需要网络"
 msgid "offline install"
 msgstr "离线安装"
 
-#: src/pages/upload/index.vue:101
+#: src/pages/upload/index.vue:106 src/pages/upload/index.vue:99
 msgid "offline installation failed with error code"
 msgstr "离线安装失败,错误码"
 
-#: src/pages/upload/index.vue:98
+#: src/pages/upload/index.vue:102
 msgid "offline installation is successful, please close the current window"
 msgstr "离线安装成功，请关闭当前窗口"
 
