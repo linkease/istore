@@ -1,6 +1,7 @@
 module("luci.controller.store", package.seeall)
 
 local myopkg = "is-opkg"
+local is_backup = "/usr/libexec/istore/backup"
 local page_index = {"admin", "store", "pages"}
 
 function index()
@@ -24,24 +25,25 @@ function index()
     entry({"admin", "store", "check_self_upgrade"}, call("check_self_upgrade"))
     entry({"admin", "store", "do_self_upgrade"}, post("do_self_upgrade"))
 
-    entry({"admin", "store", "get_support_backup_features"}, call("get_support_backup_features"))
-    entry({"admin", "store", "light_backup"}, post("light_backup"))
-    entry({"admin", "store", "get_light_backup_file"}, call("get_light_backup_file"))
-    entry({"admin", "store", "local_backup"}, post("local_backup"))
-    entry({"admin", "store", "light_restore"}, post("light_restore"))
-    entry({"admin", "store", "local_restore"}, post("local_restore"))
-    entry({"admin", "store", "get_backup_app_list_file_path"}, call("get_backup_app_list_file_path"))
-    entry({"admin", "store", "get_backup_app_list"}, call("get_backup_app_list"))
-    entry({"admin", "store", "get_available_backup_file_list"}, call("get_available_backup_file_list"))
-    entry({"admin", "store", "set_local_backup_dir_path"}, post("set_local_backup_dir_path"))
-    entry({"admin", "store", "get_local_backup_dir_path"}, call("get_local_backup_dir_path"))
-    entry({"admin", "store", "get_block_devices"}, call("get_block_devices"))
-
     for _, action in ipairs({"update", "install", "upgrade", "remove"}) do
         store_api(action, true)
     end
     for _, action in ipairs({"status", "installed"}) do
         store_api(action, false)
+    end
+    if nixio.fs.access("/usr/libexec/istore/backup") then
+        entry({"admin", "store", "get_support_backup_features"}, call("get_support_backup_features"))
+        entry({"admin", "store", "light_backup"}, post("light_backup"))
+        entry({"admin", "store", "get_light_backup_file"}, call("get_light_backup_file"))
+        entry({"admin", "store", "local_backup"}, post("local_backup"))
+        entry({"admin", "store", "light_restore"}, post("light_restore"))
+        entry({"admin", "store", "local_restore"}, post("local_restore"))
+        entry({"admin", "store", "get_backup_app_list_file_path"}, call("get_backup_app_list_file_path"))
+        entry({"admin", "store", "get_backup_app_list"}, call("get_backup_app_list"))
+        entry({"admin", "store", "get_available_backup_file_list"}, call("get_available_backup_file_list"))
+        entry({"admin", "store", "set_local_backup_dir_path"}, post("set_local_backup_dir_path"))
+        entry({"admin", "store", "get_local_backup_dir_path"}, call("get_local_backup_dir_path"))
+        entry({"admin", "store", "get_block_devices"}, call("get_block_devices"))
     end
 end
 
@@ -115,7 +117,13 @@ function redirect_index()
 end
 
 function store_index()
-    luci.template.render("store/main", {prefix=luci.dispatcher.build_url(unpack(page_index)),id=user_id(),lang=vue_lang()})
+    local fs   = require "nixio.fs"
+    local features = { "_lua_force_array_" }
+    if fs.access("/usr/libexec/istore/backup") then
+        features[#features+1] = "backup"
+    end
+
+    luci.template.render("store/main", {prefix=luci.dispatcher.build_url(unpack(page_index)),id=user_id(),lang=vue_lang(),features=features})
 end
 
 function store_dev()
@@ -356,7 +364,7 @@ function get_support_backup_features()
     local jsonc = require "luci.jsonc"
     local error_ret = {code = 500, msg = "Unknown"}
     local success_ret = {code = 200,msg = "Unknown"}
-    local r,o,e = is_exec(myopkg .. " get_support_backup_features")
+    local r,o,e = is_exec(is_backup .. " get_support_backup_features")
     if r ~= 0 then
         error_ret.msg = e
         luci.http.prepare_content("application/json")
@@ -374,7 +382,7 @@ function light_backup()
     local jsonc = require "luci.jsonc"
     local error_ret = {code = 500, msg = "Unknown"}
     local success_ret = {code = 200,msg = "Unknown"}
-    local r,o,e = is_exec(myopkg .. " backup")
+    local r,o,e = is_exec(is_backup .. " backup")
 
     if r ~= 0 then
         error_ret.msg = e
@@ -438,7 +446,7 @@ function local_backup()
         else
             -- update local backup path
             update_local_backup_path(path)
-            code,out,err = is_exec(myopkg .. " backup " .. path)
+            code,out,err = is_exec(is_backup .. " backup " .. path)
             ret = {
                 code = code,
                 stdout = out,
@@ -482,7 +490,7 @@ function light_restore()
     if finished then
         is_exec("rm /etc/istore/app.list;tar -xzf " .. path .. " -C /")
         if nixio.fs.access("/etc/istore/app.list") then
-            code,out,err = is_exec(myopkg .. " restore")
+            code,out,err = is_exec(is_backup .. " restore")
             ret = {
                 code = code,
                 stdout = out,
@@ -509,7 +517,7 @@ function local_restore()
     local path = luci.http.formvalue("path")
     local code, out, err, ret
     if path ~= "" then
-        code,out,err = is_exec(myopkg .. " restore " .. path)
+        code,out,err = is_exec(is_backup .. " restore " .. path)
         ret = {
             code = code,
             stdout = out,
@@ -530,7 +538,7 @@ function get_backup_app_list_file_path()
     local jsonc = require "luci.jsonc"
     local error_ret = {code = 500, msg = "Unknown"}
     local success_ret = {code = 200,msg = "Unknown"}
-    local r,o,e = is_exec(myopkg .. " get_backup_app_list_file_path")
+    local r,o,e = is_exec(is_backup .. " get_backup_app_list_file_path")
     if r ~= 0 then
         error_ret.msg = e
         luci.http.prepare_content("application/json")
@@ -548,7 +556,7 @@ function get_backup_app_list()
     local jsonc = require "luci.jsonc"
     local error_ret = {code = 500, msg = "Unknown"}
     local success_ret = {code = 200,msg = "Unknown"}
-    local r,o,e = is_exec(myopkg .. " get_backup_app_list")
+    local r,o,e = is_exec(is_backup .. " get_backup_app_list")
     if r ~= 0 then
         error_ret.msg = e
         luci.http.prepare_content("application/json")
@@ -572,7 +580,7 @@ function get_available_backup_file_list()
     if path ~= "" then
         -- update local backup path
         update_local_backup_path(path)
-        r,o,e = is_exec(myopkg .. " get_available_backup_file_list " .. path)
+        r,o,e = is_exec(is_backup .. " get_available_backup_file_list " .. path)
         if r ~= 0 then
             error_ret.msg = e
             luci.http.prepare_content("application/json")
