@@ -122,6 +122,10 @@ new_upgrade() {
     wrapped_in_update upgrade "$@"
 }
 
+remove() {
+    opkg_wrap --autoremove --force-removal-of-dependent-packages remove "$@"
+}
+
 usage() {
     echo "usage: is-opkg sub-command [arguments...]"
     echo "where sub-command is one of:"
@@ -149,7 +153,7 @@ case $action in
         new_upgrade "$@"
     ;;
     "remove")
-        opkg_wrap --autoremove --force-removal-of-dependent-packages remove "$@"
+        remove "$@" || remove "$@"
     ;;
     "info")
         opkg_wrap info "$@"

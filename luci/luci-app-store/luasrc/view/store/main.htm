@@ -30,5 +30,32 @@
 <link rel="stylesheet" href="/luci-static/istore/style.css?v=<%=id.version%>">
 <div id="app">
 </div>
+<%+tasks/embed%>
+
+<script>
+    (function() {
+        let beforeunloadRegistered = false;
+        window.istore_log = function(flush_menu_onclose) {
+            if (flush_menu_onclose && !beforeunloadRegistered) {
+                beforeunloadRegistered = true;
+                window.addEventListener("beforeunload", function(event) {
+                    try { window.L.ui.menu.flushCache() } catch (e) { }
+                    return true;
+                });
+            }
+            taskd.show_log("istore", true);
+        };
+    })();
+<%
+local taskd = require "luci.model.tasks"
+local status = taskd.status("istore")
+if status.running then
+-%>
+    window.istore_log(true);
+<%
+end
+%>
+</script>
+
 <script type="module" crossorigin src="/luci-static/istore/index.js?v=<%=id.version%>"></script>
 <%+footer%>

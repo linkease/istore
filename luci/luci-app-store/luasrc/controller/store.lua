@@ -76,7 +76,7 @@ local function vue_lang()
     return lang
 end
 
-local function is_exec(cmd)
+local function is_exec(cmd, async)
     local nixio = require "nixio"
     local os   = require "os"
     local fs   = require "nixio.fs"
@@ -95,6 +95,9 @@ local function is_exec(cmd)
         return 255, "", "Lock failed: " .. msg
     end
 
+    if async then
+        cmd = "/etc/init.d/tasks task_add istore " .. luci.util.shellquote(cmd)
+    end
     local r = os.execute(cmd .. " >/var/log/istore.stdout 2>/var/log/istore.stderr")
     local e = fs.readfile("/var/log/istore.stderr")
     local o = fs.readfile("/var/log/istore.stdout")
@@ -177,17 +180,15 @@ end
 
 -- Internal action function
 local function _action(exe, cmd, ...)
-    local os   = require "os"
-    local fs   = require "nixio.fs"
 
     local pkg = ""
     for k, v in pairs({...}) do
-        pkg = pkg .. " '" .. v:gsub("'", "") .. "'"
+        pkg = pkg .. " " .. luci.util.shellquote(v)
     end
 
     local c = "%s %s %s" %{ exe, cmd, pkg }
 
-    return is_exec(c)
+    return is_exec(c, true)
 end
 
 function store_action(param)
@@ -249,11 +250,6 @@ function store_action(param)
                     code, out, err = _action(myopkg, action, unpack(pkgs))
                 else -- remove
                     code, out, err = _action(myopkg, action, unpack(pkgs))
-                    if code ~= 0 then
-                        code, out0, err0 = _action(myopkg, action, unpack(pkgs))
-                        out = out .. out0
-                        err = err .. err0
-                    end
                     fs.unlink("/tmp/luci-indexcache")
                 end
             end
@@ -303,15 +299,15 @@ function store_upload()
     out = ""
     if finished then
         if string.lower(string.sub(path, -4, -1)) == ".run" then
-            code, out, err = _action("sh", "-c", "ls -l \"%s\"; md5sum \"%s\" 2>/dev/null; chmod 755 \"%s\" && \"%s\"" %{ path, path, path, path })
+            code, out, err = _action("sh", "-c", "ls -l \"%s\"; md5sum \"%s\" 2>/dev/null; chmod 755 \"%s\" && \"%s\"; RET=$?; rm -f \"%s\"; exit $RET" %{ path, path, path, path, path })
         else
-            code, out, err = _action("opkg", "install", path)
+            code, out, err = _action("sh", "-c", "opkg install \"%s\"; RET=$?; rm -f \"%s\"; exit $RET" %{ path, path })
         end
     else
         code = 500
         err = "upload failed!"
     end
-    nixio.fs.unlink(path)
+    --nixio.fs.unlink(path)
     local ret = {
         code = code,
         stdout = out,
@@ -363,7 +359,7 @@ end
 function get_support_backup_features()
     local jsonc = require "luci.jsonc"
     local error_ret = {code = 500, msg = "Unknown"}
-    local success_ret = {code = 200,msg = "Unknown"}
+    local success_ret = {code = 200, msg = "Unknown"}
     local r,o,e = is_exec(is_backup .. " get_support_backup_features")
     if r ~= 0 then
         error_ret.msg = e
@@ -440,13 +436,13 @@ function local_backup()
         code,out,err = is_exec("findmnt -T " .. path .. " -o TARGET|sed -n 2p")
         if out:gsub("[\r\n]", "") == "/" or out:gsub("[\r\n]", "") == "/tmp" then
             -- error
-            error_ret = {code = 500, msg = "Path Error,Can not be / or tmp."}
+            error_ret = {code = 500, stderr = "Path Error,Can not be / or tmp."}
             luci.http.prepare_content("application/json")
             luci.http.write_json(error_ret)            
         else
             -- update local backup path
             update_local_backup_path(path)
-            code,out,err = is_exec(is_backup .. " backup " .. path)
+            code,out,err = _action(is_backup, "backup", path)
             ret = {
                 code = code,
                 stdout = out,
@@ -457,7 +453,7 @@ function local_backup()
         end
     else
         -- error
-        error_ret = {code = 500, msg = "Path Unknown"}
+        error_ret = {code = 500, stderr = "Path Unknown"}
         luci.http.prepare_content("application/json")
         luci.http.write_json(error_ret)
     end
@@ -489,8 +485,9 @@ function light_restore()
 
     if finished then
         is_exec("rm /etc/istore/app.list;tar -xzf " .. path .. " -C /")
+        nixio.fs.unlink(path)
         if nixio.fs.access("/etc/istore/app.list") then
-            code,out,err = is_exec(is_backup .. " restore")
+            code,out,err = _action(is_backup, "restore")
             ret = {
                 code = code,
                 stdout = out,
@@ -499,14 +496,12 @@ function light_restore()
             luci.http.prepare_content("application/json")
             luci.http.write_json(ret)
         else
-            local error_ret = {code = 500, msg = "File is error!"}
+            local error_ret = {code = 500, stderr = "File is error!"}
             luci.http.prepare_content("application/json")
             luci.http.write_json(error_ret)
         end
-        -- remove file
-        is_exec("rm " .. path)
     else
-        ret = {code = 500, msg = "upload failed!"}
+        ret = {code = 500, stderr = "upload failed!"}
         luci.http.prepare_content("application/json")
         luci.http.write_json(ret)
     end
@@ -517,7 +512,7 @@ function local_restore()
     local path = luci.http.formvalue("path")
     local code, out, err, ret
     if path ~= "" then
-        code,out,err = is_exec(is_backup .. " restore " .. path)
+        code,out,err = _action(is_backup, "restore", path)
         ret = {
             code = code,
             stdout = out,
@@ -527,7 +522,7 @@ function local_restore()
         luci.http.write_json(ret)
     else
         -- error
-        error_ret = {code = 500, msg = "Path Unknown"}
+        error_ret = {code = 500, stderr = "Path Unknown"}
         luci.http.prepare_content("application/json")
         luci.http.write_json(error_ret)
     end
