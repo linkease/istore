@@ -334,7 +334,7 @@ msgstr ""
 msgid "update date"
 msgstr ""
 
-#: src/pages/maintance/update.vue:46
+#: src/pages/maintance/update.vue:49
 msgid "update error"
 msgstr ""
 
@@ -344,7 +344,7 @@ msgid "update failed with error code"
 msgstr ""
 
 #: src/pages/maintance/update.vue:37
-msgid "update success"
+msgid "update success, reloading"
 msgstr ""
 
 #: src/pages/maintance/update.vue:32

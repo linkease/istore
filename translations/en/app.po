@@ -335,7 +335,7 @@ msgstr "uninstalling plugin"
 msgid "update date"
 msgstr "update date"
 
-#: src/pages/maintance/update.vue:46
+#: src/pages/maintance/update.vue:49
 msgid "update error"
 msgstr "update error"
 
@@ -344,8 +344,8 @@ msgid "update failed with error code"
 msgstr "update failed with error code"
 
 #: src/pages/maintance/update.vue:37
-msgid "update success"
-msgstr "update success"
+msgid "update success, reloading"
+msgstr "update success, reloading"
 
 #: src/pages/maintance/update.vue:32
 msgid "updateing"

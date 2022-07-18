@@ -332,7 +332,7 @@ msgstr "正在卸载插件"
 msgid "update date"
 msgstr "更新日期"
 
-#: src/pages/maintance/update.vue:46
+#: src/pages/maintance/update.vue:49
 msgid "update error"
 msgstr "更新失败"
 
@@ -341,8 +341,8 @@ msgid "update failed with error code"
 msgstr "更新失败，错误代码"
 
 #: src/pages/maintance/update.vue:37
-msgid "update success"
-msgstr "更新成功"
+msgid "update success, reloading"
+msgstr "更新成功，重新加载页面"
 
 #: src/pages/maintance/update.vue:32
 msgid "updateing"
