@@ -21,6 +21,7 @@ function tasks_status()
 end
 
 function tasks_log()
+  local wait = 107
   local task_id = luci.http.formvalue("task_id")
   local offset = luci.http.formvalue("offset")
   offset = offset and tonumber(offset) or 0
@@ -42,7 +43,7 @@ function tasks_log()
   end
 
   i = 0
-  while (i<200)
+  while (i < wait)
   do
     if size > offset then
       break
@@ -51,7 +52,7 @@ function tasks_log()
     size = logfd:seek("end")
     i = i+1
   end
-  if i == 200 then
+  if i == wait then
     logfd:close()
     luci.http.status(204)
     luci.http.prepare_content("application/octet-stream")
