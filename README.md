@@ -4,7 +4,7 @@
 
 iStore 是一个[开源](https://github.com/linkease/istore)且标准的 OpenWRT 软件中心实现。
 
-是属于易有云团队的固件 [iStoreOS](https://github.com/linkease/istoreos) 的一部分。
+是属于易有云团队的固件 [iStoreOS](https://github.com/istoreos) 的一部分。
 
 iStore 的设计目标：
 
