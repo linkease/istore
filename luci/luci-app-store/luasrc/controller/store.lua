@@ -125,6 +125,9 @@ function store_index()
     if fs.access("/usr/libexec/istore/backup") then
         features[#features+1] = "backup"
     end
+    if luci.sys.call("which docker >/dev/null 2>&1") == 0 then
+        features[#features+1] = "docker"
+    end
 
     luci.template.render("store/main", {prefix=luci.dispatcher.build_url(unpack(page_index)),id=user_id(),lang=vue_lang(),features=features})
 end
