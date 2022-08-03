@@ -159,7 +159,7 @@ msgstr "like"
 msgid "liked"
 msgstr "liked"
 
-#: src/pages/store/components/apps.vue:7
+#: src/pages/store/components/apps.vue:6
 msgid "loading data"
 msgstr "loading data"
 

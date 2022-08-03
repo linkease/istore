@@ -156,7 +156,7 @@ msgstr "点赞"
 msgid "liked"
 msgstr "已点赞"
 
-#: src/pages/store/components/apps.vue:7
+#: src/pages/store/components/apps.vue:6
 msgid "loading data"
 msgstr "正在努力的获取数据"
 
