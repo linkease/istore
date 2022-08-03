@@ -2,13 +2,13 @@ msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 
-#: src/components/app/index.vue:24
+#: src/components/app/index.vue:25
 msgid "%{ num } download"
 msgid_plural "%{ num } downloads"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/components/app/index.vue:31
+#: src/components/app/index.vue:32
 msgid "%{ num } like"
 msgid_plural "%{ num } likes"
 msgstr[0] ""
@@ -22,11 +22,11 @@ msgstr ""
 msgid "app backup"
 msgstr ""
 
-#: src/components/app/index.vue:154
+#: src/components/app/index.vue:161
 msgid "are you sure you want to uninstall %{name}?"
 msgstr ""
 
-#: src/components/app/index.vue:50
+#: src/components/app/index.vue:51
 msgid "author"
 msgstr ""
 
@@ -101,6 +101,10 @@ msgstr ""
 msgid "default"
 msgstr ""
 
+#: src/components/app/index.vue:141
+msgid "Docker is not installed on the system, try to install it?"
+msgstr ""
+
 #: src/plugins/i18n/index.ts:38
 msgid "download"
 msgstr ""
@@ -122,12 +126,12 @@ msgstr ""
 msgid "Icon is gone"
 msgstr ""
 
-#: src/components/app/index.vue:83
+#: src/components/app/index.vue:84
 msgid "install"
 msgstr ""
 
-#: src/components/app/index.vue:140
-#: src/components/app/index.vue:150
+#: src/components/app/index.vue:147
+#: src/components/app/index.vue:157
 msgid "installation failed, error code"
 msgstr ""
 
@@ -143,11 +147,11 @@ msgstr ""
 msgid "light backup"
 msgstr ""
 
-#: src/components/app/index.vue:40
+#: src/components/app/index.vue:41
 msgid "like"
 msgstr ""
 
-#: src/components/app/index.vue:37
+#: src/components/app/index.vue:38
 msgid "liked"
 msgstr ""
 
@@ -205,7 +209,7 @@ msgstr ""
 msgid "offline installation failed with error code"
 msgstr ""
 
-#: src/components/app/index.vue:74
+#: src/components/app/index.vue:75
 msgid "open"
 msgstr ""
 
@@ -282,17 +286,17 @@ msgstr ""
 msgid "tool"
 msgstr ""
 
-#: src/components/app/index.vue:77
 #: src/components/app/index.vue:78
+#: src/components/app/index.vue:79
 msgid "uninstall"
 msgstr ""
 
-#: src/components/app/index.vue:163
-#: src/components/app/index.vue:168
+#: src/components/app/index.vue:170
+#: src/components/app/index.vue:175
 msgid "uninstall failed, error code"
 msgstr ""
 
-#: src/components/app/index.vue:54
+#: src/components/app/index.vue:55
 msgid "update date"
 msgstr ""
 
@@ -300,8 +304,8 @@ msgstr ""
 msgid "update error"
 msgstr ""
 
-#: src/components/app/index.vue:128
-#: src/components/app/index.vue:133
+#: src/components/app/index.vue:131
+#: src/components/app/index.vue:136
 msgid "update failed with error code"
 msgstr ""
 
@@ -313,7 +317,7 @@ msgstr ""
 msgid "updateing"
 msgstr ""
 
-#: src/components/app/index.vue:68
+#: src/components/app/index.vue:69
 #: src/pages/maintance/index.vue:4
 msgid "upgrade"
 msgstr ""
@@ -327,10 +331,10 @@ msgstr ""
 msgid "uploading"
 msgstr ""
 
-#: src/components/app/index.vue:61
+#: src/components/app/index.vue:62
 msgid "website"
 msgstr ""
 
-#: src/components/app/index.vue:187
+#: src/components/app/index.vue:194
 msgid "you have already liked"
 msgstr ""

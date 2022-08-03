@@ -9,13 +9,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/components/app/index.vue:24
+#: src/components/app/index.vue:25
 msgid "%{ num } download"
 msgid_plural "%{ num } downloads"
 msgstr[0] "%{ num } download"
 msgstr[1] "%{ num } downloads"
 
-#: src/components/app/index.vue:31
+#: src/components/app/index.vue:32
 msgid "%{ num } like"
 msgid_plural "%{ num } likes"
 msgstr[0] "%{ num } like"
@@ -29,11 +29,11 @@ msgstr "all app"
 msgid "app backup"
 msgstr "app backup"
 
-#: src/components/app/index.vue:154
+#: src/components/app/index.vue:161
 msgid "are you sure you want to uninstall %{name}?"
 msgstr "are you sure you want to uninstall %{name}?"
 
-#: src/components/app/index.vue:50
+#: src/components/app/index.vue:51
 msgid "author"
 msgstr "author"
 
@@ -111,6 +111,10 @@ msgstr "customize"
 msgid "default"
 msgstr "default"
 
+#: src/components/app/index.vue:141
+msgid "Docker is not installed on the system, try to install it?"
+msgstr "Docker is not installed on the system, try to install it?"
+
 #: src/plugins/i18n/index.ts:38
 msgid "download"
 msgstr "Download"
@@ -131,11 +135,11 @@ msgstr "from this page, you can upload plugin packages to install plugins"
 msgid "Icon is gone"
 msgstr "Icon is gone"
 
-#: src/components/app/index.vue:83
+#: src/components/app/index.vue:84
 msgid "install"
 msgstr "install"
 
-#: src/components/app/index.vue:140 src/components/app/index.vue:150
+#: src/components/app/index.vue:147 src/components/app/index.vue:157
 msgid "installation failed, error code"
 msgstr "installation failed, error code"
 
@@ -151,11 +155,11 @@ msgstr "last version"
 msgid "light backup"
 msgstr "light backup"
 
-#: src/components/app/index.vue:40
+#: src/components/app/index.vue:41
 msgid "like"
 msgstr "like"
 
-#: src/components/app/index.vue:37
+#: src/components/app/index.vue:38
 msgid "liked"
 msgstr "liked"
 
@@ -211,7 +215,7 @@ msgstr "offline install"
 msgid "offline installation failed with error code"
 msgstr "offline installation failed with error code"
 
-#: src/components/app/index.vue:74
+#: src/components/app/index.vue:75
 msgid "open"
 msgstr "open"
 
@@ -288,15 +292,15 @@ msgstr "there are no backup files in this path"
 msgid "tool"
 msgstr "Tool"
 
-#: src/components/app/index.vue:77 src/components/app/index.vue:78
+#: src/components/app/index.vue:78 src/components/app/index.vue:79
 msgid "uninstall"
 msgstr "uninstall"
 
-#: src/components/app/index.vue:163 src/components/app/index.vue:168
+#: src/components/app/index.vue:170 src/components/app/index.vue:175
 msgid "uninstall failed, error code"
 msgstr "uninstall failed, error code"
 
-#: src/components/app/index.vue:54
+#: src/components/app/index.vue:55
 msgid "update date"
 msgstr "update date"
 
@@ -304,7 +308,7 @@ msgstr "update date"
 msgid "update error"
 msgstr "update error"
 
-#: src/components/app/index.vue:128 src/components/app/index.vue:133
+#: src/components/app/index.vue:131 src/components/app/index.vue:136
 msgid "update failed with error code"
 msgstr "update failed with error code"
 
@@ -316,7 +320,7 @@ msgstr "update success, reloading"
 msgid "updateing"
 msgstr "updateing"
 
-#: src/components/app/index.vue:68 src/pages/maintance/index.vue:4
+#: src/components/app/index.vue:69 src/pages/maintance/index.vue:4
 msgid "upgrade"
 msgstr "upgrade"
 
@@ -328,11 +332,11 @@ msgstr "upload software list and install from iStore when restoring backup"
 msgid "uploading"
 msgstr "uploading"
 
-#: src/components/app/index.vue:61
+#: src/components/app/index.vue:62
 msgid "website"
 msgstr "website"
 
-#: src/components/app/index.vue:187
+#: src/components/app/index.vue:194
 msgid "you have already liked"
 msgstr "you have already liked"
 

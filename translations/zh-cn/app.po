@@ -8,13 +8,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/components/app/index.vue:24
+#: src/components/app/index.vue:25
 msgid "%{ num } download"
 msgid_plural "%{ num } downloads"
 msgstr[0] "%{ num } 次下载"
 msgstr[1] "%{ num } 次下载"
 
-#: src/components/app/index.vue:31
+#: src/components/app/index.vue:32
 msgid "%{ num } like"
 msgid_plural "%{ num } likes"
 msgstr[0] "%{ num } 次点赞"
@@ -28,11 +28,11 @@ msgstr "全部软件"
 msgid "app backup"
 msgstr "软件备份"
 
-#: src/components/app/index.vue:154
+#: src/components/app/index.vue:161
 msgid "are you sure you want to uninstall %{name}?"
 msgstr "确定要卸载 %{name} 吗?"
 
-#: src/components/app/index.vue:50
+#: src/components/app/index.vue:51
 msgid "author"
 msgstr "作者"
 
@@ -108,6 +108,10 @@ msgstr "自定义"
 msgid "default"
 msgstr "默认"
 
+#: src/components/app/index.vue:141
+msgid "Docker is not installed on the system, try to install it?"
+msgstr "系统中未安装Docker，是否尝试安装？"
+
 #: src/plugins/i18n/index.ts:38
 msgid "download"
 msgstr "下载"
@@ -128,11 +132,11 @@ msgstr "通过本页，你可以上传插件包来安装插件"
 msgid "Icon is gone"
 msgstr "图标出走啦"
 
-#: src/components/app/index.vue:83
+#: src/components/app/index.vue:84
 msgid "install"
 msgstr "安装"
 
-#: src/components/app/index.vue:140 src/components/app/index.vue:150
+#: src/components/app/index.vue:147 src/components/app/index.vue:157
 msgid "installation failed, error code"
 msgstr "安装失败,错误码"
 
@@ -148,11 +152,11 @@ msgstr "最新版本"
 msgid "light backup"
 msgstr "轻量备份"
 
-#: src/components/app/index.vue:40
+#: src/components/app/index.vue:41
 msgid "like"
 msgstr "点赞"
 
-#: src/components/app/index.vue:37
+#: src/components/app/index.vue:38
 msgid "liked"
 msgstr "已点赞"
 
@@ -208,7 +212,7 @@ msgstr "离线安装"
 msgid "offline installation failed with error code"
 msgstr "离线安装失败,错误码"
 
-#: src/components/app/index.vue:74
+#: src/components/app/index.vue:75
 msgid "open"
 msgstr "打开"
 
@@ -285,15 +289,15 @@ msgstr "此路径下没有备份文件"
 msgid "tool"
 msgstr "工具"
 
-#: src/components/app/index.vue:77 src/components/app/index.vue:78
+#: src/components/app/index.vue:78 src/components/app/index.vue:79
 msgid "uninstall"
 msgstr "卸载"
 
-#: src/components/app/index.vue:163 src/components/app/index.vue:168
+#: src/components/app/index.vue:170 src/components/app/index.vue:175
 msgid "uninstall failed, error code"
 msgstr "卸载失败,错误码"
 
-#: src/components/app/index.vue:54
+#: src/components/app/index.vue:55
 msgid "update date"
 msgstr "更新日期"
 
@@ -301,7 +305,7 @@ msgstr "更新日期"
 msgid "update error"
 msgstr "更新失败"
 
-#: src/components/app/index.vue:128 src/components/app/index.vue:133
+#: src/components/app/index.vue:131 src/components/app/index.vue:136
 msgid "update failed with error code"
 msgstr "更新失败，错误代码"
 
@@ -313,7 +317,7 @@ msgstr "更新成功，重新加载页面"
 msgid "updateing"
 msgstr "正在更新中"
 
-#: src/components/app/index.vue:68 src/pages/maintance/index.vue:4
+#: src/components/app/index.vue:69 src/pages/maintance/index.vue:4
 msgid "upgrade"
 msgstr "更新"
 
@@ -325,11 +329,11 @@ msgstr "复备份时上传软件列表并从iStore安装"
 msgid "uploading"
 msgstr "上传中"
 
-#: src/components/app/index.vue:61
+#: src/components/app/index.vue:62
 msgid "website"
 msgstr "官网"
 
-#: src/components/app/index.vue:187
+#: src/components/app/index.vue:194
 msgid "you have already liked"
 msgstr "您已经点赞过啦"
 
