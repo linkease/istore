@@ -29,7 +29,7 @@ msgstr "all app"
 msgid "app backup"
 msgstr "app backup"
 
-#: src/components/app/index.vue:161
+#: src/components/app/index.vue:162
 msgid "are you sure you want to uninstall %{name}?"
 msgstr "are you sure you want to uninstall %{name}?"
 
@@ -111,7 +111,7 @@ msgstr "customize"
 msgid "default"
 msgstr "default"
 
-#: src/components/app/index.vue:141
+#: src/components/app/index.vue:142
 msgid "Docker is not installed on the system, try to install it?"
 msgstr "Docker is not installed on the system, try to install it?"
 
@@ -139,7 +139,7 @@ msgstr "Icon is gone"
 msgid "install"
 msgstr "install"
 
-#: src/components/app/index.vue:147 src/components/app/index.vue:157
+#: src/components/app/index.vue:148 src/components/app/index.vue:158
 msgid "installation failed, error code"
 msgstr "installation failed, error code"
 
@@ -268,6 +268,10 @@ msgstr "select or drag and drop files"
 msgid "service"
 msgstr "Service"
 
+#: src/components/app/index.vue:87
+msgid "Stick to the top"
+msgstr "Stick to the top"
+
 #: src/pages/upload/index.vue:9
 msgid "support .ipk plug-in, .run self-extracting format"
 msgstr "support .ipk plug-in, .run self-extracting format"
@@ -296,7 +300,7 @@ msgstr "Tool"
 msgid "uninstall"
 msgstr "uninstall"
 
-#: src/components/app/index.vue:170 src/components/app/index.vue:175
+#: src/components/app/index.vue:171 src/components/app/index.vue:176
 msgid "uninstall failed, error code"
 msgstr "uninstall failed, error code"
 
@@ -308,7 +312,7 @@ msgstr "update date"
 msgid "update error"
 msgstr "update error"
 
-#: src/components/app/index.vue:131 src/components/app/index.vue:136
+#: src/components/app/index.vue:132 src/components/app/index.vue:137
 msgid "update failed with error code"
 msgstr "update failed with error code"
 
@@ -336,7 +340,7 @@ msgstr "uploading"
 msgid "website"
 msgstr "website"
 
-#: src/components/app/index.vue:194
+#: src/components/app/index.vue:195
 msgid "you have already liked"
 msgstr "you have already liked"
 
