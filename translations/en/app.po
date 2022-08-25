@@ -132,9 +132,8 @@ msgid "Icon is gone"
 msgstr "Icon is gone"
 
 #: src/pages/upload/index.vue:6
-#, fuzzy
 msgid "in this page, you can upload and install packages"
-msgstr "from this page, you can upload and install packages"
+msgstr "in this page, you can upload and install packages"
 
 #: src/components/app/index.vue:84
 msgid "install"
