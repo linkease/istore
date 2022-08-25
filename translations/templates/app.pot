@@ -119,7 +119,7 @@ msgid "external storage directory"
 msgstr ""
 
 #: src/pages/upload/index.vue:6
-msgid "from this page, you can upload plugin packages to install plugins"
+msgid "from this page, you can upload and install packages"
 msgstr ""
 
 #: src/components/app/index.vue:6
@@ -191,8 +191,8 @@ msgstr ""
 msgid "networking"
 msgstr ""
 
-#: src/pages/upload/index.vue:14
-#: src/pages/upload/index.vue:15
+#: src/pages/upload/index.vue:17
+#: src/pages/upload/index.vue:18
 msgid "no files selected"
 msgstr ""
 
@@ -204,8 +204,8 @@ msgstr ""
 msgid "offline install"
 msgstr ""
 
-#: src/pages/upload/index.vue:89
-#: src/pages/upload/index.vue:94
+#: src/pages/upload/index.vue:92
+#: src/pages/upload/index.vue:97
 msgid "offline installation failed with error code"
 msgstr ""
 
@@ -215,6 +215,10 @@ msgstr ""
 
 #: src/pages/store/components/sort.vue:3
 msgid "order"
+msgstr ""
+
+#: src/pages/upload/index.vue:12
+msgid "packages installed offline may not appear in iStore"
 msgstr ""
 
 #: src/pages/maintance/localBackup.vue:29
@@ -254,7 +258,7 @@ msgstr ""
 msgid "restore now"
 msgstr ""
 
-#: src/pages/upload/index.vue:17
+#: src/pages/upload/index.vue:20
 msgid "select or drag and drop files"
 msgstr ""
 
@@ -267,7 +271,7 @@ msgid "Stick to the top"
 msgstr ""
 
 #: src/pages/upload/index.vue:9
-msgid "support .ipk plug-in, .run self-extracting format"
+msgid "supports .ipk packages, .run self-extracting packages"
 msgstr ""
 
 #: src/plugins/i18n/index.ts:43
@@ -331,7 +335,7 @@ msgid "upload software list and install from iStore when restoring backup"
 msgstr ""
 
 #: src/pages/maintance/lightBackup.vue:72
-#: src/pages/upload/index.vue:85
+#: src/pages/upload/index.vue:88
 msgid "uploading"
 msgstr ""
 

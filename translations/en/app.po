@@ -128,8 +128,8 @@ msgid "external storage directory"
 msgstr "external storage directory"
 
 #: src/pages/upload/index.vue:6
-msgid "from this page, you can upload plugin packages to install plugins"
-msgstr "from this page, you can upload plugin packages to install plugins"
+msgid "from this page, you can upload and install packages"
+msgstr "from this page, you can upload and install packages"
 
 #: src/components/app/index.vue:6
 msgid "Icon is gone"
@@ -199,7 +199,7 @@ msgstr "Net"
 msgid "networking"
 msgstr "Networking"
 
-#: src/pages/upload/index.vue:14 src/pages/upload/index.vue:15
+#: src/pages/upload/index.vue:17 src/pages/upload/index.vue:18
 msgid "no files selected"
 msgstr "no files selected"
 
@@ -211,7 +211,7 @@ msgstr "no internet required for recovery"
 msgid "offline install"
 msgstr "offline install"
 
-#: src/pages/upload/index.vue:89 src/pages/upload/index.vue:94
+#: src/pages/upload/index.vue:92 src/pages/upload/index.vue:97
 msgid "offline installation failed with error code"
 msgstr "offline installation failed with error code"
 
@@ -222,6 +222,10 @@ msgstr "open"
 #: src/pages/store/components/sort.vue:3
 msgid "order"
 msgstr "order"
+
+#: src/pages/upload/index.vue:12
+msgid "packages installed offline may not appear in iStore"
+msgstr "packages installed offline may not appear in iStore"
 
 #: src/pages/maintance/localBackup.vue:29
 msgid "please enter an absolute path starting with %{name}"
@@ -260,7 +264,7 @@ msgstr "restore failed with error code"
 msgid "restore now"
 msgstr "restore now"
 
-#: src/pages/upload/index.vue:17
+#: src/pages/upload/index.vue:20
 msgid "select or drag and drop files"
 msgstr "select or drag and drop files"
 
@@ -273,8 +277,8 @@ msgid "Stick to the top"
 msgstr "Stick to the top"
 
 #: src/pages/upload/index.vue:9
-msgid "support .ipk plug-in, .run self-extracting format"
-msgstr "support .ipk plug-in, .run self-extracting format"
+msgid "supports .ipk packages, .run self-extracting packages"
+msgstr "supports .ipk packages, .run self-extracting packages"
 
 #: src/plugins/i18n/index.ts:43
 msgid "system"
@@ -332,7 +336,7 @@ msgstr "upgrade"
 msgid "upload software list and install from iStore when restoring backup"
 msgstr "upload software list and install from iStore when restoring backup"
 
-#: src/pages/maintance/lightBackup.vue:72 src/pages/upload/index.vue:85
+#: src/pages/maintance/lightBackup.vue:72 src/pages/upload/index.vue:88
 msgid "uploading"
 msgstr "uploading"
 

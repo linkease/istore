@@ -125,8 +125,8 @@ msgid "external storage directory"
 msgstr "外部存储目录"
 
 #: src/pages/upload/index.vue:6
-msgid "from this page, you can upload plugin packages to install plugins"
-msgstr "通过本页，你可以上传插件包来安装插件"
+msgid "from this page, you can upload and install packages"
+msgstr "通过本页，你可以上传并安装插件包"
 
 #: src/components/app/index.vue:6
 msgid "Icon is gone"
@@ -196,7 +196,7 @@ msgstr "网络"
 msgid "networking"
 msgstr "组网"
 
-#: src/pages/upload/index.vue:14 src/pages/upload/index.vue:15
+#: src/pages/upload/index.vue:17 src/pages/upload/index.vue:18
 msgid "no files selected"
 msgstr "未选择任何文件"
 
@@ -208,7 +208,7 @@ msgstr "恢复时不需要网络"
 msgid "offline install"
 msgstr "离线安装"
 
-#: src/pages/upload/index.vue:89 src/pages/upload/index.vue:94
+#: src/pages/upload/index.vue:92 src/pages/upload/index.vue:97
 msgid "offline installation failed with error code"
 msgstr "离线安装失败,错误码"
 
@@ -219,6 +219,10 @@ msgstr "打开"
 #: src/pages/store/components/sort.vue:3
 msgid "order"
 msgstr "排序"
+
+#: src/pages/upload/index.vue:12
+msgid "packages installed offline may not appear in iStore"
+msgstr "离线安装的插件可能不会出现在iStore中"
 
 #: src/pages/maintance/localBackup.vue:29
 msgid "please enter an absolute path starting with %{name}"
@@ -257,7 +261,7 @@ msgstr "恢复失败，错误代码"
 msgid "restore now"
 msgstr "立即恢复"
 
-#: src/pages/upload/index.vue:17
+#: src/pages/upload/index.vue:20
 msgid "select or drag and drop files"
 msgstr "选择或拖放文件"
 
@@ -270,8 +274,8 @@ msgid "Stick to the top"
 msgstr "置顶"
 
 #: src/pages/upload/index.vue:9
-msgid "support .ipk plug-in, .run self-extracting format"
-msgstr "支持 .ipk 插件，.run 自解压格式"
+msgid "supports .ipk packages, .run self-extracting packages"
+msgstr "支持 .ipk 包，.run 自解压格式"
 
 #: src/plugins/i18n/index.ts:43
 msgid "system"
@@ -329,7 +333,7 @@ msgstr "更新"
 msgid "upload software list and install from iStore when restoring backup"
 msgstr "复备份时上传软件列表并从iStore安装"
 
-#: src/pages/maintance/lightBackup.vue:72 src/pages/upload/index.vue:85
+#: src/pages/maintance/lightBackup.vue:72 src/pages/upload/index.vue:88
 msgid "uploading"
 msgstr "上传中"
 
