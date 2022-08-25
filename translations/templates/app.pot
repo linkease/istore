@@ -118,12 +118,12 @@ msgstr ""
 msgid "external storage directory"
 msgstr ""
 
-#: src/pages/upload/index.vue:6
-msgid "from this page, you can upload and install packages"
-msgstr ""
-
 #: src/components/app/index.vue:6
 msgid "Icon is gone"
+msgstr ""
+
+#: src/pages/upload/index.vue:6
+msgid "in this page, you can upload and install packages"
 msgstr ""
 
 #: src/components/app/index.vue:84

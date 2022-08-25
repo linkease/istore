@@ -124,13 +124,13 @@ msgstr "说明"
 msgid "external storage directory"
 msgstr "外部存储目录"
 
-#: src/pages/upload/index.vue:6
-msgid "from this page, you can upload and install packages"
-msgstr "通过本页，你可以上传并安装插件包"
-
 #: src/components/app/index.vue:6
 msgid "Icon is gone"
 msgstr "图标出走啦"
+
+#: src/pages/upload/index.vue:6
+msgid "in this page, you can upload and install packages"
+msgstr "通过本页面，你可以上传并安装插件包"
 
 #: src/components/app/index.vue:84
 msgid "install"
