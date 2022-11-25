@@ -151,6 +151,10 @@ msgstr "installed"
 msgid "last version"
 msgstr "last version"
 
+#: src/pages/store/components/sort.vue:32
+msgid "Latest update"
+msgstr "Latest date"
+
 #: src/pages/maintance/index.vue:13
 msgid "light backup"
 msgstr "light backup"

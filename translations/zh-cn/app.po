@@ -148,6 +148,10 @@ msgstr "已安装"
 msgid "last version"
 msgstr "最新版本"
 
+#: src/pages/store/components/sort.vue:32
+msgid "Latest update"
+msgstr "最近更新"
+
 #: src/pages/maintance/index.vue:13
 msgid "light backup"
 msgstr "轻量备份"
