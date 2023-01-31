@@ -335,7 +335,7 @@ msgstr "更新"
 
 #: src/pages/maintance/lightBackup.vue:13
 msgid "upload software list and install from iStore when restoring backup"
-msgstr "复备份时上传软件列表并从iStore安装"
+msgstr "恢复备份时上传软件列表并从iStore安装"
 
 #: src/pages/maintance/lightBackup.vue:72 src/pages/upload/index.vue:88
 msgid "uploading"
