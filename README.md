@@ -20,7 +20,20 @@ iStore 的无法弥补的缺陷：
 
 我们建议固件开发者集成 iStore，这样固件开发者只需要发布一个精简固件，用户可以按需安装自己喜欢的插件。还能共享插件的教程，独立更新某个插件版本。
 
-> 21版本的固件安装iStore需要依赖 `luci-compat`
+> 21版本的固件安装 iStore 需要依赖 `luci-compat`
+
+## 集成到自己的固件中
+iStore 官方的软件仓库支持 `x86_64`，`arm64` 两个架构，这两个架构的基于 **OpenWRT** 固件都可以直接集成 iStore
+
+只需在固件编译目录下执行：
+```shell
+echo >> feeds.conf.default
+echo 'src-git istore https://github.com/linkease/istore;main' >> feeds.conf.default
+./scripts/feeds update istore
+./scripts/feeds install -d y -p istore luci-app-store
+```
+
+然后正常编译固件即可
 
 ## 功能预览
 
