@@ -29,7 +29,7 @@ msgstr "all app"
 msgid "app backup"
 msgstr "app backup"
 
-#: src/components/app/index.vue:162
+#: src/components/app/index.vue:167
 msgid "are you sure you want to uninstall %{name}?"
 msgstr "are you sure you want to uninstall %{name}?"
 
@@ -111,7 +111,7 @@ msgstr "customize"
 msgid "default"
 msgstr "default"
 
-#: src/components/app/index.vue:142
+#: src/components/app/index.vue:147
 msgid "Docker is not installed on the system, try to install it?"
 msgstr "Docker is not installed on the system, try to install it?"
 
@@ -135,11 +135,11 @@ msgstr "Icon is gone"
 msgid "in this page, you can upload and install packages"
 msgstr "in this page, you can upload and install packages"
 
-#: src/components/app/index.vue:84
+#: src/components/app/index.vue:89
 msgid "install"
 msgstr "install"
 
-#: src/components/app/index.vue:148 src/components/app/index.vue:158
+#: src/components/app/index.vue:153 src/components/app/index.vue:163
 msgid "installation failed, error code"
 msgstr "installation failed, error code"
 
@@ -219,7 +219,7 @@ msgstr "offline install"
 msgid "offline installation failed with error code"
 msgstr "offline installation failed with error code"
 
-#: src/components/app/index.vue:75
+#: src/components/app/index.vue:80
 msgid "open"
 msgstr "open"
 
@@ -276,7 +276,7 @@ msgstr "select or drag and drop files"
 msgid "service"
 msgstr "Service"
 
-#: src/components/app/index.vue:87
+#: src/components/app/index.vue:92
 msgid "Stick to the top"
 msgstr "Stick to the top"
 
@@ -304,11 +304,15 @@ msgstr "there are no backup files in this path"
 msgid "tool"
 msgstr "Tool"
 
-#: src/components/app/index.vue:78 src/components/app/index.vue:79
+#: src/components/app/index.vue:62
+msgid "tutorial"
+msgstr "tutorial"
+
+#: src/components/app/index.vue:83 src/components/app/index.vue:84
 msgid "uninstall"
 msgstr "uninstall"
 
-#: src/components/app/index.vue:171 src/components/app/index.vue:176
+#: src/components/app/index.vue:176 src/components/app/index.vue:181
 msgid "uninstall failed, error code"
 msgstr "uninstall failed, error code"
 
@@ -320,7 +324,7 @@ msgstr "update date"
 msgid "update error"
 msgstr "update error"
 
-#: src/components/app/index.vue:132 src/components/app/index.vue:137
+#: src/components/app/index.vue:137 src/components/app/index.vue:142
 msgid "update failed with error code"
 msgstr "update failed with error code"
 
@@ -332,7 +336,7 @@ msgstr "update success, reloading"
 msgid "updateing"
 msgstr "updateing"
 
-#: src/components/app/index.vue:69 src/pages/maintance/index.vue:4
+#: src/components/app/index.vue:74 src/pages/maintance/index.vue:4
 msgid "upgrade"
 msgstr "upgrade"
 
@@ -344,11 +348,11 @@ msgstr "upload software list and install from iStore when restoring backup"
 msgid "uploading"
 msgstr "uploading"
 
-#: src/components/app/index.vue:62
+#: src/components/app/index.vue:65
 msgid "website"
 msgstr "website"
 
-#: src/components/app/index.vue:195
+#: src/components/app/index.vue:200
 msgid "you have already liked"
 msgstr "you have already liked"
 

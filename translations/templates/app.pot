@@ -22,7 +22,7 @@ msgstr ""
 msgid "app backup"
 msgstr ""
 
-#: src/components/app/index.vue:162
+#: src/components/app/index.vue:167
 msgid "are you sure you want to uninstall %{name}?"
 msgstr ""
 
@@ -101,7 +101,7 @@ msgstr ""
 msgid "default"
 msgstr ""
 
-#: src/components/app/index.vue:142
+#: src/components/app/index.vue:147
 msgid "Docker is not installed on the system, try to install it?"
 msgstr ""
 
@@ -126,12 +126,12 @@ msgstr ""
 msgid "in this page, you can upload and install packages"
 msgstr ""
 
-#: src/components/app/index.vue:84
+#: src/components/app/index.vue:89
 msgid "install"
 msgstr ""
 
-#: src/components/app/index.vue:148
-#: src/components/app/index.vue:158
+#: src/components/app/index.vue:153
+#: src/components/app/index.vue:163
 msgid "installation failed, error code"
 msgstr ""
 
@@ -213,7 +213,7 @@ msgstr ""
 msgid "offline installation failed with error code"
 msgstr ""
 
-#: src/components/app/index.vue:75
+#: src/components/app/index.vue:80
 msgid "open"
 msgstr ""
 
@@ -270,7 +270,7 @@ msgstr ""
 msgid "service"
 msgstr ""
 
-#: src/components/app/index.vue:87
+#: src/components/app/index.vue:92
 msgid "Stick to the top"
 msgstr ""
 
@@ -298,13 +298,17 @@ msgstr ""
 msgid "tool"
 msgstr ""
 
-#: src/components/app/index.vue:78
-#: src/components/app/index.vue:79
+#: src/components/app/index.vue:62
+msgid "tutorial"
+msgstr ""
+
+#: src/components/app/index.vue:83
+#: src/components/app/index.vue:84
 msgid "uninstall"
 msgstr ""
 
-#: src/components/app/index.vue:171
 #: src/components/app/index.vue:176
+#: src/components/app/index.vue:181
 msgid "uninstall failed, error code"
 msgstr ""
 
@@ -316,8 +320,8 @@ msgstr ""
 msgid "update error"
 msgstr ""
 
-#: src/components/app/index.vue:132
 #: src/components/app/index.vue:137
+#: src/components/app/index.vue:142
 msgid "update failed with error code"
 msgstr ""
 
@@ -329,7 +333,7 @@ msgstr ""
 msgid "updateing"
 msgstr ""
 
-#: src/components/app/index.vue:69
+#: src/components/app/index.vue:74
 #: src/pages/maintance/index.vue:4
 msgid "upgrade"
 msgstr ""
@@ -343,10 +347,10 @@ msgstr ""
 msgid "uploading"
 msgstr ""
 
-#: src/components/app/index.vue:62
+#: src/components/app/index.vue:65
 msgid "website"
 msgstr ""
 
-#: src/components/app/index.vue:195
+#: src/components/app/index.vue:200
 msgid "you have already liked"
 msgstr ""

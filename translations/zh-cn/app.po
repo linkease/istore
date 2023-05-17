@@ -28,7 +28,7 @@ msgstr "全部软件"
 msgid "app backup"
 msgstr "软件备份"
 
-#: src/components/app/index.vue:162
+#: src/components/app/index.vue:167
 msgid "are you sure you want to uninstall %{name}?"
 msgstr "确定要卸载 %{name} 吗?"
 
@@ -108,7 +108,7 @@ msgstr "自定义"
 msgid "default"
 msgstr "默认"
 
-#: src/components/app/index.vue:142
+#: src/components/app/index.vue:147
 msgid "Docker is not installed on the system, try to install it?"
 msgstr "系统中未安装Docker，是否尝试安装？"
 
@@ -132,11 +132,11 @@ msgstr "图标出走啦"
 msgid "in this page, you can upload and install packages"
 msgstr "通过本页面，你可以上传并安装插件包"
 
-#: src/components/app/index.vue:84
+#: src/components/app/index.vue:89
 msgid "install"
 msgstr "安装"
 
-#: src/components/app/index.vue:148 src/components/app/index.vue:158
+#: src/components/app/index.vue:153 src/components/app/index.vue:163
 msgid "installation failed, error code"
 msgstr "安装失败,错误码"
 
@@ -216,7 +216,7 @@ msgstr "离线安装"
 msgid "offline installation failed with error code"
 msgstr "离线安装失败,错误码"
 
-#: src/components/app/index.vue:75
+#: src/components/app/index.vue:80
 msgid "open"
 msgstr "打开"
 
@@ -273,7 +273,7 @@ msgstr "选择或拖放文件"
 msgid "service"
 msgstr "服务"
 
-#: src/components/app/index.vue:87
+#: src/components/app/index.vue:92
 msgid "Stick to the top"
 msgstr "置顶"
 
@@ -301,11 +301,15 @@ msgstr "此路径下没有备份文件"
 msgid "tool"
 msgstr "工具"
 
-#: src/components/app/index.vue:78 src/components/app/index.vue:79
+#: src/components/app/index.vue:62
+msgid "tutorial"
+msgstr "教程"
+
+#: src/components/app/index.vue:83 src/components/app/index.vue:84
 msgid "uninstall"
 msgstr "卸载"
 
-#: src/components/app/index.vue:171 src/components/app/index.vue:176
+#: src/components/app/index.vue:176 src/components/app/index.vue:181
 msgid "uninstall failed, error code"
 msgstr "卸载失败,错误码"
 
@@ -317,7 +321,7 @@ msgstr "更新日期"
 msgid "update error"
 msgstr "更新失败"
 
-#: src/components/app/index.vue:132 src/components/app/index.vue:137
+#: src/components/app/index.vue:137 src/components/app/index.vue:142
 msgid "update failed with error code"
 msgstr "更新失败，错误代码"
 
@@ -329,7 +333,7 @@ msgstr "更新成功，重新加载页面"
 msgid "updateing"
 msgstr "正在更新中"
 
-#: src/components/app/index.vue:69 src/pages/maintance/index.vue:4
+#: src/components/app/index.vue:74 src/pages/maintance/index.vue:4
 msgid "upgrade"
 msgstr "更新"
 
@@ -341,11 +345,11 @@ msgstr "恢复备份时上传软件列表并从iStore安装"
 msgid "uploading"
 msgstr "上传中"
 
-#: src/components/app/index.vue:62
+#: src/components/app/index.vue:65
 msgid "website"
 msgstr "官网"
 
-#: src/components/app/index.vue:195
+#: src/components/app/index.vue:200
 msgid "you have already liked"
 msgstr "您已经点赞过啦"
 
