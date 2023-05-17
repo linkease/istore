@@ -22,7 +22,18 @@ iStore 的无法弥补的缺陷：
 
 > 21版本的固件安装 iStore 需要依赖 `luci-compat`
 
-## 集成到自己的固件中
+## 安装 iStore 到 OpenWRT 官方固件
+只支持 x86_64 和 arm64 设备。
+
+```
+opkg update || exit 1
+cd /tmp
+wget https://github.com/linkease/openwrt-app-actions/raw/main/applications/luci-app-systools/root/usr/share/systools/istore-reinstall.run
+chmod 755 istore-reinstall.run
+./istore-reinstall.run
+```
+
+## 集成到自己编译的固件中
 iStore 官方的软件仓库支持 `x86_64`，`arm64` 两个架构，这两个架构的基于 **OpenWRT** 固件都可以直接集成 iStore
 
 只需在固件编译目录下执行：
