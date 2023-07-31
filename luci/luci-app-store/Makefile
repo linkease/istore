@@ -11,7 +11,7 @@ LUCI_DEPENDS:=+curl +opkg +luci-lib-ipkg +tar +coreutils +coreutils-stat +libuci
 LUCI_EXTRA_DEPENDS:=luci-lib-taskd (>=1.0.17)
 LUCI_PKGARCH:=all
 
-PKG_VERSION:=0.1.13-3
+PKG_VERSION:=0.1.13-4
 # PKG_RELEASE MUST be empty for luci.mk
 PKG_RELEASE:=
 
@@ -30,6 +30,7 @@ TARGET_CONFIGURE_OPTS+= SED="$(SED)"
 
 define Package/luci-app-store/conffiles
 /etc/.app_store.id
+/etc/config/istore
 endef
 
 include $(TOPDIR)/feeds/luci/luci.mk
