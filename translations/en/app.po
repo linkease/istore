@@ -25,7 +25,7 @@ msgstr[1] "%{ num } likes"
 msgid "all app"
 msgstr "all app"
 
-#: src/pages/maintance/index.vue:8
+#: src/pages/maintance/index.vue:12
 msgid "app backup"
 msgstr "app backup"
 
@@ -103,6 +103,10 @@ msgstr "click to update"
 msgid "closed"
 msgstr "closed"
 
+#: src/pages/maintance/index.vue:8
+msgid "config"
+msgstr "config"
+
 #: src/pages/maintance/localBackup.vue:26
 msgid "customize"
 msgstr "customize"
@@ -126,6 +130,10 @@ msgstr "explain"
 #: src/pages/maintance/localBackup.vue:16
 msgid "external storage directory"
 msgstr "external storage directory"
+
+#: src/pages/maintance/config.vue:5
+msgid "hide docker packages"
+msgstr "hide docker packages"
 
 #: src/components/app/index.vue:6
 msgid "Icon is gone"
@@ -155,7 +163,7 @@ msgstr "last version"
 msgid "Latest update"
 msgstr "Latest date"
 
-#: src/pages/maintance/index.vue:13
+#: src/pages/maintance/index.vue:17
 msgid "light backup"
 msgstr "light backup"
 
@@ -171,7 +179,7 @@ msgstr "liked"
 msgid "loading data"
 msgstr "loading data"
 
-#: src/pages/maintance/index.vue:18
+#: src/pages/maintance/index.vue:22
 msgid "local backup"
 msgstr "local backup"
 
@@ -275,6 +283,10 @@ msgstr "select or drag and drop files"
 #: src/plugins/i18n/index.ts:39
 msgid "service"
 msgstr "Service"
+
+#: src/pages/maintance/config.vue:5
+msgid "show docker packages"
+msgstr "show docker packages"
 
 #: src/components/app/index.vue:92
 msgid "Stick to the top"

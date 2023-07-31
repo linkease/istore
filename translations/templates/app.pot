@@ -18,7 +18,7 @@ msgstr[1] ""
 msgid "all app"
 msgstr ""
 
-#: src/pages/maintance/index.vue:8
+#: src/pages/maintance/index.vue:12
 msgid "app backup"
 msgstr ""
 
@@ -92,6 +92,10 @@ msgstr ""
 msgid "closed"
 msgstr ""
 
+#: src/pages/maintance/index.vue:8
+msgid "config"
+msgstr ""
+
 #: src/pages/maintance/localBackup.vue:26
 msgid "customize"
 msgstr ""
@@ -116,6 +120,10 @@ msgstr ""
 
 #: src/pages/maintance/localBackup.vue:16
 msgid "external storage directory"
+msgstr ""
+
+#: src/pages/maintance/config.vue:5
+msgid "hide docker packages"
 msgstr ""
 
 #: src/components/app/index.vue:6
@@ -147,7 +155,7 @@ msgstr ""
 msgid "Latest update"
 msgstr ""
 
-#: src/pages/maintance/index.vue:13
+#: src/pages/maintance/index.vue:17
 msgid "light backup"
 msgstr ""
 
@@ -163,7 +171,7 @@ msgstr ""
 msgid "loading data"
 msgstr ""
 
-#: src/pages/maintance/index.vue:18
+#: src/pages/maintance/index.vue:22
 msgid "local backup"
 msgstr ""
 
@@ -268,6 +276,10 @@ msgstr ""
 
 #: src/plugins/i18n/index.ts:39
 msgid "service"
+msgstr ""
+
+#: src/pages/maintance/config.vue:5
+msgid "show docker packages"
 msgstr ""
 
 #: src/components/app/index.vue:92

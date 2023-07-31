@@ -24,7 +24,7 @@ msgstr[1] "%{ num } 次点赞"
 msgid "all app"
 msgstr "全部软件"
 
-#: src/pages/maintance/index.vue:8
+#: src/pages/maintance/index.vue:12
 msgid "app backup"
 msgstr "软件备份"
 
@@ -100,6 +100,10 @@ msgstr "点我更新"
 msgid "closed"
 msgstr "关闭"
 
+#: src/pages/maintance/index.vue:8
+msgid "config"
+msgstr "配置"
+
 #: src/pages/maintance/localBackup.vue:26
 msgid "customize"
 msgstr "自定义"
@@ -123,6 +127,10 @@ msgstr "说明"
 #: src/pages/maintance/localBackup.vue:16
 msgid "external storage directory"
 msgstr "外部存储目录"
+
+#: src/pages/maintance/config.vue:5
+msgid "hide docker packages"
+msgstr "隐藏 Docker 插件"
 
 #: src/components/app/index.vue:6
 msgid "Icon is gone"
@@ -152,7 +160,7 @@ msgstr "最新版本"
 msgid "Latest update"
 msgstr "最近更新"
 
-#: src/pages/maintance/index.vue:13
+#: src/pages/maintance/index.vue:17
 msgid "light backup"
 msgstr "轻量备份"
 
@@ -168,7 +176,7 @@ msgstr "已点赞"
 msgid "loading data"
 msgstr "正在努力的获取数据"
 
-#: src/pages/maintance/index.vue:18
+#: src/pages/maintance/index.vue:22
 msgid "local backup"
 msgstr "本地备份"
 
@@ -272,6 +280,10 @@ msgstr "选择或拖放文件"
 #: src/plugins/i18n/index.ts:39
 msgid "service"
 msgstr "服务"
+
+#: src/pages/maintance/config.vue:5
+msgid "show docker packages"
+msgstr "显示 Docker 插件"
 
 #: src/components/app/index.vue:92
 msgid "Stick to the top"
