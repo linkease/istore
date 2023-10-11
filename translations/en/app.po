@@ -29,7 +29,7 @@ msgstr "all app"
 msgid "app backup"
 msgstr "app backup"
 
-#: src/components/app/index.vue:167
+#: src/components/app/index.vue:168
 msgid "are you sure you want to uninstall %{name}?"
 msgstr "are you sure you want to uninstall %{name}?"
 
@@ -70,6 +70,10 @@ msgstr "backup success"
 #: src/pages/maintance/lightBackup.vue:39
 msgid "backuping"
 msgstr "backuping"
+
+#: src/plugins/i18n/index.ts:45
+msgid "Broken"
+msgstr "Broken"
 
 #: src/pages/store/components/sort.vue:24
 msgid "By download"
@@ -115,7 +119,7 @@ msgstr "customize"
 msgid "default"
 msgstr "default"
 
-#: src/components/app/index.vue:147
+#: src/components/app/index.vue:148
 msgid "Docker is not installed on the system, try to install it?"
 msgstr "Docker is not installed on the system, try to install it?"
 
@@ -147,7 +151,7 @@ msgstr "in this page, you can upload and install packages"
 msgid "install"
 msgstr "install"
 
-#: src/components/app/index.vue:153 src/components/app/index.vue:163
+#: src/components/app/index.vue:154 src/components/app/index.vue:164
 msgid "installation failed, error code"
 msgstr "installation failed, error code"
 
@@ -324,7 +328,7 @@ msgstr "tutorial"
 msgid "uninstall"
 msgstr "uninstall"
 
-#: src/components/app/index.vue:176 src/components/app/index.vue:181
+#: src/components/app/index.vue:177 src/components/app/index.vue:182
 msgid "uninstall failed, error code"
 msgstr "uninstall failed, error code"
 
@@ -336,7 +340,7 @@ msgstr "update date"
 msgid "update error"
 msgstr "update error"
 
-#: src/components/app/index.vue:137 src/components/app/index.vue:142
+#: src/components/app/index.vue:138 src/components/app/index.vue:143
 msgid "update failed with error code"
 msgstr "update failed with error code"
 
@@ -364,7 +368,7 @@ msgstr "uploading"
 msgid "website"
 msgstr "website"
 
-#: src/components/app/index.vue:200
+#: src/components/app/index.vue:201
 msgid "you have already liked"
 msgstr "you have already liked"
 

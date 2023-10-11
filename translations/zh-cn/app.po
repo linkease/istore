@@ -28,7 +28,7 @@ msgstr "全部软件"
 msgid "app backup"
 msgstr "软件备份"
 
-#: src/components/app/index.vue:167
+#: src/components/app/index.vue:168
 msgid "are you sure you want to uninstall %{name}?"
 msgstr "确定要卸载 %{name} 吗?"
 
@@ -67,6 +67,10 @@ msgstr "备份成功"
 #: src/pages/maintance/lightBackup.vue:39
 msgid "backuping"
 msgstr "正在备份"
+
+#: src/plugins/i18n/index.ts:45
+msgid "Broken"
+msgstr "已损坏"
 
 #: src/pages/store/components/sort.vue:24
 msgid "By download"
@@ -112,7 +116,7 @@ msgstr "自定义"
 msgid "default"
 msgstr "默认"
 
-#: src/components/app/index.vue:147
+#: src/components/app/index.vue:148
 msgid "Docker is not installed on the system, try to install it?"
 msgstr "系统中未安装Docker，是否尝试安装？"
 
@@ -144,7 +148,7 @@ msgstr "通过本页面，你可以上传并安装插件包"
 msgid "install"
 msgstr "安装"
 
-#: src/components/app/index.vue:153 src/components/app/index.vue:163
+#: src/components/app/index.vue:154 src/components/app/index.vue:164
 msgid "installation failed, error code"
 msgstr "安装失败,错误码"
 
@@ -321,7 +325,7 @@ msgstr "教程"
 msgid "uninstall"
 msgstr "卸载"
 
-#: src/components/app/index.vue:176 src/components/app/index.vue:181
+#: src/components/app/index.vue:177 src/components/app/index.vue:182
 msgid "uninstall failed, error code"
 msgstr "卸载失败,错误码"
 
@@ -333,7 +337,7 @@ msgstr "更新日期"
 msgid "update error"
 msgstr "更新失败"
 
-#: src/components/app/index.vue:137 src/components/app/index.vue:142
+#: src/components/app/index.vue:138 src/components/app/index.vue:143
 msgid "update failed with error code"
 msgstr "更新失败，错误代码"
 
@@ -361,7 +365,7 @@ msgstr "上传中"
 msgid "website"
 msgstr "官网"
 
-#: src/components/app/index.vue:200
+#: src/components/app/index.vue:201
 msgid "you have already liked"
 msgstr "您已经点赞过啦"
 
