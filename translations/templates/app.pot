@@ -2,13 +2,13 @@ msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 
-#: src/components/app/index.vue:24
+#: src/components/app/index.vue:25
 msgid "%{ num } download"
 msgid_plural "%{ num } downloads"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/components/app/index.vue:31
+#: src/components/app/index.vue:32
 msgid "%{ num } like"
 msgid_plural "%{ num } likes"
 msgstr[0] ""
@@ -18,21 +18,25 @@ msgstr[1] ""
 msgid "all app"
 msgstr ""
 
-#: src/pages/maintance/index.vue:8
+#: src/pages/maintance/index.vue:12
 msgid "app backup"
 msgstr ""
 
-#: src/components/app/index.vue:179
+#: src/components/app/index.vue:168
 msgid "are you sure you want to uninstall %{name}?"
 msgstr ""
 
-#: src/components/app/index.vue:50
+#: src/components/app/index.vue:51
 msgid "author"
 msgstr ""
 
-#: src/pages/maintance/lightBackup.vue:42
-#: src/pages/maintance/localBackup.vue:208
+#: src/pages/maintance/lightBackup.vue:41
 msgid "backup fail"
+msgstr ""
+
+#: src/pages/maintance/localBackup.vue:198
+#: src/pages/maintance/localBackup.vue:203
+msgid "backup fail with error code"
 msgstr ""
 
 #: src/pages/maintance/lightBackup.vue:18
@@ -40,7 +44,7 @@ msgstr ""
 msgid "backup now"
 msgstr ""
 
-#: src/pages/maintance/localBackup.vue:62
+#: src/pages/maintance/localBackup.vue:61
 msgid "backup now backs up installed software (unlimited installation sources) to external storage"
 msgstr ""
 
@@ -48,14 +52,16 @@ msgstr ""
 msgid "backup now will download a list of iStore installed software"
 msgstr ""
 
-#: src/pages/maintance/lightBackup.vue:41
-#: src/pages/maintance/localBackup.vue:200
+#: src/pages/maintance/lightBackup.vue:40
 msgid "backup success"
 msgstr ""
 
-#: src/pages/maintance/lightBackup.vue:40
-#: src/pages/maintance/localBackup.vue:195
+#: src/pages/maintance/lightBackup.vue:39
 msgid "backuping"
+msgstr ""
+
+#: src/plugins/i18n/index.ts:45
+msgid "Broken"
 msgstr ""
 
 #: src/pages/store/components/sort.vue:24
@@ -78,7 +84,7 @@ msgstr ""
 msgid "choose backup file"
 msgstr ""
 
-#: src/pages/maintance/lightBackup.vue:43
+#: src/pages/maintance/lightBackup.vue:42
 msgid "click to download"
 msgstr ""
 
@@ -86,12 +92,12 @@ msgstr ""
 msgid "click to update"
 msgstr ""
 
-#: src/components/app/index.vue:131
-#: src/components/app/index.vue:154
-#: src/components/app/index.vue:188
 #: src/components/toast/index.vue:3
-#: src/pages/upload/index.vue:86
 msgid "closed"
+msgstr ""
+
+#: src/pages/maintance/index.vue:8
+msgid "config"
 msgstr ""
 
 #: src/pages/maintance/localBackup.vue:26
@@ -103,11 +109,8 @@ msgstr ""
 msgid "default"
 msgstr ""
 
-#: src/components/app/index.vue:130
-#: src/components/app/index.vue:153
-#: src/components/app/index.vue:187
-#: src/pages/upload/index.vue:85
-msgid "do not refresh this page during plugin installation/uninstallation"
+#: src/components/app/index.vue:148
+msgid "Docker is not installed on the system, try to install it?"
 msgstr ""
 
 #: src/plugins/i18n/index.ts:38
@@ -123,56 +126,60 @@ msgstr ""
 msgid "external storage directory"
 msgstr ""
 
-#: src/pages/upload/index.vue:6
-msgid "from this page, you can upload plugin packages to install plugins"
+#: src/pages/maintance/config.vue:5
+msgid "hide docker packages"
+msgstr ""
+
+#: src/pages/maintance/config.vue:7
+msgid "hide incompatible packages"
 msgstr ""
 
 #: src/components/app/index.vue:6
 msgid "Icon is gone"
 msgstr ""
 
-#: src/components/app/index.vue:83
+#: src/pages/upload/index.vue:6
+msgid "in this page, you can upload and install packages"
+msgstr ""
+
+#: src/components/app/index.vue:89
 msgid "install"
 msgstr ""
 
-#: src/components/app/index.vue:172
+#: src/components/app/index.vue:154
+#: src/components/app/index.vue:164
 msgid "installation failed, error code"
-msgstr ""
-
-#: src/components/app/index.vue:169
-msgid "installation is complete, please close the current window"
 msgstr ""
 
 #: src/components/tabs/index.vue:23
 msgid "installed"
 msgstr ""
 
-#. `正在安装插件`,
-#: src/components/app/index.vue:152
-msgid "installing plugin"
-msgstr ""
-
 #: src/pages/maintance/update.vue:9
 msgid "last version"
 msgstr ""
 
-#: src/pages/maintance/index.vue:13
+#: src/pages/store/components/sort.vue:32
+msgid "Latest update"
+msgstr ""
+
+#: src/pages/maintance/index.vue:17
 msgid "light backup"
 msgstr ""
 
-#: src/components/app/index.vue:40
+#: src/components/app/index.vue:41
 msgid "like"
 msgstr ""
 
-#: src/components/app/index.vue:37
+#: src/components/app/index.vue:38
 msgid "liked"
 msgstr ""
 
-#: src/pages/store/components/apps.vue:7
+#: src/pages/store/components/apps.vue:6
 msgid "loading data"
 msgstr ""
 
-#: src/pages/maintance/index.vue:18
+#: src/pages/maintance/index.vue:22
 msgid "local backup"
 msgstr ""
 
@@ -204,8 +211,8 @@ msgstr ""
 msgid "networking"
 msgstr ""
 
-#: src/pages/upload/index.vue:14
-#: src/pages/upload/index.vue:15
+#: src/pages/upload/index.vue:17
+#: src/pages/upload/index.vue:18
 msgid "no files selected"
 msgstr ""
 
@@ -217,15 +224,12 @@ msgstr ""
 msgid "offline install"
 msgstr ""
 
-#: src/pages/upload/index.vue:101
+#: src/pages/upload/index.vue:92
+#: src/pages/upload/index.vue:97
 msgid "offline installation failed with error code"
 msgstr ""
 
-#: src/pages/upload/index.vue:98
-msgid "offline installation is successful, please close the current window"
-msgstr ""
-
-#: src/components/app/index.vue:74
+#: src/components/app/index.vue:80
 msgid "open"
 msgstr ""
 
@@ -233,11 +237,15 @@ msgstr ""
 msgid "order"
 msgstr ""
 
+#: src/pages/upload/index.vue:12
+msgid "packages installed offline may not appear in iStore"
+msgstr ""
+
 #: src/pages/maintance/localBackup.vue:29
 msgid "please enter an absolute path starting with %{name}"
 msgstr ""
 
-#: src/pages/maintance/localBackup.vue:140
+#: src/pages/maintance/localBackup.vue:139
 msgid "please enter the path, give up the input, please clear the input box"
 msgstr ""
 
@@ -245,12 +253,12 @@ msgstr ""
 msgid "please enter the search keyword"
 msgstr ""
 
-#: src/pages/maintance/localBackup.vue:158
-#: src/pages/maintance/localBackup.vue:192
+#: src/pages/maintance/localBackup.vue:157
+#: src/pages/maintance/localBackup.vue:191
 msgid "please fill in the external storage directory"
 msgstr ""
 
-#: src/pages/maintance/localBackup.vue:225
+#: src/pages/maintance/localBackup.vue:218
 msgid "please select a backup file to restore"
 msgstr ""
 
@@ -259,15 +267,18 @@ msgstr ""
 msgid "restore backup"
 msgstr ""
 
+#: src/pages/maintance/lightBackup.vue:76
+#: src/pages/maintance/lightBackup.vue:81
+#: src/pages/maintance/localBackup.vue:224
+#: src/pages/maintance/localBackup.vue:229
+msgid "restore failed with error code"
+msgstr ""
+
 #: src/pages/maintance/localBackup.vue:47
 msgid "restore now"
 msgstr ""
 
-#: src/pages/maintance/localBackup.vue:228
-msgid "restoring backup"
-msgstr ""
-
-#: src/pages/upload/index.vue:17
+#: src/pages/upload/index.vue:20
 msgid "select or drag and drop files"
 msgstr ""
 
@@ -275,8 +286,20 @@ msgstr ""
 msgid "service"
 msgstr ""
 
+#: src/pages/maintance/config.vue:5
+msgid "show docker packages"
+msgstr ""
+
+#: src/pages/maintance/config.vue:7
+msgid "show incompatible packages"
+msgstr ""
+
+#: src/components/app/index.vue:92
+msgid "Stick to the top"
+msgstr ""
+
 #: src/pages/upload/index.vue:9
-msgid "support .ipk plug-in, .run self-extracting format"
+msgid "supports .ipk packages, .run self-extracting packages"
 msgstr ""
 
 #: src/plugins/i18n/index.ts:43
@@ -287,23 +310,11 @@ msgstr ""
 msgid "tag"
 msgstr ""
 
-#: src/pages/maintance/localBackup.vue:241
-msgid "the backup was restored fail"
-msgstr ""
-
-#: src/pages/maintance/localBackup.vue:233
-msgid "the backup was restored success"
-msgstr ""
-
 #: src/pages/maintance/update.vue:13
 msgid "the is last version"
 msgstr ""
 
-#: src/components/app/index.vue:141
-msgid "the update is success, please close the current window"
-msgstr ""
-
-#: src/pages/maintance/localBackup.vue:168
+#: src/pages/maintance/localBackup.vue:167
 msgid "there are no backup files in this path"
 msgstr ""
 
@@ -311,49 +322,42 @@ msgstr ""
 msgid "tool"
 msgstr ""
 
-#: src/components/app/index.vue:77
-#: src/components/app/index.vue:78
+#: src/components/app/index.vue:62
+msgid "tutorial"
+msgstr ""
+
+#: src/components/app/index.vue:83
+#: src/components/app/index.vue:84
 msgid "uninstall"
 msgstr ""
 
-#: src/components/app/index.vue:201
+#: src/components/app/index.vue:177
+#: src/components/app/index.vue:182
 msgid "uninstall failed, error code"
 msgstr ""
 
-#: src/components/app/index.vue:198
-msgid "uninstallation succeeded, please close the current window"
-msgstr ""
-
-#: src/components/app/index.vue:186
-msgid "uninstalling plugin"
-msgstr ""
-
-#: src/components/app/index.vue:54
+#: src/components/app/index.vue:55
 msgid "update date"
 msgstr ""
 
-#: src/pages/maintance/update.vue:46
+#: src/pages/maintance/update.vue:49
 msgid "update error"
 msgstr ""
 
-#: src/components/app/index.vue:144
+#: src/components/app/index.vue:138
+#: src/components/app/index.vue:143
 msgid "update failed with error code"
 msgstr ""
 
 #: src/pages/maintance/update.vue:37
-msgid "update success"
+msgid "update success, reloading"
 msgstr ""
 
 #: src/pages/maintance/update.vue:32
 msgid "updateing"
 msgstr ""
 
-#. `正在更新插件`,
-#: src/components/app/index.vue:129
-msgid "updating plugin"
-msgstr ""
-
-#: src/components/app/index.vue:68
+#: src/components/app/index.vue:74
 #: src/pages/maintance/index.vue:4
 msgid "upgrade"
 msgstr ""
@@ -362,14 +366,15 @@ msgstr ""
 msgid "upload software list and install from iStore when restoring backup"
 msgstr ""
 
-#: src/pages/upload/index.vue:84
-msgid "uploading plugin"
+#: src/pages/maintance/lightBackup.vue:72
+#: src/pages/upload/index.vue:88
+msgid "uploading"
 msgstr ""
 
-#: src/components/app/index.vue:61
+#: src/components/app/index.vue:65
 msgid "website"
 msgstr ""
 
-#: src/components/app/index.vue:223
+#: src/components/app/index.vue:201
 msgid "you have already liked"
 msgstr ""
