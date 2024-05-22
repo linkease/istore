@@ -137,7 +137,7 @@ msgid "hide docker packages"
 msgstr "隐藏 Docker 插件"
 
 #: src/pages/maintance/config.vue:7
-msgid "hide incompitable packages"
+msgid "hide incompatible packages"
 msgstr "隐藏架构不兼容插件"
 
 #: src/components/app/index.vue:6
@@ -294,7 +294,7 @@ msgid "show docker packages"
 msgstr "显示 Docker 插件"
 
 #: src/pages/maintance/config.vue:7
-msgid "show incompitable packages"
+msgid "show incompatible packages"
 msgstr "显示架构不兼容插件"
 
 #: src/components/app/index.vue:92

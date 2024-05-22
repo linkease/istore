@@ -131,7 +131,7 @@ msgid "hide docker packages"
 msgstr ""
 
 #: src/pages/maintance/config.vue:7
-msgid "hide incompitable packages"
+msgid "hide incompatible packages"
 msgstr ""
 
 #: src/components/app/index.vue:6
@@ -291,7 +291,7 @@ msgid "show docker packages"
 msgstr ""
 
 #: src/pages/maintance/config.vue:7
-msgid "show incompitable packages"
+msgid "show incompatible packages"
 msgstr ""
 
 #: src/components/app/index.vue:92

@@ -140,8 +140,8 @@ msgid "hide docker packages"
 msgstr "hide docker packages"
 
 #: src/pages/maintance/config.vue:7
-msgid "hide incompitable packages"
-msgstr "hide incompitable packages"
+msgid "hide incompatible packages"
+msgstr "hide incompatible packages"
 
 #: src/components/app/index.vue:6
 msgid "Icon is gone"
@@ -297,8 +297,8 @@ msgid "show docker packages"
 msgstr "show docker packages"
 
 #: src/pages/maintance/config.vue:7
-msgid "show incompitable packages"
-msgstr "show incompitable packages"
+msgid "show incompatible packages"
+msgstr "show incompatible packages"
 
 #: src/components/app/index.vue:92
 msgid "Stick to the top"
