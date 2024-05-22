@@ -130,6 +130,10 @@ msgstr ""
 msgid "hide docker packages"
 msgstr ""
 
+#: src/pages/maintance/config.vue:7
+msgid "hide incompitable packages"
+msgstr ""
+
 #: src/components/app/index.vue:6
 msgid "Icon is gone"
 msgstr ""
@@ -284,6 +288,10 @@ msgstr ""
 
 #: src/pages/maintance/config.vue:5
 msgid "show docker packages"
+msgstr ""
+
+#: src/pages/maintance/config.vue:7
+msgid "show incompitable packages"
 msgstr ""
 
 #: src/components/app/index.vue:92

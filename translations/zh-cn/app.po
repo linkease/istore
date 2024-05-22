@@ -136,6 +136,10 @@ msgstr "外部存储目录"
 msgid "hide docker packages"
 msgstr "隐藏 Docker 插件"
 
+#: src/pages/maintance/config.vue:7
+msgid "hide incompitable packages"
+msgstr "隐藏架构不兼容插件"
+
 #: src/components/app/index.vue:6
 msgid "Icon is gone"
 msgstr "图标出走啦"
@@ -288,6 +292,10 @@ msgstr "服务"
 #: src/pages/maintance/config.vue:5
 msgid "show docker packages"
 msgstr "显示 Docker 插件"
+
+#: src/pages/maintance/config.vue:7
+msgid "show incompitable packages"
+msgstr "显示架构不兼容插件"
 
 #: src/components/app/index.vue:92
 msgid "Stick to the top"
