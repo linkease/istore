@@ -219,7 +219,7 @@ try_autoconf() {
     autoconf_to_env
     [ -n "$ISTORE_AUTOCONF" ] || return 1
     echo "Auto configure $ISTORE_AUTOCONF"
-    /usr/libexec/istorea/$(ISTORE_AUTOCONF).sh
+    /usr/libexec/istorea/${ISTORE_AUTOCONF}.sh
 }
 
 usage() {

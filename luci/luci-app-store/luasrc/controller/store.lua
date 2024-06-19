@@ -294,20 +294,18 @@ function store_action(param)
         local metapkg = pkg and (metapkgpre .. pkg) or ""
         if action == "update" or pkg then
             if action == "update" or action == "install" then
-                local pkgs = {metapkg}
-                if action == "install" then
-                    if "1" == luci.http.formvalue("autoconf") then
-                        local autoenv = "AUTOCONF=" .. pkg
-                        local autopath = luci.http.formvalue("path")
-                        local autoenable = luci.http.formvalue("enable")
-                        if autopath ~= nil then
-                            autoenv = autoenv .. " path=" .. luci.util.shellquote(autopath)
-                        end
-                        autoenv = autoenv .. " enable=" .. autoenable
-                        pkgs = {autoenv, unpack(pkgs)}
+                if action == "install" and "1" == luci.http.formvalue("autoconf") then
+                    local autoenv = "AUTOCONF=" .. pkg
+                    local autopath = luci.http.formvalue("path")
+                    local autoenable = luci.http.formvalue("enable")
+                    if autopath ~= nil then
+                        autoenv = autoenv .. " path=" .. luci.util.shellquote(autopath)
                     end
+                    autoenv = autoenv .. " enable=" .. autoenable
+                    code, out, err = _action(myopkg, luci.util.shellquote(autoenv), action, metapkg)
+                else
+                    code, out, err = _action(myopkg, action, metapkg)
                 end
-                code, out, err = _action(myopkg, action, unpack(pkgs))
             else
                 local meta = json_parse(fs.readfile(metadir .. "/" .. pkg .. ".json"))
                 local pkgs = {}
