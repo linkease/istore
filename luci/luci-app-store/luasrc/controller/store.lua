@@ -71,7 +71,7 @@ local function user_id()
     return id
 end
 
-local function user_config() 
+local function user_config()
     local uci  = require "luci.model.uci".cursor()
 
     local data = {
@@ -294,7 +294,20 @@ function store_action(param)
         local metapkg = pkg and (metapkgpre .. pkg) or ""
         if action == "update" or pkg then
             if action == "update" or action == "install" then
-                code, out, err = _action(myopkg, action, metapkg)
+                local pkgs = {metapkg}
+                if action == "install" then
+                    if "1" == luci.http.formvalue("autoconf") then
+                        local autoenv = "AUTOCONF=" .. pkg
+                        local autopath = luci.http.formvalue("path")
+                        local autoenable = luci.http.formvalue("enable")
+                        if autopath ~= nil then
+                            autoenv = autoenv .. " path=" .. luci.util.shellquote(autopath)
+                        end
+                        autoenv = autoenv .. " enable=" .. autoenable
+                        pkgs = {autoenv, unpack(pkgs)}
+                    end
+                end
+                code, out, err = _action(myopkg, action, unpack(pkgs))
             else
                 local meta = json_parse(fs.readfile(metadir .. "/" .. pkg .. ".json"))
                 local pkgs = {}

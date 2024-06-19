@@ -37,8 +37,9 @@
 2. 安装软件
    ```
    POST /cgi-bin/luci/admin/store/install
-   token=xxx&package=upnp
+   token=xxx&package=upnp&autoconf=1&path=/mnt/nvme&enable=1
 
+   autoconf=1&path=/mnt/nvme&enable=1 是可选参数，表示安装完以后是否自动配置插件
 
    {"code":0, "stdout":"", "stderr":""}
    ```
