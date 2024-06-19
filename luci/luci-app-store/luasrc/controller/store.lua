@@ -213,6 +213,10 @@ local function _action(exe, cmd, ...)
     return is_exec(c, true)
 end
 
+function validate_pkgname(val)
+	return (val ~= nil and val:match("^[a-zA-Z0-9_]+$") ~= nil)
+end
+
 function store_action(param)
     local metadir = "/usr/lib/opkg/meta"
     local metapkgpre = "app-meta-"
@@ -225,6 +229,10 @@ function store_action(param)
 
     if action == "status" then
         local pkg = luci.http.formvalue("package")
+        if not validate_pkgname(pkg) then
+            luci.http.status(400, "Bad Request")
+            return
+        end
         local metapkg = metapkgpre .. pkg
         local meta = {}
         local metadata = fs.readfile(metadir .. "/" .. pkg .. ".json")
@@ -277,6 +285,10 @@ function store_action(param)
         ret = data
     else
         local pkg = luci.http.formvalue("package")
+        if not validate_pkgname(pkg) then
+            luci.http.status(400, "Bad Request")
+            return
+        end
         local metapkg = pkg and (metapkgpre .. pkg) or ""
         if action == "update" or pkg then
             if action == "update" or action == "install" then
@@ -467,7 +479,7 @@ local function update_local_backup_path(path)
         local f=io.open("/etc/config/istore","a+")
         f:write("config istore \'istore\'\n\toption local_backup_path \'\'")
         f:flush()
-        f:close()        
+        f:close()
     end
 
     if path ~= local_backup_path then
@@ -626,7 +638,7 @@ function get_available_backup_file_list()
     if path ~= "" then
         -- update local backup path
         update_local_backup_path(path)
-        r,o,e = is_exec(is_backup .. " get_available_backup_file_list " .. path)
+        r,o,e = is_exec(is_backup .. " get_available_backup_file_list " .. luci.util.shellquote(path))
         if r ~= 0 then
             error_ret.msg = e
             luci.http.prepare_content("application/json")
