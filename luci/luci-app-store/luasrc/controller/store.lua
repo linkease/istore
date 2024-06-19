@@ -26,6 +26,7 @@ function index()
     entry({"admin", "store", "do_self_upgrade"}, post("do_self_upgrade"))
     entry({"admin", "store", "toggle_docker"}, post("toggle_docker"))
     entry({"admin", "store", "toggle_arch"}, post("toggle_arch"))
+    entry({"admin", "store", "get_block_devices"}, call("get_block_devices"))
 
     for _, action in ipairs({"update", "install", "upgrade", "remove"}) do
         store_api(action, true)
@@ -45,7 +46,6 @@ function index()
         entry({"admin", "store", "get_available_backup_file_list"}, call("get_available_backup_file_list"))
         entry({"admin", "store", "set_local_backup_dir_path"}, post("set_local_backup_dir_path"))
         entry({"admin", "store", "get_local_backup_dir_path"}, call("get_local_backup_dir_path"))
-        entry({"admin", "store", "get_block_devices"}, call("get_block_devices"))
     end
 end
 
