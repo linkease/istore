@@ -28,6 +28,8 @@ function index()
     entry({"admin", "store", "toggle_arch"}, post("toggle_arch"))
     entry({"admin", "store", "get_block_devices"}, call("get_block_devices"))
 
+    entry({"admin", "store", "configured"}, call("configured"))
+
     for _, action in ipairs({"update", "install", "upgrade", "remove"}) do
         store_api(action, true)
     end
@@ -378,6 +380,17 @@ function store_upload()
     }
     luci.http.prepare_content("application/json")
     luci.http.write_json(ret)
+end
+
+function configured()
+    local uci = luci.http.formvalue("uci")
+    if not validate_pkgname(uci) then
+        luci.http.status(400, "Bad Request")
+        return
+    end
+    local configured = nixio.fs.access("/etc/config/" .. uci)
+    luci.http.prepare_content("application/json")
+    luci.http.write_json({code=200, configured=configured})
 end
 
 local function split(str,reps)
