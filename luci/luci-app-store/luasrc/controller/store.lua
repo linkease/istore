@@ -29,6 +29,7 @@ function index()
     entry({"admin", "store", "get_block_devices"}, call("get_block_devices"))
 
     entry({"admin", "store", "configured"}, call("configured"))
+    entry({"admin", "store", "entrysh"}, post("entrysh"))
 
     -- docker
     entry({"admin", "store", "docker_check_dir"}, call("docker_check_dir"))
@@ -36,7 +37,7 @@ function index()
     entry({"admin", "store", "docker_migrate"}, post("docker_migrate"))
 
     -- package
-    for _, action in ipairs({"update", "install", "upgrade", "remove"}) do
+    for _, action in ipairs({"update", "install", "upgrade", "remove", "autoconf"}) do
         store_api(action, true)
     end
     for _, action in ipairs({"status", "installed"}) do
@@ -302,8 +303,8 @@ function store_action(param)
         end
         local metapkg = pkg and (metapkgpre .. pkg) or ""
         if action == "update" or pkg then
-            if action == "update" or action == "install" then
-                if action == "install" and "1" == luci.http.formvalue("autoconf") then
+            if action == "update" or action == "install" or action == "autoconf" then
+                if (action == "install" and "1" == luci.http.formvalue("autoconf")) or action == "autoconf" then
                     local autoenv = "AUTOCONF=" .. pkg
                     local autopath = luci.http.formvalue("path")
                     local autoenable = luci.http.formvalue("enable")
@@ -414,6 +415,37 @@ function configured()
     local configured = nixio.fs.access("/etc/config/" .. uci)
     luci.http.prepare_content("application/json")
     luci.http.write_json({code=200, configured=configured})
+end
+
+function entrysh()
+    local package = luci.http.formvalue("package")
+    local hostname = luci.http.formvalue("hostname")
+    if hostname == nil or hostname == "" or not validate_pkgname(package) then
+        luci.http.status(400, "Bad Request")
+        return
+    end
+
+    local result
+    local entryfile = "/usr/libexec/istoree/" .. package .. ".sh"
+    if nixio.fs.access(entryfile) then
+        local o = luci.util.exec(entryfile .. " status " .. luci.util.shellquote(hostname))
+        if o == nil or o == "" then
+            result = {code=500, msg="entrysh execute failed"}
+        else
+            local jsonc = require "luci.jsonc"
+            local json_parse = jsonc.parse
+            local status = json_parse(o)
+            if status == nil then
+                result = {code=500, msg="json parse failed: " .. o}
+            else
+                result = {code=200, status=status}
+            end
+        end
+    else
+        result = {code=404, msg="entrysh of this package not found"}
+    end
+    luci.http.prepare_content("application/json")
+    luci.http.write_json(result)
 end
 
 function docker_check_dir()
