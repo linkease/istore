@@ -28,7 +28,7 @@ paths:
     post:
       tags:
         - install
-      summary: 安装插件
+      summary: 安装插件。安装过程中使用taskd接口获取日志
       parameters:
         - in: "query"
           name: "token"
@@ -148,7 +148,7 @@ paths:
     get:
       tags:
         - log
-      summary: 任务日志
+      summary: 任务日志，已废弃
       responses:
         "200":
           description: OK
@@ -194,11 +194,67 @@ paths:
       tags:
         - configured
       summary: 检查插件是否已经配置过
+      parameters:
+        - in: "query"
+          name: "uci"
+          type: string
+          required: true
+          description: "要检查的uci配置文件名称"
       responses:
         "200":
           description: OK
           schema:
             $ref: "#/definitions/ResponseStoreConfigured"
+  /cgi-bin/luci/admin/store/docker_check_dir:
+    get:
+      tags:
+        - docker_check_dir
+      summary: 检查docker目录是否在系统盘
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/ResponseDockerCheckDir"
+  /cgi-bin/luci/admin/store/docker_check_migrate:
+    get:
+      tags:
+        - docker_check_migrate
+      summary: 检查docker迁移目标目录是否有效
+      parameters:
+        - in: "query"
+          name: "path"
+          type: string
+          required: true
+          description: "完整目标路径"
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/ResponseDockerCheckMigrate"
+  /cgi-bin/luci/admin/store/docker_migrate:
+    post:
+      tags:
+        - docker_migrate
+      summary: docker迁移到目标目录，异步，当返回code为0的时候，可以使用taskd接口展示日志，跟安装插件时一样
+      parameters:
+        - in: "query"
+          name: "token"
+          type: string
+          required: true
+        - in: "query"
+          name: "path"
+          type: string
+          required: true
+          description: "完整目标路径"
+        - in: "query"
+          name: "overwrite"
+          type: string
+          description: "如果docker_check_migrate返回的result是existed，使用此参数指定解决方案：‘true’表示覆盖目标目录；‘chdir’表示只修改路径不复制文件"
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: "#/definitions/ResponseStore"
   
 definitions:
   ResponseStoreToken:
@@ -324,4 +380,26 @@ definitions:
         description: "为200时"
       configured:
         type: boolean
+  ResponseDockerCheckDir:
+    type: object
+    properties:
+      code:
+        type: integer
+        description: "为200时"
+      docker_on_system:
+        type: boolean
+        description: "docker数据在系统盘"
+  ResponseDockerCheckMigrate:
+    type: object
+    properties:
+      code:
+        type: integer
+        description: "为200时"
+      result:
+        type: string
+        description: "检查结果。可能值‘good’，‘bad’，‘existed’"
+      error:
+        type: string
+        description: "当result为bad时，此处返回错误日志"
   
+
