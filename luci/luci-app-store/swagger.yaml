@@ -215,7 +215,7 @@ paths:
         "200":
           description: OK
           schema:
-            $ref: "#/definitions/ResponseStoreCheckSelfUpgrade"
+            $ref: "#/definitions/ResponseStoreGetBlockDevices"
   /cgi-bin/luci/admin/store/configured:
     get:
       tags:
