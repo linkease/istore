@@ -26,13 +26,25 @@ function index()
     entry({"admin", "store", "do_self_upgrade"}, post("do_self_upgrade"))
     entry({"admin", "store", "toggle_docker"}, post("toggle_docker"))
     entry({"admin", "store", "toggle_arch"}, post("toggle_arch"))
+    entry({"admin", "store", "get_block_devices"}, call("get_block_devices"))
 
-    for _, action in ipairs({"update", "install", "upgrade", "remove"}) do
+    entry({"admin", "store", "configured"}, call("configured"))
+    entry({"admin", "store", "entrysh"}, post("entrysh"))
+
+    -- docker
+    entry({"admin", "store", "docker_check_dir"}, call("docker_check_dir"))
+    entry({"admin", "store", "docker_check_migrate"}, call("docker_check_migrate"))
+    entry({"admin", "store", "docker_migrate"}, post("docker_migrate"))
+
+    -- package
+    for _, action in ipairs({"update", "install", "upgrade", "remove", "autoconf"}) do
         store_api(action, true)
     end
     for _, action in ipairs({"status", "installed"}) do
         store_api(action, false)
     end
+
+    -- backup
     if nixio.fs.access("/usr/libexec/istore/backup") then
         entry({"admin", "store", "get_support_backup_features"}, call("get_support_backup_features"))
         entry({"admin", "store", "light_backup"}, post("light_backup"))
@@ -45,7 +57,6 @@ function index()
         entry({"admin", "store", "get_available_backup_file_list"}, call("get_available_backup_file_list"))
         entry({"admin", "store", "set_local_backup_dir_path"}, post("set_local_backup_dir_path"))
         entry({"admin", "store", "get_local_backup_dir_path"}, call("get_local_backup_dir_path"))
-        entry({"admin", "store", "get_block_devices"}, call("get_block_devices"))
     end
 end
 
@@ -69,12 +80,13 @@ local function user_id()
     return id
 end
 
-local function user_config() 
+local function user_config()
     local uci  = require "luci.model.uci".cursor()
 
     local data = {
         hide_docker = uci:get("istore", "istore", "hide_docker") == "1",
         ignore_arch = uci:get("istore", "istore", "ignore_arch") == "1",
+        last_path = uci:get("istore", "istore", "last_path"),
         super_arch = uci:get("istore", "istore", "super_arch"),
         channel = uci:get("istore", "istore", "channel")
     }
@@ -90,23 +102,32 @@ local function vue_lang()
     return lang
 end
 
+local function flock(file, type)
+    local nixio = require "nixio"
+    local oflags = nixio.open_flags("wronly", "creat")
+    local lock, code, msg = nixio.open(file, oflags)
+    if not lock then
+        return nil, "Open lock failed: " .. msg
+    end
+
+    -- Acquire lock
+    local stat, code, msg = lock:lock(type)
+    if not stat then
+        lock:close()
+        return nil, "Lock failed: " .. msg
+    end
+    return lock, nil
+end
+
 local function is_exec(cmd, async)
     local nixio = require "nixio"
     local os   = require "os"
     local fs   = require "nixio.fs"
     local rshift  = nixio.bit.rshift
 
-    local oflags = nixio.open_flags("wronly", "creat")
-    local lock, code, msg = nixio.open("/var/lock/istore.lock", oflags)
-    if not lock then
-        return 255, "", "Open lock failed: " .. msg
-    end
-
-    -- Acquire lock
-    local stat, code, msg = lock:lock("tlock")
-    if not stat then
-        lock:close()
-        return 255, "", "Lock failed: " .. msg
+    local lock, msg = flock("/var/lock/istore.lock", "tlock")
+    if lock == nil then
+        return 255, "", msg
     end
 
     if async then
@@ -213,45 +234,37 @@ local function _action(exe, cmd, ...)
     return is_exec(c, true)
 end
 
-function store_action(param)
+function validate_pkgname(val)
+	return (val ~= nil and val:match("^[a-zA-Z0-9_-]+$") ~= nil)
+end
+
+local function get_installed_and_cache()
     local metadir = "/usr/lib/opkg/meta"
+    local cachedir = "/tmp/cache/istore"
+    local cachefile = cachedir .. "/installed.json"
     local metapkgpre = "app-meta-"
-    local code, out, err, ret
-    local fs = require "nixio.fs"
+    local nixio = require "nixio"
+    local fs   = require "nixio.fs"
     local ipkg = require "luci.model.ipkg"
     local jsonc = require "luci.jsonc"
-    local json_parse = jsonc.parse
-    local action = param.action or ""
-
-    if action == "status" then
-        local pkg = luci.http.formvalue("package")
-        local metapkg = metapkgpre .. pkg
-        local meta = {}
-        local metadata = fs.readfile(metadir .. "/" .. pkg .. ".json")
-
-        if metadata ~= nil then
-            meta = json_parse(metadata) or {}
-        end
-        meta.installed = false
-        local status = ipkg.status(metapkg)
-        if next(status) ~= nil then
-            meta.installed=true
-            meta.time=tonumber(status[metapkg]["Installed-Time"])
-        end
-
-        ret = meta
-    elseif action == "installed" then
+    local result = {}
+    local lock, msg = flock("/var/lock/istore-installed.lock", "lock")
+    local ms = fs.stat(metadir)
+    local cs = fs.stat(cachefile)
+    if not ms then
+        result = {}
+    elseif not cs or ms["mtime"] > cs["mtime"] then
         local itr = fs.dir(metadir)
         local data = {}
         if itr then
+            local i18n = require("luci.i18n")
             local pkg
             for pkg in itr do
                 if pkg:match("^.*%.json$") then
                     local metadata = fs.readfile(metadir .. "/" .. pkg)
                     if metadata ~= nil then
-                        local meta = json_parse(metadata)
+                        local meta = jsonc.parse(metadata)
                         if meta == nil then
-                            local i18n = require("luci.i18n")
                             local name = pkg:gsub("^(.-)%.json$", "%1")
                             meta = {
                                 name = name,
@@ -274,13 +287,78 @@ function store_action(param)
                 end
             end
         end
+        result = data
+        fs.mkdirr(cachedir)
+        local oflags = nixio.open_flags("rdwr", "creat")
+        local mfile, code, msg = nixio.open(cachefile, oflags)
+        mfile:writeall(jsonc.stringify(result))
+        mfile:close()
+    else
+        result = jsonc.parse(fs.readfile(cachefile) or "")
+    end
+    lock:lock("ulock")
+    lock:close()
+    return result
+end
+
+function store_action(param)
+    local metadir = "/usr/lib/opkg/meta"
+    local metapkgpre = "app-meta-"
+    local code, out, err, ret
+    local fs = require "nixio.fs"
+    local ipkg = require "luci.model.ipkg"
+    local jsonc = require "luci.jsonc"
+    local json_parse = jsonc.parse
+    local action = param.action or ""
+
+    if action == "status" then
+        local pkg = luci.http.formvalue("package")
+        if not validate_pkgname(pkg) then
+            luci.http.status(400, "Bad Request")
+            return
+        end
+        local metapkg = metapkgpre .. pkg
+        local meta = {}
+        local metadata = fs.readfile(metadir .. "/" .. pkg .. ".json")
+
+        if metadata ~= nil then
+            meta = json_parse(metadata) or {}
+        end
+        meta.installed = false
+        local status = ipkg.status(metapkg)
+        if next(status) ~= nil then
+            meta.installed=true
+            meta.time=tonumber(status[metapkg]["Installed-Time"])
+        end
+
+        ret = meta
+    elseif action == "installed" then
+        local data = get_installed_and_cache()
         ret = data
     else
         local pkg = luci.http.formvalue("package")
+        if not validate_pkgname(pkg) then
+            luci.http.status(400, "Bad Request")
+            return
+        end
         local metapkg = pkg and (metapkgpre .. pkg) or ""
         if action == "update" or pkg then
-            if action == "update" or action == "install" then
-                code, out, err = _action(myopkg, action, metapkg)
+            if action == "update" or action == "install" or action == "autoconf" then
+                if (action == "install" and "1" == luci.http.formvalue("autoconf")) or action == "autoconf" then
+                    local autoenv = "AUTOCONF=" .. pkg
+                    local autopath = luci.http.formvalue("path")
+                    local autoenable = luci.http.formvalue("enable")
+                    if autopath ~= nil then
+                        autoenv = autoenv .. " path=" .. luci.util.shellquote(autopath)
+                        local uci  = require "luci.model.uci".cursor()
+                        uci:set("istore", "istore", "last_path", autopath)
+                        uci:commit("istore")
+                    end
+                    autoenv = autoenv .. " enable=" .. autoenable
+                    code, out, err = _action(myopkg, luci.util.shellquote(autoenv), action, metapkg)
+                else
+                    code, out, err = _action(myopkg, action, metapkg)
+                end
             else
                 local meta = json_parse(fs.readfile(metadir .. "/" .. pkg .. ".json"))
                 local pkgs = {}
@@ -366,6 +444,126 @@ function store_upload()
     }
     luci.http.prepare_content("application/json")
     luci.http.write_json(ret)
+end
+
+function configured()
+    local uci = luci.http.formvalue("uci")
+    if not validate_pkgname(uci) then
+        luci.http.status(400, "Bad Request")
+        return
+    end
+    local configured = nixio.fs.access("/etc/config/" .. uci)
+    luci.http.prepare_content("application/json")
+    luci.http.write_json({code=200, configured=configured})
+end
+
+function entrysh()
+    local package = luci.http.formvalue("package")
+    local update = luci.http.formvalue("update")
+    local hostname = luci.http.formvalue("hostname")
+    if hostname == nil or hostname == "" or not hostname:match("^[a-zA-Z0-9_%[][a-zA-Z0-9_%-%.%:%]]*$") then
+        luci.http.status(400, "Bad Request")
+        return
+    end
+    local nixio = require "nixio"
+    local fs   = require "nixio.fs"
+    local hostnameq = luci.util.shellquote(hostname)
+    local cachedir = "/tmp/cache/istore/entrysh/" .. hostname
+    fs.mkdirr(cachedir)
+
+    local jsonc = require "luci.jsonc"
+    local results = {}
+    local errors = {}
+    local force = update == "1"
+    local candidate = nil
+    if package ~= nil and package ~= "" then
+        candidate = luci.util.split(package, ",")
+    end
+    local installed  = get_installed_and_cache()
+    local lock, msg = flock("/var/lock/istore-entrysh.lock", "lock")
+    local meta
+    for _, meta in ipairs(installed) do
+        if meta.flags ~= nil and meta.uci ~= nil and luci.util.contains(meta.flags, "entrysh")
+            and (candidate == nil or luci.util.contains(candidate, meta.name)) then
+            local entryfile = "/usr/libexec/istoree/" .. meta.name .. ".sh"
+            local ucifile = "/etc/config/" .. meta.uci
+            local cachefile = cachedir .. "/" .. meta.name .. ".json"
+            local status = nil
+            if not force then
+                local us = fs.stat(ucifile)
+                local cs = fs.stat(cachefile)
+                if cs ~= nil and us["mtime"] <= cs["mtime"] then
+                    status = jsonc.parse(fs.readfile(cachefile) or "")
+                end
+            end
+            if status ~= nil then
+                results[#results+1] = status
+            elseif fs.access(entryfile) then
+                local o = luci.util.exec(entryfile .. " status " .. hostnameq)
+                if o == nil or o == "" then
+                    errors[#errors+1] = {app=meta.name, code=500, msg="entrysh execute failed"}
+                else
+                    status = jsonc.parse(o)
+                    if status == nil then
+                        errors[#errors+1] = {app=meta.name, code=500, msg="json parse failed: " .. o}
+                    else
+                        results[#results+1] = status
+                        local oflags = nixio.open_flags("rdwr", "creat")
+                        local mfile, code, msg = nixio.open(cachefile, oflags)
+                        mfile:writeall(jsonc.stringify(status))
+                        mfile:close()
+                    end
+                end
+            else
+                errors[#errors+1] = {app=meta.name, code=404, msg="entrysh of this package not found"}
+            end
+        end
+    end
+    lock:lock("ulock")
+    lock:close()
+
+    luci.http.prepare_content("application/json")
+    luci.http.write_json({code=200, status=results, errors=errors})
+end
+
+function docker_check_dir()
+    local docker_on_system = luci.sys.call("/usr/libexec/istore/docker check_dir >/dev/null 2>&1") ~= 0
+    luci.http.prepare_content("application/json")
+    luci.http.write_json({code=200, docker_on_system=docker_on_system})
+end
+
+function docker_check_migrate()
+    local path = luci.http.formvalue("path")
+    if path == nil or path == "" then
+        luci.http.status(400, "Bad Request")
+        return
+    end
+    local r,o,e = is_exec("/usr/libexec/istore/docker migrate_check " .. luci.util.shellquote(path))
+    local result = "good"
+    if r == 1 then
+        result = "bad"
+    elseif r == 2 then
+        result = "existed"
+    end
+    luci.http.prepare_content("application/json")
+    luci.http.write_json({code=200, result=result, error=e})
+end
+
+function docker_migrate()
+    local path = luci.http.formvalue("path")
+    if path == nil or path == "" then
+        luci.http.status(400, "Bad Request")
+        return
+    end
+
+    local action = "migrate"
+    local overwrite = luci.http.formvalue("overwrite")
+    if overwrite == "chdir" then
+        action = "change_dir"
+    end
+    local r,o,e = is_exec("/usr/libexec/istore/docker " .. action .. " " .. luci.util.shellquote(path), true)
+    luci.http.prepare_content("application/json")
+    luci.http.write_json({code=r, stdout=o, stderr=e})
 end
 
 local function split(str,reps)
@@ -467,7 +665,7 @@ local function update_local_backup_path(path)
         local f=io.open("/etc/config/istore","a+")
         f:write("config istore \'istore\'\n\toption local_backup_path \'\'")
         f:flush()
-        f:close()        
+        f:close()
     end
 
     if path ~= local_backup_path then
@@ -626,7 +824,7 @@ function get_available_backup_file_list()
     if path ~= "" then
         -- update local backup path
         update_local_backup_path(path)
-        r,o,e = is_exec(is_backup .. " get_available_backup_file_list " .. path)
+        r,o,e = is_exec(is_backup .. " get_available_backup_file_list " .. luci.util.shellquote(path))
         if r ~= 0 then
             error_ret.msg = e
             luci.http.prepare_content("application/json")
