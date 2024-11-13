@@ -29,7 +29,7 @@ msgstr "all app"
 msgid "app backup"
 msgstr "app backup"
 
-#: src/components/app/index.vue:168
+#: src/components/app/index.vue:170
 msgid "are you sure you want to uninstall %{name}?"
 msgstr "are you sure you want to uninstall %{name}?"
 
@@ -41,8 +41,8 @@ msgstr "author"
 msgid "backup fail"
 msgstr "backup fail"
 
-#: src/pages/maintance/localBackup.vue:198
-#: src/pages/maintance/localBackup.vue:203
+#: src/pages/maintance/localBackup.vue:200
+#: src/pages/maintance/localBackup.vue:205
 msgid "backup fail with error code"
 msgstr "backup fail with error code"
 
@@ -155,7 +155,7 @@ msgstr "in this page, you can upload and install packages"
 msgid "install"
 msgstr "install"
 
-#: src/components/app/index.vue:154 src/components/app/index.vue:164
+#: src/components/app/index.vue:154 src/components/app/index.vue:166
 msgid "installation failed, error code"
 msgstr "installation failed, error code"
 
@@ -169,7 +169,7 @@ msgstr "last version"
 
 #: src/pages/store/components/sort.vue:32
 msgid "Latest update"
-msgstr "Latest date"
+msgstr "Latest update"
 
 #: src/pages/maintance/index.vue:17
 msgid "light backup"
@@ -251,7 +251,7 @@ msgstr "packages installed offline may not appear in iStore"
 msgid "please enter an absolute path starting with %{name}"
 msgstr "please enter an absolute path starting with %{name}"
 
-#: src/pages/maintance/localBackup.vue:139
+#: src/pages/maintance/localBackup.vue:141
 msgid "please enter the path, give up the input, please clear the input box"
 msgstr "please enter the path, give up the input, please clear the input box"
 
@@ -259,12 +259,12 @@ msgstr "please enter the path, give up the input, please clear the input box"
 msgid "please enter the search keyword"
 msgstr "please enter the search keyword"
 
-#: src/pages/maintance/localBackup.vue:157
-#: src/pages/maintance/localBackup.vue:191
+#: src/pages/maintance/localBackup.vue:159
+#: src/pages/maintance/localBackup.vue:193
 msgid "please fill in the external storage directory"
 msgstr "please fill in the external storage directory"
 
-#: src/pages/maintance/localBackup.vue:218
+#: src/pages/maintance/localBackup.vue:220
 msgid "please select a backup file to restore"
 msgstr "please select a backup file to restore"
 
@@ -275,8 +275,8 @@ msgstr "restore backup"
 
 #: src/pages/maintance/lightBackup.vue:76
 #: src/pages/maintance/lightBackup.vue:81
-#: src/pages/maintance/localBackup.vue:224
-#: src/pages/maintance/localBackup.vue:229
+#: src/pages/maintance/localBackup.vue:226
+#: src/pages/maintance/localBackup.vue:231
 msgid "restore failed with error code"
 msgstr "restore failed with error code"
 
@@ -320,7 +320,7 @@ msgstr "Tag"
 msgid "the is last version"
 msgstr "the is last version"
 
-#: src/pages/maintance/localBackup.vue:167
+#: src/pages/maintance/localBackup.vue:169
 msgid "there are no backup files in this path"
 msgstr "there are no backup files in this path"
 
@@ -336,7 +336,7 @@ msgstr "tutorial"
 msgid "uninstall"
 msgstr "uninstall"
 
-#: src/components/app/index.vue:177 src/components/app/index.vue:182
+#: src/components/app/index.vue:179 src/components/app/index.vue:184
 msgid "uninstall failed, error code"
 msgstr "uninstall failed, error code"
 
@@ -376,7 +376,7 @@ msgstr "uploading"
 msgid "website"
 msgstr "website"
 
-#: src/components/app/index.vue:201
+#: src/components/app/index.vue:203
 msgid "you have already liked"
 msgstr "you have already liked"
 

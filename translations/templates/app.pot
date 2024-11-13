@@ -22,7 +22,7 @@ msgstr ""
 msgid "app backup"
 msgstr ""
 
-#: src/components/app/index.vue:168
+#: src/components/app/index.vue:170
 msgid "are you sure you want to uninstall %{name}?"
 msgstr ""
 
@@ -34,8 +34,8 @@ msgstr ""
 msgid "backup fail"
 msgstr ""
 
-#: src/pages/maintance/localBackup.vue:198
-#: src/pages/maintance/localBackup.vue:203
+#: src/pages/maintance/localBackup.vue:200
+#: src/pages/maintance/localBackup.vue:205
 msgid "backup fail with error code"
 msgstr ""
 
@@ -147,7 +147,7 @@ msgid "install"
 msgstr ""
 
 #: src/components/app/index.vue:154
-#: src/components/app/index.vue:164
+#: src/components/app/index.vue:166
 msgid "installation failed, error code"
 msgstr ""
 
@@ -245,7 +245,7 @@ msgstr ""
 msgid "please enter an absolute path starting with %{name}"
 msgstr ""
 
-#: src/pages/maintance/localBackup.vue:139
+#: src/pages/maintance/localBackup.vue:141
 msgid "please enter the path, give up the input, please clear the input box"
 msgstr ""
 
@@ -253,12 +253,12 @@ msgstr ""
 msgid "please enter the search keyword"
 msgstr ""
 
-#: src/pages/maintance/localBackup.vue:157
-#: src/pages/maintance/localBackup.vue:191
+#: src/pages/maintance/localBackup.vue:159
+#: src/pages/maintance/localBackup.vue:193
 msgid "please fill in the external storage directory"
 msgstr ""
 
-#: src/pages/maintance/localBackup.vue:218
+#: src/pages/maintance/localBackup.vue:220
 msgid "please select a backup file to restore"
 msgstr ""
 
@@ -269,8 +269,8 @@ msgstr ""
 
 #: src/pages/maintance/lightBackup.vue:76
 #: src/pages/maintance/lightBackup.vue:81
-#: src/pages/maintance/localBackup.vue:224
-#: src/pages/maintance/localBackup.vue:229
+#: src/pages/maintance/localBackup.vue:226
+#: src/pages/maintance/localBackup.vue:231
 msgid "restore failed with error code"
 msgstr ""
 
@@ -314,7 +314,7 @@ msgstr ""
 msgid "the is last version"
 msgstr ""
 
-#: src/pages/maintance/localBackup.vue:167
+#: src/pages/maintance/localBackup.vue:169
 msgid "there are no backup files in this path"
 msgstr ""
 
@@ -331,8 +331,8 @@ msgstr ""
 msgid "uninstall"
 msgstr ""
 
-#: src/components/app/index.vue:177
-#: src/components/app/index.vue:182
+#: src/components/app/index.vue:179
+#: src/components/app/index.vue:184
 msgid "uninstall failed, error code"
 msgstr ""
 
@@ -375,6 +375,6 @@ msgstr ""
 msgid "website"
 msgstr ""
 
-#: src/components/app/index.vue:201
+#: src/components/app/index.vue:203
 msgid "you have already liked"
 msgstr ""

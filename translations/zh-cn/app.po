@@ -28,7 +28,7 @@ msgstr "全部软件"
 msgid "app backup"
 msgstr "软件备份"
 
-#: src/components/app/index.vue:168
+#: src/components/app/index.vue:170
 msgid "are you sure you want to uninstall %{name}?"
 msgstr "确定要卸载 %{name} 吗?"
 
@@ -40,8 +40,8 @@ msgstr "作者"
 msgid "backup fail"
 msgstr "备份失败"
 
-#: src/pages/maintance/localBackup.vue:198
-#: src/pages/maintance/localBackup.vue:203
+#: src/pages/maintance/localBackup.vue:200
+#: src/pages/maintance/localBackup.vue:205
 msgid "backup fail with error code"
 msgstr "备份失败，错误代码"
 
@@ -152,7 +152,7 @@ msgstr "通过本页面，你可以上传并安装插件包"
 msgid "install"
 msgstr "安装"
 
-#: src/components/app/index.vue:154 src/components/app/index.vue:164
+#: src/components/app/index.vue:154 src/components/app/index.vue:166
 msgid "installation failed, error code"
 msgstr "安装失败,错误码"
 
@@ -248,7 +248,7 @@ msgstr "离线安装的插件可能不会出现在iStore中"
 msgid "please enter an absolute path starting with %{name}"
 msgstr "请输入 %{name} 开头的绝对路径"
 
-#: src/pages/maintance/localBackup.vue:139
+#: src/pages/maintance/localBackup.vue:141
 msgid "please enter the path, give up the input, please clear the input box"
 msgstr "请输入路径，放弃输入请清空输入框"
 
@@ -256,12 +256,12 @@ msgstr "请输入路径，放弃输入请清空输入框"
 msgid "please enter the search keyword"
 msgstr "请输入搜索关键词"
 
-#: src/pages/maintance/localBackup.vue:157
-#: src/pages/maintance/localBackup.vue:191
+#: src/pages/maintance/localBackup.vue:159
+#: src/pages/maintance/localBackup.vue:193
 msgid "please fill in the external storage directory"
 msgstr "请填写外部存储目录"
 
-#: src/pages/maintance/localBackup.vue:218
+#: src/pages/maintance/localBackup.vue:220
 msgid "please select a backup file to restore"
 msgstr "请选择要恢复的备份文件"
 
@@ -272,8 +272,8 @@ msgstr "恢复备份"
 
 #: src/pages/maintance/lightBackup.vue:76
 #: src/pages/maintance/lightBackup.vue:81
-#: src/pages/maintance/localBackup.vue:224
-#: src/pages/maintance/localBackup.vue:229
+#: src/pages/maintance/localBackup.vue:226
+#: src/pages/maintance/localBackup.vue:231
 msgid "restore failed with error code"
 msgstr "恢复失败，错误代码"
 
@@ -317,7 +317,7 @@ msgstr "标签"
 msgid "the is last version"
 msgstr "当前已经是最新版本"
 
-#: src/pages/maintance/localBackup.vue:167
+#: src/pages/maintance/localBackup.vue:169
 msgid "there are no backup files in this path"
 msgstr "此路径下没有备份文件"
 
@@ -333,7 +333,7 @@ msgstr "教程"
 msgid "uninstall"
 msgstr "卸载"
 
-#: src/components/app/index.vue:177 src/components/app/index.vue:182
+#: src/components/app/index.vue:179 src/components/app/index.vue:184
 msgid "uninstall failed, error code"
 msgstr "卸载失败,错误码"
 
@@ -373,7 +373,7 @@ msgstr "上传中"
 msgid "website"
 msgstr "官网"
 
-#: src/components/app/index.vue:201
+#: src/components/app/index.vue:203
 msgid "you have already liked"
 msgstr "您已经点赞过啦"
 
