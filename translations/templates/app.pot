@@ -2,13 +2,13 @@ msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 
-#: src/components/app/index.vue:25
+#: src/components/app/index.vue:26
 msgid "%{ num } download"
 msgid_plural "%{ num } downloads"
 msgstr[0] ""
 msgstr[1] ""
 
-#: src/components/app/index.vue:32
+#: src/components/app/index.vue:33
 msgid "%{ num } like"
 msgid_plural "%{ num } likes"
 msgstr[0] ""
@@ -22,11 +22,11 @@ msgstr ""
 msgid "app backup"
 msgstr ""
 
-#: src/components/app/index.vue:170
+#: src/components/app/index.vue:184
 msgid "are you sure you want to uninstall %{name}?"
 msgstr ""
 
-#: src/components/app/index.vue:51
+#: src/components/app/index.vue:52
 msgid "author"
 msgstr ""
 
@@ -72,6 +72,14 @@ msgstr ""
 msgid "By rating"
 msgstr ""
 
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:242
+msgid "Can't be empty"
+msgstr ""
+
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:89
+msgid "Cancel"
+msgstr ""
+
 #: src/pages/maintance/update.vue:4
 msgid "checking for latest version"
 msgstr ""
@@ -109,7 +117,8 @@ msgstr ""
 msgid "default"
 msgstr ""
 
-#: src/components/app/index.vue:148
+#: src/components/app/index.vue:162
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:215
 msgid "Docker is not installed on the system, try to install it?"
 msgstr ""
 
@@ -142,12 +151,26 @@ msgstr ""
 msgid "in this page, you can upload and install packages"
 msgstr ""
 
-#: src/components/app/index.vue:89
+#: src/components/app/index.vue:100
 msgid "install"
 msgstr ""
 
-#: src/components/app/index.vue:154
-#: src/components/app/index.vue:166
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:88
+msgid "Install"
+msgstr ""
+
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:16
+msgid "Install and setup"
+msgstr ""
+
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:25
+msgid "Install only"
+msgstr ""
+
+#: src/components/app/index.vue:168
+#: src/components/app/index.vue:180
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:221
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:233
 msgid "installation failed, error code"
 msgstr ""
 
@@ -167,11 +190,11 @@ msgstr ""
 msgid "light backup"
 msgstr ""
 
-#: src/components/app/index.vue:41
+#: src/components/app/index.vue:42
 msgid "like"
 msgstr ""
 
-#: src/components/app/index.vue:38
+#: src/components/app/index.vue:39
 msgid "liked"
 msgstr ""
 
@@ -229,7 +252,7 @@ msgstr ""
 msgid "offline installation failed with error code"
 msgstr ""
 
-#: src/components/app/index.vue:80
+#: src/components/app/index.vue:82
 msgid "open"
 msgstr ""
 
@@ -262,6 +285,18 @@ msgstr ""
 msgid "please select a backup file to restore"
 msgstr ""
 
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:9
+msgid "Quick install"
+msgstr ""
+
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:21
+msgid "Quick setup"
+msgstr ""
+
+#: src/components/app/index.vue:94
+msgid "quickinstall"
+msgstr ""
+
 #: src/pages/maintance/lightBackup.vue:21
 #: src/pages/maintance/localBackup.vue:36
 msgid "restore backup"
@@ -276,6 +311,10 @@ msgstr ""
 
 #: src/pages/maintance/localBackup.vue:47
 msgid "restore now"
+msgstr ""
+
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:37
+msgid "Run after install"
 msgstr ""
 
 #: src/pages/upload/index.vue:20
@@ -294,8 +333,20 @@ msgstr ""
 msgid "show incompatible packages"
 msgstr ""
 
-#: src/components/app/index.vue:92
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:46
+msgid "Start"
+msgstr ""
+
+#: src/components/app/index.vue:106
 msgid "Stick to the top"
+msgstr ""
+
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:42
+msgid "Stop"
+msgstr ""
+
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:60
+msgid "Storage"
 msgstr ""
 
 #: src/pages/upload/index.vue:9
@@ -322,21 +373,23 @@ msgstr ""
 msgid "tool"
 msgstr ""
 
-#: src/components/app/index.vue:62
+#: src/components/app/index.vue:63
 msgid "tutorial"
 msgstr ""
 
 #: src/components/app/index.vue:83
 #: src/components/app/index.vue:84
+#: src/components/app/index.vue:85
+#: src/components/app/index.vue:86
 msgid "uninstall"
 msgstr ""
 
-#: src/components/app/index.vue:179
-#: src/components/app/index.vue:184
+#: src/components/app/index.vue:193
+#: src/components/app/index.vue:198
 msgid "uninstall failed, error code"
 msgstr ""
 
-#: src/components/app/index.vue:55
+#: src/components/app/index.vue:56
 msgid "update date"
 msgstr ""
 
@@ -344,8 +397,8 @@ msgstr ""
 msgid "update error"
 msgstr ""
 
-#: src/components/app/index.vue:138
-#: src/components/app/index.vue:143
+#: src/components/app/index.vue:152
+#: src/components/app/index.vue:157
 msgid "update failed with error code"
 msgstr ""
 
@@ -357,7 +410,8 @@ msgstr ""
 msgid "updateing"
 msgstr ""
 
-#: src/components/app/index.vue:74
+#: src/components/app/index.vue:75
+#: src/components/app/index.vue:76
 #: src/pages/maintance/index.vue:4
 msgid "upgrade"
 msgstr ""
@@ -371,10 +425,10 @@ msgstr ""
 msgid "uploading"
 msgstr ""
 
-#: src/components/app/index.vue:65
+#: src/components/app/index.vue:66
 msgid "website"
 msgstr ""
 
-#: src/components/app/index.vue:203
+#: src/components/app/index.vue:217
 msgid "you have already liked"
 msgstr ""

@@ -8,13 +8,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: src/components/app/index.vue:25
+#: src/components/app/index.vue:26
 msgid "%{ num } download"
 msgid_plural "%{ num } downloads"
 msgstr[0] "%{ num } 次下载"
 msgstr[1] "%{ num } 次下载"
 
-#: src/components/app/index.vue:32
+#: src/components/app/index.vue:33
 msgid "%{ num } like"
 msgid_plural "%{ num } likes"
 msgstr[0] "%{ num } 次点赞"
@@ -28,11 +28,11 @@ msgstr "全部软件"
 msgid "app backup"
 msgstr "软件备份"
 
-#: src/components/app/index.vue:170
+#: src/components/app/index.vue:184
 msgid "are you sure you want to uninstall %{name}?"
 msgstr "确定要卸载 %{name} 吗?"
 
-#: src/components/app/index.vue:51
+#: src/components/app/index.vue:52
 msgid "author"
 msgstr "作者"
 
@@ -80,6 +80,14 @@ msgstr "按下载"
 msgid "By rating"
 msgstr "按评分"
 
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:242
+msgid "Can't be empty"
+msgstr "不能为空"
+
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:89
+msgid "Cancel"
+msgstr "取消"
+
 #: src/pages/maintance/update.vue:4
 msgid "checking for latest version"
 msgstr "正在检查最新版本"
@@ -116,7 +124,8 @@ msgstr "自定义"
 msgid "default"
 msgstr "默认"
 
-#: src/components/app/index.vue:148
+#: src/components/app/index.vue:162
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:215
 msgid "Docker is not installed on the system, try to install it?"
 msgstr "系统中未安装Docker，是否尝试安装？"
 
@@ -148,11 +157,27 @@ msgstr "图标出走啦"
 msgid "in this page, you can upload and install packages"
 msgstr "通过本页面，你可以上传并安装插件包"
 
-#: src/components/app/index.vue:89
+#: src/components/app/index.vue:100
 msgid "install"
 msgstr "安装"
 
-#: src/components/app/index.vue:154 src/components/app/index.vue:166
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:88
+#, fuzzy
+msgid "Install"
+msgstr "安装"
+
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:16
+msgid "Install and setup"
+msgstr "安装并设置"
+
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:25
+#, fuzzy
+msgid "Install only"
+msgstr "仅安装"
+
+#: src/components/app/index.vue:168 src/components/app/index.vue:180
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:221
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:233
 msgid "installation failed, error code"
 msgstr "安装失败,错误码"
 
@@ -172,11 +197,11 @@ msgstr "最近更新"
 msgid "light backup"
 msgstr "轻量备份"
 
-#: src/components/app/index.vue:41
+#: src/components/app/index.vue:42
 msgid "like"
 msgstr "点赞"
 
-#: src/components/app/index.vue:38
+#: src/components/app/index.vue:39
 msgid "liked"
 msgstr "已点赞"
 
@@ -232,7 +257,7 @@ msgstr "离线安装"
 msgid "offline installation failed with error code"
 msgstr "离线安装失败,错误码"
 
-#: src/components/app/index.vue:80
+#: src/components/app/index.vue:82
 msgid "open"
 msgstr "打开"
 
@@ -265,6 +290,20 @@ msgstr "请填写外部存储目录"
 msgid "please select a backup file to restore"
 msgstr "请选择要恢复的备份文件"
 
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:9
+#, fuzzy
+msgid "Quick install"
+msgstr "快速安装"
+
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:21
+msgid "Quick setup"
+msgstr "快速设置"
+
+#: src/components/app/index.vue:94
+#, fuzzy
+msgid "quickinstall"
+msgstr "快速安装"
+
 #: src/pages/maintance/lightBackup.vue:21
 #: src/pages/maintance/localBackup.vue:36
 msgid "restore backup"
@@ -280,6 +319,11 @@ msgstr "恢复失败，错误代码"
 #: src/pages/maintance/localBackup.vue:47
 msgid "restore now"
 msgstr "立即恢复"
+
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:37
+#, fuzzy
+msgid "Run after install"
+msgstr "安装后启用"
 
 #: src/pages/upload/index.vue:20
 msgid "select or drag and drop files"
@@ -297,9 +341,21 @@ msgstr "显示 Docker 插件"
 msgid "show incompatible packages"
 msgstr "显示架构不兼容插件"
 
-#: src/components/app/index.vue:92
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:46
+msgid "Start"
+msgstr "启动"
+
+#: src/components/app/index.vue:106
 msgid "Stick to the top"
 msgstr "置顶"
+
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:42
+msgid "Stop"
+msgstr "停止"
+
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:60
+msgid "Storage"
+msgstr "存储位置"
 
 #: src/pages/upload/index.vue:9
 msgid "supports .ipk packages, .run self-extracting packages"
@@ -325,19 +381,20 @@ msgstr "此路径下没有备份文件"
 msgid "tool"
 msgstr "工具"
 
-#: src/components/app/index.vue:62
+#: src/components/app/index.vue:63
 msgid "tutorial"
 msgstr "教程"
 
 #: src/components/app/index.vue:83 src/components/app/index.vue:84
+#: src/components/app/index.vue:85 src/components/app/index.vue:86
 msgid "uninstall"
 msgstr "卸载"
 
-#: src/components/app/index.vue:179 src/components/app/index.vue:184
+#: src/components/app/index.vue:193 src/components/app/index.vue:198
 msgid "uninstall failed, error code"
 msgstr "卸载失败,错误码"
 
-#: src/components/app/index.vue:55
+#: src/components/app/index.vue:56
 msgid "update date"
 msgstr "更新日期"
 
@@ -345,7 +402,7 @@ msgstr "更新日期"
 msgid "update error"
 msgstr "更新失败"
 
-#: src/components/app/index.vue:138 src/components/app/index.vue:143
+#: src/components/app/index.vue:152 src/components/app/index.vue:157
 msgid "update failed with error code"
 msgstr "更新失败，错误代码"
 
@@ -357,7 +414,8 @@ msgstr "更新成功，重新加载页面"
 msgid "updateing"
 msgstr "正在更新中"
 
-#: src/components/app/index.vue:74 src/pages/maintance/index.vue:4
+#: src/components/app/index.vue:75 src/components/app/index.vue:76
+#: src/pages/maintance/index.vue:4
 msgid "upgrade"
 msgstr "更新"
 
@@ -369,11 +427,11 @@ msgstr "恢复备份时上传软件列表并从iStore安装"
 msgid "uploading"
 msgstr "上传中"
 
-#: src/components/app/index.vue:65
+#: src/components/app/index.vue:66
 msgid "website"
 msgstr "官网"
 
-#: src/components/app/index.vue:203
+#: src/components/app/index.vue:217
 msgid "you have already liked"
 msgstr "您已经点赞过啦"
 

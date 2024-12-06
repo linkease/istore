@@ -9,13 +9,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/components/app/index.vue:25
+#: src/components/app/index.vue:26
 msgid "%{ num } download"
 msgid_plural "%{ num } downloads"
 msgstr[0] "%{ num } download"
 msgstr[1] "%{ num } downloads"
 
-#: src/components/app/index.vue:32
+#: src/components/app/index.vue:33
 msgid "%{ num } like"
 msgid_plural "%{ num } likes"
 msgstr[0] "%{ num } like"
@@ -29,11 +29,11 @@ msgstr "all app"
 msgid "app backup"
 msgstr "app backup"
 
-#: src/components/app/index.vue:170
+#: src/components/app/index.vue:184
 msgid "are you sure you want to uninstall %{name}?"
 msgstr "are you sure you want to uninstall %{name}?"
 
-#: src/components/app/index.vue:51
+#: src/components/app/index.vue:52
 msgid "author"
 msgstr "author"
 
@@ -83,6 +83,14 @@ msgstr "By download"
 msgid "By rating"
 msgstr "By rating"
 
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:242
+msgid "Can't be empty"
+msgstr "Can't be empty"
+
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:89
+msgid "Cancel"
+msgstr "Cancel"
+
 #: src/pages/maintance/update.vue:4
 msgid "checking for latest version"
 msgstr "checking for latest version"
@@ -119,7 +127,8 @@ msgstr "customize"
 msgid "default"
 msgstr "default"
 
-#: src/components/app/index.vue:148
+#: src/components/app/index.vue:162
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:215
 msgid "Docker is not installed on the system, try to install it?"
 msgstr "Docker is not installed on the system, try to install it?"
 
@@ -151,11 +160,27 @@ msgstr "Icon is gone"
 msgid "in this page, you can upload and install packages"
 msgstr "in this page, you can upload and install packages"
 
-#: src/components/app/index.vue:89
+#: src/components/app/index.vue:100
 msgid "install"
 msgstr "install"
 
-#: src/components/app/index.vue:154 src/components/app/index.vue:166
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:88
+#, fuzzy
+msgid "Install"
+msgstr "Install"
+
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:16
+msgid "Install and setup"
+msgstr "Install and setup"
+
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:25
+#, fuzzy
+msgid "Install only"
+msgstr "Install only"
+
+#: src/components/app/index.vue:168 src/components/app/index.vue:180
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:221
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:233
 msgid "installation failed, error code"
 msgstr "installation failed, error code"
 
@@ -175,11 +200,11 @@ msgstr "Latest update"
 msgid "light backup"
 msgstr "light backup"
 
-#: src/components/app/index.vue:41
+#: src/components/app/index.vue:42
 msgid "like"
 msgstr "like"
 
-#: src/components/app/index.vue:38
+#: src/components/app/index.vue:39
 msgid "liked"
 msgstr "liked"
 
@@ -235,7 +260,7 @@ msgstr "offline install"
 msgid "offline installation failed with error code"
 msgstr "offline installation failed with error code"
 
-#: src/components/app/index.vue:80
+#: src/components/app/index.vue:82
 msgid "open"
 msgstr "open"
 
@@ -268,6 +293,20 @@ msgstr "please fill in the external storage directory"
 msgid "please select a backup file to restore"
 msgstr "please select a backup file to restore"
 
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:9
+#, fuzzy
+msgid "Quick install"
+msgstr "Quick install"
+
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:21
+msgid "Quick setup"
+msgstr "Quick setup"
+
+#: src/components/app/index.vue:94
+#, fuzzy
+msgid "quickinstall"
+msgstr "quickinstall"
+
 #: src/pages/maintance/lightBackup.vue:21
 #: src/pages/maintance/localBackup.vue:36
 msgid "restore backup"
@@ -283,6 +322,11 @@ msgstr "restore failed with error code"
 #: src/pages/maintance/localBackup.vue:47
 msgid "restore now"
 msgstr "restore now"
+
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:37
+#, fuzzy
+msgid "Run after install"
+msgstr "Run after install"
 
 #: src/pages/upload/index.vue:20
 msgid "select or drag and drop files"
@@ -300,9 +344,21 @@ msgstr "show docker packages"
 msgid "show incompatible packages"
 msgstr "show incompatible packages"
 
-#: src/components/app/index.vue:92
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:46
+msgid "Start"
+msgstr "Start"
+
+#: src/components/app/index.vue:106
 msgid "Stick to the top"
 msgstr "Stick to the top"
+
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:42
+msgid "Stop"
+msgstr "Stop"
+
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:60
+msgid "Storage"
+msgstr "Storage"
 
 #: src/pages/upload/index.vue:9
 msgid "supports .ipk packages, .run self-extracting packages"
@@ -328,19 +384,20 @@ msgstr "there are no backup files in this path"
 msgid "tool"
 msgstr "Tool"
 
-#: src/components/app/index.vue:62
+#: src/components/app/index.vue:63
 msgid "tutorial"
 msgstr "tutorial"
 
 #: src/components/app/index.vue:83 src/components/app/index.vue:84
+#: src/components/app/index.vue:85 src/components/app/index.vue:86
 msgid "uninstall"
 msgstr "uninstall"
 
-#: src/components/app/index.vue:179 src/components/app/index.vue:184
+#: src/components/app/index.vue:193 src/components/app/index.vue:198
 msgid "uninstall failed, error code"
 msgstr "uninstall failed, error code"
 
-#: src/components/app/index.vue:55
+#: src/components/app/index.vue:56
 msgid "update date"
 msgstr "update date"
 
@@ -348,7 +405,7 @@ msgstr "update date"
 msgid "update error"
 msgstr "update error"
 
-#: src/components/app/index.vue:138 src/components/app/index.vue:143
+#: src/components/app/index.vue:152 src/components/app/index.vue:157
 msgid "update failed with error code"
 msgstr "update failed with error code"
 
@@ -360,7 +417,8 @@ msgstr "update success, reloading"
 msgid "updateing"
 msgstr "updateing"
 
-#: src/components/app/index.vue:74 src/pages/maintance/index.vue:4
+#: src/components/app/index.vue:75 src/components/app/index.vue:76
+#: src/pages/maintance/index.vue:4
 msgid "upgrade"
 msgstr "upgrade"
 
@@ -372,11 +430,11 @@ msgstr "upload software list and install from iStore when restoring backup"
 msgid "uploading"
 msgstr "uploading"
 
-#: src/components/app/index.vue:65
+#: src/components/app/index.vue:66
 msgid "website"
 msgstr "website"
 
-#: src/components/app/index.vue:203
+#: src/components/app/index.vue:217
 msgid "you have already liked"
 msgstr "you have already liked"
 
