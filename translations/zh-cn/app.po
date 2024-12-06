@@ -162,7 +162,6 @@ msgid "install"
 msgstr "安装"
 
 #: src/components/Open/OpenQuickstartInstallApp/index.vue:88
-#, fuzzy
 msgid "Install"
 msgstr "安装"
 
@@ -171,7 +170,6 @@ msgid "Install and setup"
 msgstr "安装并设置"
 
 #: src/components/Open/OpenQuickstartInstallApp/index.vue:25
-#, fuzzy
 msgid "Install only"
 msgstr "仅安装"
 
@@ -291,7 +289,6 @@ msgid "please select a backup file to restore"
 msgstr "请选择要恢复的备份文件"
 
 #: src/components/Open/OpenQuickstartInstallApp/index.vue:9
-#, fuzzy
 msgid "Quick install"
 msgstr "快速安装"
 
@@ -300,7 +297,6 @@ msgid "Quick setup"
 msgstr "快速设置"
 
 #: src/components/app/index.vue:94
-#, fuzzy
 msgid "quickinstall"
 msgstr "快速安装"
 
@@ -321,7 +317,6 @@ msgid "restore now"
 msgstr "立即恢复"
 
 #: src/components/Open/OpenQuickstartInstallApp/index.vue:37
-#, fuzzy
 msgid "Run after install"
 msgstr "安装后启用"
 

@@ -165,7 +165,6 @@ msgid "install"
 msgstr "install"
 
 #: src/components/Open/OpenQuickstartInstallApp/index.vue:88
-#, fuzzy
 msgid "Install"
 msgstr "Install"
 
@@ -174,7 +173,6 @@ msgid "Install and setup"
 msgstr "Install and setup"
 
 #: src/components/Open/OpenQuickstartInstallApp/index.vue:25
-#, fuzzy
 msgid "Install only"
 msgstr "Install only"
 
@@ -294,7 +292,6 @@ msgid "please select a backup file to restore"
 msgstr "please select a backup file to restore"
 
 #: src/components/Open/OpenQuickstartInstallApp/index.vue:9
-#, fuzzy
 msgid "Quick install"
 msgstr "Quick install"
 
@@ -303,7 +300,6 @@ msgid "Quick setup"
 msgstr "Quick setup"
 
 #: src/components/app/index.vue:94
-#, fuzzy
 msgid "quickinstall"
 msgstr "quickinstall"
 
@@ -324,7 +320,6 @@ msgid "restore now"
 msgstr "restore now"
 
 #: src/components/Open/OpenQuickstartInstallApp/index.vue:37
-#, fuzzy
 msgid "Run after install"
 msgstr "Run after install"
 
