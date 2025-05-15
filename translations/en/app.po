@@ -41,23 +41,23 @@ msgstr "author"
 msgid "backup fail"
 msgstr "backup fail"
 
-#: src/pages/maintance/localBackup.vue:200
-#: src/pages/maintance/localBackup.vue:205
+#: src/pages/maintance/localBackup.vue:229
+#: src/pages/maintance/localBackup.vue:234
 msgid "backup fail with error code"
 msgstr "backup fail with error code"
 
 #: src/pages/maintance/lightBackup.vue:18
-#: src/pages/maintance/localBackup.vue:34
+#: src/pages/maintance/localBackup.vue:46
 msgid "backup now"
 msgstr "backup now"
 
-#: src/pages/maintance/localBackup.vue:61
-msgid ""
-"backup now backs up installed software (unlimited installation sources) to "
-"external storage"
-msgstr ""
-"backup now backs up installed software (unlimited installation sources) to "
-"external storage"
+#: src/pages/maintance/localBackup.vue:9
+msgid "backup now backs up installed software to external storage"
+msgstr "backup now backs up installed software to external storage"
+
+#: src/pages/maintance/localBackup.vue:12
+msgid "backup now backs up system and sandbox to external storage"
+msgstr "backup now backs up system and sandbox to external storage"
 
 #: src/pages/maintance/lightBackup.vue:9
 msgid "backup now will download a list of iStore installed software"
@@ -83,7 +83,7 @@ msgstr "By download"
 msgid "By rating"
 msgstr "By rating"
 
-#: src/components/Open/OpenQuickstartInstallApp/index.vue:242
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:250
 msgid "Can't be empty"
 msgstr "Can't be empty"
 
@@ -95,11 +95,11 @@ msgstr "Cancel"
 msgid "checking for latest version"
 msgstr "checking for latest version"
 
-#: src/pages/maintance/localBackup.vue:22
+#: src/pages/maintance/localBackup.vue:34
 msgid "choose"
 msgstr "choose"
 
-#: src/pages/maintance/localBackup.vue:41
+#: src/pages/maintance/localBackup.vue:53
 msgid "choose backup file"
 msgstr "choose backup file"
 
@@ -119,7 +119,7 @@ msgstr "closed"
 msgid "config"
 msgstr "config"
 
-#: src/pages/maintance/localBackup.vue:26
+#: src/pages/maintance/localBackup.vue:38
 msgid "customize"
 msgstr "customize"
 
@@ -128,7 +128,7 @@ msgid "default"
 msgstr "default"
 
 #: src/components/app/index.vue:162
-#: src/components/Open/OpenQuickstartInstallApp/index.vue:215
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:223
 msgid "Docker is not installed on the system, try to install it?"
 msgstr "Docker is not installed on the system, try to install it?"
 
@@ -140,7 +140,7 @@ msgstr "Download"
 msgid "explain"
 msgstr "explain"
 
-#: src/pages/maintance/localBackup.vue:16
+#: src/pages/maintance/localBackup.vue:28
 msgid "external storage directory"
 msgstr "external storage directory"
 
@@ -160,6 +160,10 @@ msgstr "Icon is gone"
 msgid "in this page, you can upload and install packages"
 msgstr "in this page, you can upload and install packages"
 
+#: src/pages/maintance/localBackup.vue:15
+msgid "includes system configuration and installed packages"
+msgstr "includes system configuration and installed packages"
+
 #: src/components/app/index.vue:100
 msgid "install"
 msgstr "install"
@@ -177,14 +181,18 @@ msgid "Install only"
 msgstr "Install only"
 
 #: src/components/app/index.vue:168 src/components/app/index.vue:180
-#: src/components/Open/OpenQuickstartInstallApp/index.vue:221
-#: src/components/Open/OpenQuickstartInstallApp/index.vue:233
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:229
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:241
 msgid "installation failed, error code"
 msgstr "installation failed, error code"
 
 #: src/components/tabs/index.vue:23
 msgid "installed"
 msgstr "installed"
+
+#: src/pages/maintance/localBackup.vue:18
+msgid "it is recommended to perform restore only on the same model"
+msgstr "it is recommended to perform restore only on the same model"
 
 #: src/pages/maintance/update.vue:9
 msgid "last version"
@@ -246,9 +254,9 @@ msgstr "Networking"
 msgid "no files selected"
 msgstr "no files selected"
 
-#: src/pages/maintance/localBackup.vue:12
-msgid "no internet required for recovery"
-msgstr "no internet required for recovery"
+#: src/pages/maintance/localBackup.vue:21
+msgid "no internet required for restore"
+msgstr "no internet required for restore"
 
 #: src/pages/upload/index.vue:4
 msgid "offline install"
@@ -270,11 +278,11 @@ msgstr "order"
 msgid "packages installed offline may not appear in iStore"
 msgstr "packages installed offline may not appear in iStore"
 
-#: src/pages/maintance/localBackup.vue:29
+#: src/pages/maintance/localBackup.vue:41
 msgid "please enter an absolute path starting with %{name}"
 msgstr "please enter an absolute path starting with %{name}"
 
-#: src/pages/maintance/localBackup.vue:141
+#: src/pages/maintance/localBackup.vue:169
 msgid "please enter the path, give up the input, please clear the input box"
 msgstr "please enter the path, give up the input, please clear the input box"
 
@@ -282,12 +290,12 @@ msgstr "please enter the path, give up the input, please clear the input box"
 msgid "please enter the search keyword"
 msgstr "please enter the search keyword"
 
-#: src/pages/maintance/localBackup.vue:159
-#: src/pages/maintance/localBackup.vue:193
+#: src/pages/maintance/localBackup.vue:187
+#: src/pages/maintance/localBackup.vue:222
 msgid "please fill in the external storage directory"
 msgstr "please fill in the external storage directory"
 
-#: src/pages/maintance/localBackup.vue:220
+#: src/pages/maintance/localBackup.vue:249
 msgid "please select a backup file to restore"
 msgstr "please select a backup file to restore"
 
@@ -304,18 +312,21 @@ msgid "quickinstall"
 msgstr "quickinstall"
 
 #: src/pages/maintance/lightBackup.vue:21
-#: src/pages/maintance/localBackup.vue:36
 msgid "restore backup"
 msgstr "restore backup"
 
+#: src/pages/maintance/localBackup.vue:48
+msgid "restore backup..."
+msgstr "restore backup..."
+
 #: src/pages/maintance/lightBackup.vue:76
 #: src/pages/maintance/lightBackup.vue:81
-#: src/pages/maintance/localBackup.vue:226
-#: src/pages/maintance/localBackup.vue:231
+#: src/pages/maintance/localBackup.vue:259
+#: src/pages/maintance/localBackup.vue:264
 msgid "restore failed with error code"
 msgstr "restore failed with error code"
 
-#: src/pages/maintance/localBackup.vue:47
+#: src/pages/maintance/localBackup.vue:59
 msgid "restore now"
 msgstr "restore now"
 
@@ -363,6 +374,10 @@ msgstr "supports .ipk packages, .run self-extracting packages"
 msgid "system"
 msgstr "System"
 
+#: src/pages/maintance/index.vue:27
+msgid "system backup"
+msgstr "system backup"
+
 #: src/pages/store/components/tag.vue:4
 msgid "tag"
 msgstr "Tag"
@@ -371,7 +386,16 @@ msgstr "Tag"
 msgid "the is last version"
 msgstr "the is last version"
 
-#: src/pages/maintance/localBackup.vue:169
+#: src/pages/maintance/localBackup.vue:253
+msgid ""
+"The system will automatically restart after restore. Do you want to continue?"
+msgstr ""
+
+#: src/pages/maintance/localBackup.vue:24
+msgid "the system will reboot immediately when the restore is complete"
+msgstr "the system will reboot immediately when the restore is complete"
+
+#: src/pages/maintance/localBackup.vue:198
 msgid "there are no backup files in this path"
 msgstr "there are no backup files in this path"
 
@@ -418,8 +442,8 @@ msgid "upgrade"
 msgstr "upgrade"
 
 #: src/pages/maintance/lightBackup.vue:13
-msgid "upload software list and install from iStore when restoring backup"
-msgstr "upload software list and install from iStore when restoring backup"
+msgid "upload software list and install from iStore when restoring"
+msgstr "upload software list and install from iStore when restoring"
 
 #: src/pages/maintance/lightBackup.vue:72 src/pages/upload/index.vue:88
 msgid "uploading"
@@ -432,6 +456,9 @@ msgstr "website"
 #: src/components/app/index.vue:217
 msgid "you have already liked"
 msgstr "you have already liked"
+
+#~ msgid "overlay backup"
+#~ msgstr "overlay backup"
 
 #~ msgid "do not refresh this page during plugin installation/uninstallation"
 #~ msgstr "do not refresh this page during plugin installation/uninstallation"

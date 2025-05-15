@@ -40,21 +40,23 @@ msgstr "作者"
 msgid "backup fail"
 msgstr "备份失败"
 
-#: src/pages/maintance/localBackup.vue:200
-#: src/pages/maintance/localBackup.vue:205
+#: src/pages/maintance/localBackup.vue:229
+#: src/pages/maintance/localBackup.vue:234
 msgid "backup fail with error code"
 msgstr "备份失败，错误代码"
 
 #: src/pages/maintance/lightBackup.vue:18
-#: src/pages/maintance/localBackup.vue:34
+#: src/pages/maintance/localBackup.vue:46
 msgid "backup now"
 msgstr "立即备份"
 
-#: src/pages/maintance/localBackup.vue:61
-msgid ""
-"backup now backs up installed software (unlimited installation sources) to "
-"external storage"
-msgstr "立即备份将备份已安装软件（不限安装来源）到外部存储"
+#: src/pages/maintance/localBackup.vue:9
+msgid "backup now backs up installed software to external storage"
+msgstr "立即备份将备份已安装的软件到外部存储"
+
+#: src/pages/maintance/localBackup.vue:12
+msgid "backup now backs up system and sandbox to external storage"
+msgstr "立即备份将备份系统和沙箱到外部存储"
 
 #: src/pages/maintance/lightBackup.vue:9
 msgid "backup now will download a list of iStore installed software"
@@ -80,7 +82,7 @@ msgstr "按下载"
 msgid "By rating"
 msgstr "按评分"
 
-#: src/components/Open/OpenQuickstartInstallApp/index.vue:242
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:250
 msgid "Can't be empty"
 msgstr "不能为空"
 
@@ -92,11 +94,11 @@ msgstr "取消"
 msgid "checking for latest version"
 msgstr "正在检查最新版本"
 
-#: src/pages/maintance/localBackup.vue:22
+#: src/pages/maintance/localBackup.vue:34
 msgid "choose"
 msgstr "请选择"
 
-#: src/pages/maintance/localBackup.vue:41
+#: src/pages/maintance/localBackup.vue:53
 msgid "choose backup file"
 msgstr "选择备份文件"
 
@@ -116,7 +118,7 @@ msgstr "关闭"
 msgid "config"
 msgstr "配置"
 
-#: src/pages/maintance/localBackup.vue:26
+#: src/pages/maintance/localBackup.vue:38
 msgid "customize"
 msgstr "自定义"
 
@@ -125,7 +127,7 @@ msgid "default"
 msgstr "默认"
 
 #: src/components/app/index.vue:162
-#: src/components/Open/OpenQuickstartInstallApp/index.vue:215
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:223
 msgid "Docker is not installed on the system, try to install it?"
 msgstr "系统中未安装Docker，是否尝试安装？"
 
@@ -137,7 +139,7 @@ msgstr "下载"
 msgid "explain"
 msgstr "说明"
 
-#: src/pages/maintance/localBackup.vue:16
+#: src/pages/maintance/localBackup.vue:28
 msgid "external storage directory"
 msgstr "外部存储目录"
 
@@ -157,6 +159,10 @@ msgstr "图标出走啦"
 msgid "in this page, you can upload and install packages"
 msgstr "通过本页面，你可以上传并安装插件包"
 
+#: src/pages/maintance/localBackup.vue:15
+msgid "includes system configuration and installed packages"
+msgstr "包括系统配置和已安装软件包"
+
 #: src/components/app/index.vue:100
 msgid "install"
 msgstr "安装"
@@ -174,14 +180,18 @@ msgid "Install only"
 msgstr "仅安装"
 
 #: src/components/app/index.vue:168 src/components/app/index.vue:180
-#: src/components/Open/OpenQuickstartInstallApp/index.vue:221
-#: src/components/Open/OpenQuickstartInstallApp/index.vue:233
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:229
+#: src/components/Open/OpenQuickstartInstallApp/index.vue:241
 msgid "installation failed, error code"
 msgstr "安装失败,错误码"
 
 #: src/components/tabs/index.vue:23
 msgid "installed"
 msgstr "已安装"
+
+#: src/pages/maintance/localBackup.vue:18
+msgid "it is recommended to perform restore only on the same model"
+msgstr "建议只在相同机型上执行恢复"
 
 #: src/pages/maintance/update.vue:9
 msgid "last version"
@@ -243,8 +253,8 @@ msgstr "组网"
 msgid "no files selected"
 msgstr "未选择任何文件"
 
-#: src/pages/maintance/localBackup.vue:12
-msgid "no internet required for recovery"
+#: src/pages/maintance/localBackup.vue:21
+msgid "no internet required for restore"
 msgstr "恢复时不需要网络"
 
 #: src/pages/upload/index.vue:4
@@ -267,11 +277,11 @@ msgstr "排序"
 msgid "packages installed offline may not appear in iStore"
 msgstr "离线安装的插件可能不会出现在iStore中"
 
-#: src/pages/maintance/localBackup.vue:29
+#: src/pages/maintance/localBackup.vue:41
 msgid "please enter an absolute path starting with %{name}"
 msgstr "请输入 %{name} 开头的绝对路径"
 
-#: src/pages/maintance/localBackup.vue:141
+#: src/pages/maintance/localBackup.vue:169
 msgid "please enter the path, give up the input, please clear the input box"
 msgstr "请输入路径，放弃输入请清空输入框"
 
@@ -279,12 +289,12 @@ msgstr "请输入路径，放弃输入请清空输入框"
 msgid "please enter the search keyword"
 msgstr "请输入搜索关键词"
 
-#: src/pages/maintance/localBackup.vue:159
-#: src/pages/maintance/localBackup.vue:193
+#: src/pages/maintance/localBackup.vue:187
+#: src/pages/maintance/localBackup.vue:222
 msgid "please fill in the external storage directory"
 msgstr "请填写外部存储目录"
 
-#: src/pages/maintance/localBackup.vue:220
+#: src/pages/maintance/localBackup.vue:249
 msgid "please select a backup file to restore"
 msgstr "请选择要恢复的备份文件"
 
@@ -301,18 +311,21 @@ msgid "quickinstall"
 msgstr "快速安装"
 
 #: src/pages/maintance/lightBackup.vue:21
-#: src/pages/maintance/localBackup.vue:36
 msgid "restore backup"
 msgstr "恢复备份"
 
+#: src/pages/maintance/localBackup.vue:48
+msgid "restore backup..."
+msgstr "恢复备份..."
+
 #: src/pages/maintance/lightBackup.vue:76
 #: src/pages/maintance/lightBackup.vue:81
-#: src/pages/maintance/localBackup.vue:226
-#: src/pages/maintance/localBackup.vue:231
+#: src/pages/maintance/localBackup.vue:259
+#: src/pages/maintance/localBackup.vue:264
 msgid "restore failed with error code"
 msgstr "恢复失败，错误代码"
 
-#: src/pages/maintance/localBackup.vue:47
+#: src/pages/maintance/localBackup.vue:59
 msgid "restore now"
 msgstr "立即恢复"
 
@@ -360,6 +373,10 @@ msgstr "支持 .ipk 包，.run 自解压格式"
 msgid "system"
 msgstr "系统"
 
+#: src/pages/maintance/index.vue:27
+msgid "system backup"
+msgstr "系统备份"
+
 #: src/pages/store/components/tag.vue:4
 msgid "tag"
 msgstr "标签"
@@ -368,7 +385,16 @@ msgstr "标签"
 msgid "the is last version"
 msgstr "当前已经是最新版本"
 
-#: src/pages/maintance/localBackup.vue:169
+#: src/pages/maintance/localBackup.vue:253
+msgid ""
+"The system will automatically restart after restore. Do you want to continue?"
+msgstr "恢复完成后将会自动重启系统，是否继续？"
+
+#: src/pages/maintance/localBackup.vue:24
+msgid "the system will reboot immediately when the restore is complete"
+msgstr "恢复完成后将会自动重启系统"
+
+#: src/pages/maintance/localBackup.vue:198
 msgid "there are no backup files in this path"
 msgstr "此路径下没有备份文件"
 
@@ -415,7 +441,7 @@ msgid "upgrade"
 msgstr "更新"
 
 #: src/pages/maintance/lightBackup.vue:13
-msgid "upload software list and install from iStore when restoring backup"
+msgid "upload software list and install from iStore when restoring"
 msgstr "恢复备份时上传软件列表并从iStore安装"
 
 #: src/pages/maintance/lightBackup.vue:72 src/pages/upload/index.vue:88
@@ -429,6 +455,9 @@ msgstr "官网"
 #: src/components/app/index.vue:217
 msgid "you have already liked"
 msgstr "您已经点赞过啦"
+
+#~ msgid "overlay backup"
+#~ msgstr "系统备份"
 
 #~ msgid "do not refresh this page during plugin installation/uninstallation"
 #~ msgstr "插件安装/卸载过程中请勿刷新此页面"
