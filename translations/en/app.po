@@ -390,6 +390,7 @@ msgstr "the is last version"
 msgid ""
 "The system will automatically restart after restore. Do you want to continue?"
 msgstr ""
+"The system will automatically restart after restore. Do you want to continue?"
 
 #: src/pages/maintance/localBackup.vue:24
 msgid "the system will reboot immediately when the restore is complete"
