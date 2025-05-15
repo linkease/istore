@@ -684,6 +684,8 @@ function local_backup()
     local path = luci.http.formvalue("path")
     if path ~= "" then
         -- judge path
+        local fs   = require "nixio.fs"
+        fs.mkdirr(path)
         code,out,err = is_exec("findmnt -T " .. path .. " -o TARGET|sed -n 2p")
         if out:gsub("[\r\n]", "") == "/" or out:gsub("[\r\n]", "") == "/tmp" then
             -- error
