@@ -66,16 +66,18 @@ backup() {
         echo "found mount point $mountpoint"
     fi
 
+    local filename_suffix=
     local tar_extra_args=
     if has_ext_overlay; then
         tar_extra_args="$tar_extra_args ext_overlay/upper"
+        filename_suffix="${filename_suffix}.s"
     fi
 
     local hostname=$(cat /proc/sys/kernel/hostname)
     local fwver=$(. /etc/openwrt_release; echo $DISTRIB_ID-$DISTRIB_RELEASE)
 
     local date=$(date +%Y-%m%d-%H%M)
-    local backup_name="backup_overlay_${hostname}_${fwver}_${date}.overlay.tar.gz"
+    local backup_name="backup_overlay_${hostname}_${fwver}_${date}${filename_suffix}.overlay.tar.gz"
     local backup_full_path="$BACKUP_PATH/$backup_name"
     echo "writing backup to $backup_full_path"
     if tar -C / -cz overlay/upper $tar_extra_args > "$backup_full_path" ; then
