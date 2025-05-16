@@ -41,13 +41,13 @@ msgstr "author"
 msgid "backup fail"
 msgstr "backup fail"
 
-#: src/pages/maintance/localBackup.vue:229
-#: src/pages/maintance/localBackup.vue:234
+#: src/pages/maintance/localBackup.vue:235
+#: src/pages/maintance/localBackup.vue:240
 msgid "backup fail with error code"
 msgstr "backup fail with error code"
 
 #: src/pages/maintance/lightBackup.vue:18
-#: src/pages/maintance/localBackup.vue:46
+#: src/pages/maintance/localBackup.vue:52
 msgid "backup now"
 msgstr "backup now"
 
@@ -95,11 +95,11 @@ msgstr "Cancel"
 msgid "checking for latest version"
 msgstr "checking for latest version"
 
-#: src/pages/maintance/localBackup.vue:34
+#: src/pages/maintance/localBackup.vue:40
 msgid "choose"
 msgstr "choose"
 
-#: src/pages/maintance/localBackup.vue:53
+#: src/pages/maintance/localBackup.vue:59
 msgid "choose backup file"
 msgstr "choose backup file"
 
@@ -119,7 +119,7 @@ msgstr "closed"
 msgid "config"
 msgstr "config"
 
-#: src/pages/maintance/localBackup.vue:38
+#: src/pages/maintance/localBackup.vue:44
 msgid "customize"
 msgstr "customize"
 
@@ -140,7 +140,7 @@ msgstr "Download"
 msgid "explain"
 msgstr "explain"
 
-#: src/pages/maintance/localBackup.vue:28
+#: src/pages/maintance/localBackup.vue:34
 msgid "external storage directory"
 msgstr "external storage directory"
 
@@ -155,6 +155,14 @@ msgstr "hide incompatible packages"
 #: src/components/app/index.vue:6
 msgid "Icon is gone"
 msgstr "Icon is gone"
+
+#: src/pages/maintance/localBackup.vue:24
+msgid ""
+"if you want to restore sandbox backups, please enter the sandbox environment "
+"first"
+msgstr ""
+"if you want to restore sandbox backups, please enter the sandbox environment "
+"first"
 
 #: src/pages/upload/index.vue:6
 msgid "in this page, you can upload and install packages"
@@ -254,7 +262,7 @@ msgstr "Networking"
 msgid "no files selected"
 msgstr "no files selected"
 
-#: src/pages/maintance/localBackup.vue:21
+#: src/pages/maintance/localBackup.vue:27
 msgid "no internet required for restore"
 msgstr "no internet required for restore"
 
@@ -278,11 +286,11 @@ msgstr "order"
 msgid "packages installed offline may not appear in iStore"
 msgstr "packages installed offline may not appear in iStore"
 
-#: src/pages/maintance/localBackup.vue:41
+#: src/pages/maintance/localBackup.vue:47
 msgid "please enter an absolute path starting with %{name}"
 msgstr "please enter an absolute path starting with %{name}"
 
-#: src/pages/maintance/localBackup.vue:169
+#: src/pages/maintance/localBackup.vue:175
 msgid "please enter the path, give up the input, please clear the input box"
 msgstr "please enter the path, give up the input, please clear the input box"
 
@@ -290,12 +298,12 @@ msgstr "please enter the path, give up the input, please clear the input box"
 msgid "please enter the search keyword"
 msgstr "please enter the search keyword"
 
-#: src/pages/maintance/localBackup.vue:187
-#: src/pages/maintance/localBackup.vue:222
+#: src/pages/maintance/localBackup.vue:193
+#: src/pages/maintance/localBackup.vue:228
 msgid "please fill in the external storage directory"
 msgstr "please fill in the external storage directory"
 
-#: src/pages/maintance/localBackup.vue:249
+#: src/pages/maintance/localBackup.vue:255
 msgid "please select a backup file to restore"
 msgstr "please select a backup file to restore"
 
@@ -315,24 +323,28 @@ msgstr "quickinstall"
 msgid "restore backup"
 msgstr "restore backup"
 
-#: src/pages/maintance/localBackup.vue:48
+#: src/pages/maintance/localBackup.vue:54
 msgid "restore backup..."
 msgstr "restore backup..."
 
 #: src/pages/maintance/lightBackup.vue:76
 #: src/pages/maintance/lightBackup.vue:81
-#: src/pages/maintance/localBackup.vue:259
-#: src/pages/maintance/localBackup.vue:264
+#: src/pages/maintance/localBackup.vue:265
+#: src/pages/maintance/localBackup.vue:270
 msgid "restore failed with error code"
 msgstr "restore failed with error code"
 
-#: src/pages/maintance/localBackup.vue:59
+#: src/pages/maintance/localBackup.vue:65
 msgid "restore now"
 msgstr "restore now"
 
 #: src/components/Open/OpenQuickstartInstallApp/index.vue:37
 msgid "Run after install"
 msgstr "Run after install"
+
+#: src/pages/maintance/localBackup.vue:21
+msgid "sandbox backups will not be listed in a non-sandbox environment"
+msgstr "sandbox backups will not be listed in a non-sandbox environment"
 
 #: src/pages/upload/index.vue:20
 msgid "select or drag and drop files"
@@ -386,17 +398,17 @@ msgstr "Tag"
 msgid "the is last version"
 msgstr "the is last version"
 
-#: src/pages/maintance/localBackup.vue:253
+#: src/pages/maintance/localBackup.vue:259
 msgid ""
 "The system will automatically restart after restore. Do you want to continue?"
 msgstr ""
 "The system will automatically restart after restore. Do you want to continue?"
 
-#: src/pages/maintance/localBackup.vue:24
+#: src/pages/maintance/localBackup.vue:30
 msgid "the system will reboot immediately when the restore is complete"
 msgstr "the system will reboot immediately when the restore is complete"
 
-#: src/pages/maintance/localBackup.vue:198
+#: src/pages/maintance/localBackup.vue:204
 msgid "there are no backup files in this path"
 msgstr "there are no backup files in this path"
 
