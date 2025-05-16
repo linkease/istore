@@ -105,14 +105,14 @@ restore() {
         exit 1
     fi
 
-    local tar_extra_args=
+    local tar_extra_args=overlay/upper
     if has_ext_overlay; then
-        tar_extra_args="$tar_extra_args ext_overlay/upper"
+        tar_extra_args=
     fi
 
     sync /
     echo "restoring from ${BACKUP_PATH_FILE}"
-    if tar -C / -xz overlay/upper $tar_extra_args < "${BACKUP_PATH_FILE}" ; then
+    if tar -C / -xz $tar_extra_args < "${BACKUP_PATH_FILE}" ; then
         sync /overlay /ext_overlay
         echo "restore success"
         echo "schedule to restart after 5 seconds!"
