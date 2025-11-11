@@ -29,9 +29,21 @@ msgstr "all app"
 msgid "app backup"
 msgstr "app backup"
 
+#: src/pages/upload/index.vue:154
+msgid ""
+"Are you sure you want to delete this installation record (without "
+"uninstallation)?"
+msgstr ""
+
 #: src/components/app/index.vue:184
 msgid "are you sure you want to uninstall %{name}?"
 msgstr "are you sure you want to uninstall %{name}?"
+
+#: src/pages/upload/index.vue:167
+msgid ""
+"Are you sure you want to uninstall the packages installed by this record? "
+"The record will be deleted if uninstallation successed."
+msgstr ""
 
 #: src/components/app/index.vue:52
 msgid "author"
@@ -127,6 +139,14 @@ msgstr "customize"
 msgid "default"
 msgstr "default"
 
+#: src/pages/upload/index.vue:59
+msgid "Delete"
+msgstr ""
+
+#: src/pages/upload/index.vue:156
+msgid "deleting"
+msgstr ""
+
 #: src/components/app/index.vue:162
 #: src/components/Open/OpenQuickstartInstallApp/index.vue:223
 msgid "Docker is not installed on the system, try to install it?"
@@ -144,6 +164,10 @@ msgstr "explain"
 msgid "external storage directory"
 msgstr "external storage directory"
 
+#: src/pages/upload/index.vue:46 src/pages/upload/index.vue:55
+msgid "Filename"
+msgstr ""
+
 #: src/pages/maintance/config.vue:5
 msgid "hide docker packages"
 msgstr "hide docker packages"
@@ -156,6 +180,25 @@ msgstr "hide incompatible packages"
 msgid "Icon is gone"
 msgstr "Icon is gone"
 
+#: src/pages/upload/index.vue:16
+msgid ""
+"If the package was downloaded from a third party, please assess the risks "
+"yourself"
+msgstr ""
+
+#: src/pages/upload/index.vue:38
+msgid ""
+"If the same offline package is installed twice without being uninstalled in "
+"between, there is a high probability that no new installation record will be "
+"generated."
+msgstr ""
+
+#: src/pages/upload/index.vue:37
+msgid ""
+"If the system package list changes after offline installation, an "
+"installation record will be generated."
+msgstr ""
+
 #: src/pages/maintance/localBackup.vue:24
 msgid ""
 "if you want to restore sandbox backups, please enter the sandbox environment "
@@ -164,7 +207,7 @@ msgstr ""
 "if you want to restore sandbox backups, please enter the sandbox environment "
 "first"
 
-#: src/pages/upload/index.vue:6
+#: src/pages/upload/index.vue:7
 msgid "in this page, you can upload and install packages"
 msgstr "in this page, you can upload and install packages"
 
@@ -193,6 +236,11 @@ msgstr "Install only"
 #: src/components/Open/OpenQuickstartInstallApp/index.vue:241
 msgid "installation failed, error code"
 msgstr "installation failed, error code"
+
+#: src/pages/upload/index.vue:45 src/pages/upload/index.vue:53
+#, fuzzy
+msgid "Installation time"
+msgstr "Install and setup"
 
 #: src/components/tabs/index.vue:23
 msgid "installed"
@@ -226,6 +274,10 @@ msgstr "liked"
 msgid "loading data"
 msgstr "loading data"
 
+#: src/pages/upload/index.vue:51
+msgid "Loading view…"
+msgstr ""
+
 #: src/pages/maintance/index.vue:22
 msgid "local backup"
 msgstr "local backup"
@@ -258,7 +310,7 @@ msgstr "Net"
 msgid "networking"
 msgstr "Networking"
 
-#: src/pages/upload/index.vue:17 src/pages/upload/index.vue:18
+#: src/pages/upload/index.vue:21 src/pages/upload/index.vue:22
 msgid "no files selected"
 msgstr "no files selected"
 
@@ -266,12 +318,17 @@ msgstr "no files selected"
 msgid "no internet required for restore"
 msgstr "no internet required for restore"
 
-#: src/pages/upload/index.vue:4
+#: src/pages/upload/index.vue:3
 msgid "offline install"
 msgstr "offline install"
 
-#: src/pages/upload/index.vue:92 src/pages/upload/index.vue:97
+#: src/pages/upload/index.vue:141 src/pages/upload/index.vue:146
 msgid "offline installation failed with error code"
+msgstr "offline installation failed with error code"
+
+#: src/pages/upload/index.vue:34
+#, fuzzy
+msgid "Offline installation records"
 msgstr "offline installation failed with error code"
 
 #: src/components/app/index.vue:82
@@ -282,7 +339,7 @@ msgstr "open"
 msgid "order"
 msgstr "order"
 
-#: src/pages/upload/index.vue:12
+#: src/pages/upload/index.vue:13
 msgid "packages installed offline may not appear in iStore"
 msgstr "packages installed offline may not appear in iStore"
 
@@ -346,7 +403,7 @@ msgstr "Run after install"
 msgid "sandbox backups will not be listed in a non-sandbox environment"
 msgstr "sandbox backups will not be listed in a non-sandbox environment"
 
-#: src/pages/upload/index.vue:20
+#: src/pages/upload/index.vue:24
 msgid "select or drag and drop files"
 msgstr "select or drag and drop files"
 
@@ -378,8 +435,9 @@ msgstr "Stop"
 msgid "Storage"
 msgstr "Storage"
 
-#: src/pages/upload/index.vue:9
-msgid "supports .ipk packages, .run self-extracting packages"
+#: src/pages/upload/index.vue:10
+#, fuzzy
+msgid "supports .ipk packages, .run self-extracting installer"
 msgstr "supports .ipk packages, .run self-extracting packages"
 
 #: src/plugins/i18n/index.ts:43
@@ -425,9 +483,24 @@ msgstr "tutorial"
 msgid "uninstall"
 msgstr "uninstall"
 
+#: src/pages/upload/index.vue:60
+#, fuzzy
+msgid "Uninstall"
+msgstr "uninstall"
+
 #: src/components/app/index.vue:193 src/components/app/index.vue:198
 msgid "uninstall failed, error code"
 msgstr "uninstall failed, error code"
+
+#: src/pages/upload/index.vue:173
+#, fuzzy
+msgid "uninstallation failed with error code"
+msgstr "offline installation failed with error code"
+
+#: src/pages/upload/index.vue:169
+#, fuzzy
+msgid "uninstalling"
+msgstr "uninstall"
 
 #: src/components/app/index.vue:56
 msgid "update date"
@@ -458,13 +531,17 @@ msgstr "upgrade"
 msgid "upload software list and install from iStore when restoring"
 msgstr "upload software list and install from iStore when restoring"
 
-#: src/pages/maintance/lightBackup.vue:72 src/pages/upload/index.vue:88
+#: src/pages/maintance/lightBackup.vue:72 src/pages/upload/index.vue:137
 msgid "uploading"
 msgstr "uploading"
 
 #: src/components/app/index.vue:66
 msgid "website"
 msgstr "website"
+
+#: src/pages/upload/index.vue:39
+msgid "You can delete the installation record or uninstall the packages here."
+msgstr ""
 
 #: src/components/app/index.vue:217
 msgid "you have already liked"
