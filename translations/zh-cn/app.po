@@ -155,6 +155,14 @@ msgstr "系统中未安装Docker，是否尝试安装？"
 msgid "download"
 msgstr "下载"
 
+#: src/pages/maintance/config.vue:9
+msgid "download via any IP version"
+msgstr "通过任意 IP 版本下载"
+
+#: src/pages/maintance/config.vue:9
+msgid "download via IPv4 only"
+msgstr "仅通过 IPv4 下载"
+
 #: src/pages/maintance/lightBackup.vue:4 src/pages/maintance/localBackup.vue:4
 msgid "explain"
 msgstr "说明"
@@ -190,7 +198,8 @@ msgid ""
 "If the same offline package is installed twice without being uninstalled in "
 "between, there is a high probability that no new installation record will be "
 "generated."
-msgstr "如果同一离线包在未卸载的情况下重复安装两次，很有可能不会生成新的安装记录。"
+msgstr ""
+"如果同一离线包在未卸载的情况下重复安装两次，很有可能不会生成新的安装记录。"
 
 #: src/pages/upload/index.vue:37
 msgid ""

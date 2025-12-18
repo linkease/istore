@@ -146,6 +146,14 @@ msgstr ""
 msgid "download"
 msgstr ""
 
+#: src/pages/maintance/config.vue:9
+msgid "download via any IP version"
+msgstr ""
+
+#: src/pages/maintance/config.vue:9
+msgid "download via IPv4 only"
+msgstr ""
+
 #: src/pages/maintance/lightBackup.vue:4
 #: src/pages/maintance/localBackup.vue:4
 msgid "explain"
