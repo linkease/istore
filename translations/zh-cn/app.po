@@ -24,6 +24,10 @@ msgstr[1] "%{ num } 次点赞"
 msgid "all app"
 msgstr "全部软件"
 
+#: src/pages/maintance/update.vue:13
+msgid "Already the latest version."
+msgstr "已经是最新版本"
+
 #: src/pages/maintance/index.vue:12
 msgid "app backup"
 msgstr "软件备份"
@@ -103,8 +107,8 @@ msgid "Cancel"
 msgstr "取消"
 
 #: src/pages/maintance/update.vue:4
-msgid "checking for latest version"
-msgstr "正在检查最新版本"
+msgid "Checking the latest version..."
+msgstr "正在检查最新版本..."
 
 #: src/pages/maintance/localBackup.vue:40
 msgid "choose"
@@ -119,7 +123,7 @@ msgid "click to download"
 msgstr "点此下载"
 
 #: src/pages/maintance/update.vue:11
-msgid "click to update"
+msgid "Click to update"
 msgstr "点我更新"
 
 #: src/components/toast/index.vue:3
@@ -143,7 +147,7 @@ msgid "Delete"
 msgstr "删除"
 
 #: src/pages/upload/index.vue:156
-msgid "deleting"
+msgid "Deleting"
 msgstr "删除中"
 
 #: src/components/app/index.vue:162
@@ -156,11 +160,11 @@ msgid "download"
 msgstr "下载"
 
 #: src/pages/maintance/config.vue:9
-msgid "download via any IP version"
+msgid "Download via any IP version"
 msgstr "通过任意 IP 版本下载"
 
 #: src/pages/maintance/config.vue:9
-msgid "download via IPv4 only"
+msgid "Download via IPv4 only"
 msgstr "仅通过 IPv4 下载"
 
 #: src/pages/maintance/lightBackup.vue:4 src/pages/maintance/localBackup.vue:4
@@ -176,11 +180,11 @@ msgid "Filename"
 msgstr "文件名"
 
 #: src/pages/maintance/config.vue:5
-msgid "hide docker packages"
+msgid "Hide docker packages"
 msgstr "隐藏 Docker 插件"
 
 #: src/pages/maintance/config.vue:7
-msgid "hide incompatible packages"
+msgid "Hide incompatible packages"
 msgstr "隐藏架构不兼容插件"
 
 #: src/components/app/index.vue:6
@@ -214,7 +218,7 @@ msgid ""
 msgstr "如果要恢复沙箱备份请先进入沙箱环境"
 
 #: src/pages/upload/index.vue:7
-msgid "in this page, you can upload and install packages"
+msgid "In this page, you can upload and install packages"
 msgstr "通过本页面，你可以上传并安装插件包"
 
 #: src/pages/maintance/localBackup.vue:15
@@ -240,7 +244,8 @@ msgstr "仅安装"
 #: src/components/app/index.vue:168 src/components/app/index.vue:180
 #: src/components/Open/OpenQuickstartInstallApp/index.vue:229
 #: src/components/Open/OpenQuickstartInstallApp/index.vue:241
-msgid "installation failed, error code"
+#: src/pages/upload/index.vue:141 src/pages/upload/index.vue:146
+msgid "Installation failed with error code"
 msgstr "安装失败,错误码"
 
 #: src/pages/upload/index.vue:45 src/pages/upload/index.vue:53
@@ -255,13 +260,13 @@ msgstr "已安装"
 msgid "it is recommended to perform restore only on the same model"
 msgstr "建议只在相同机型上执行恢复"
 
-#: src/pages/maintance/update.vue:9
-msgid "last version"
-msgstr "最新版本"
-
 #: src/pages/store/components/sort.vue:32
 msgid "Latest update"
 msgstr "最近更新"
+
+#: src/pages/maintance/update.vue:9
+msgid "Latest version"
+msgstr "最新版本"
 
 #: src/pages/maintance/index.vue:17
 msgid "light backup"
@@ -316,7 +321,7 @@ msgid "networking"
 msgstr "组网"
 
 #: src/pages/upload/index.vue:21 src/pages/upload/index.vue:22
-msgid "no files selected"
+msgid "No file selected"
 msgstr "未选择任何文件"
 
 #: src/pages/maintance/localBackup.vue:27
@@ -324,12 +329,8 @@ msgid "no internet required for restore"
 msgstr "恢复时不需要网络"
 
 #: src/pages/upload/index.vue:3
-msgid "offline install"
+msgid "Offline Installation"
 msgstr "离线安装"
-
-#: src/pages/upload/index.vue:141 src/pages/upload/index.vue:146
-msgid "offline installation failed with error code"
-msgstr "离线安装失败,错误码"
 
 #: src/pages/upload/index.vue:34
 msgid "Offline installation records"
@@ -344,7 +345,7 @@ msgid "order"
 msgstr "排序"
 
 #: src/pages/upload/index.vue:13
-msgid "packages installed offline may not appear in iStore"
+msgid "Packages installed offline may not appear in iStore"
 msgstr "离线安装的插件可能不会出现在iStore中"
 
 #: src/pages/maintance/localBackup.vue:47
@@ -392,7 +393,7 @@ msgstr "恢复备份..."
 #: src/pages/maintance/lightBackup.vue:81
 #: src/pages/maintance/localBackup.vue:265
 #: src/pages/maintance/localBackup.vue:270
-msgid "restore failed with error code"
+msgid "Restore failed with error code"
 msgstr "恢复失败，错误代码"
 
 #: src/pages/maintance/localBackup.vue:65
@@ -408,19 +409,19 @@ msgid "sandbox backups will not be listed in a non-sandbox environment"
 msgstr "非沙箱环境下不会列出沙箱备份文件"
 
 #: src/pages/upload/index.vue:24
-msgid "select or drag and drop files"
-msgstr "选择或拖放文件"
+msgid "Select or drag and drop file to here"
+msgstr "选择或拖放文件到此处"
 
 #: src/plugins/i18n/index.ts:39
 msgid "service"
 msgstr "服务"
 
 #: src/pages/maintance/config.vue:5
-msgid "show docker packages"
+msgid "Show docker packages"
 msgstr "显示 Docker 插件"
 
 #: src/pages/maintance/config.vue:7
-msgid "show incompatible packages"
+msgid "Show incompatible packages"
 msgstr "显示架构不兼容插件"
 
 #: src/components/Open/OpenQuickstartInstallApp/index.vue:46
@@ -440,7 +441,7 @@ msgid "Storage"
 msgstr "存储位置"
 
 #: src/pages/upload/index.vue:10
-msgid "supports .ipk packages, .run self-extracting installer"
+msgid "Supports .ipk packages, .run self-extracting installer"
 msgstr "支持 .ipk 包，.run 自解压安装器"
 
 #: src/plugins/i18n/index.ts:43
@@ -454,10 +455,6 @@ msgstr "系统备份"
 #: src/pages/store/components/tag.vue:4
 msgid "tag"
 msgstr "标签"
-
-#: src/pages/maintance/update.vue:13
-msgid "the is last version"
-msgstr "当前已经是最新版本"
 
 #: src/pages/maintance/localBackup.vue:259
 msgid ""
@@ -494,11 +491,11 @@ msgid "uninstall failed, error code"
 msgstr "卸载失败,错误码"
 
 #: src/pages/upload/index.vue:173
-msgid "uninstallation failed with error code"
+msgid "Uninstallation failed with error code"
 msgstr "卸载失败,错误码"
 
 #: src/pages/upload/index.vue:169
-msgid "uninstalling"
+msgid "Uninstalling"
 msgstr "卸载中"
 
 #: src/components/app/index.vue:56
@@ -506,7 +503,7 @@ msgid "update date"
 msgstr "更新日期"
 
 #: src/pages/maintance/update.vue:49
-msgid "update error"
+msgid "Update error"
 msgstr "更新失败"
 
 #: src/components/app/index.vue:152 src/components/app/index.vue:157
@@ -514,11 +511,11 @@ msgid "update failed with error code"
 msgstr "更新失败，错误代码"
 
 #: src/pages/maintance/update.vue:37
-msgid "update success, reloading"
+msgid "Update success, reloading"
 msgstr "更新成功，重新加载页面"
 
 #: src/pages/maintance/update.vue:32
-msgid "updateing"
+msgid "Updating"
 msgstr "正在更新中"
 
 #: src/components/app/index.vue:75 src/components/app/index.vue:76
@@ -531,7 +528,7 @@ msgid "upload software list and install from iStore when restoring"
 msgstr "恢复备份时上传软件列表并从iStore安装"
 
 #: src/pages/maintance/lightBackup.vue:72 src/pages/upload/index.vue:137
-msgid "uploading"
+msgid "Uploading"
 msgstr "上传中"
 
 #: src/components/app/index.vue:66
@@ -544,7 +541,7 @@ msgstr "你可以在这里删除安装记录或卸载软件包。"
 
 #: src/components/app/index.vue:217
 msgid "you have already liked"
-msgstr "您已经点赞过啦"
+msgstr "您已经点过赞啦"
 
 #~ msgid "overlay backup"
 #~ msgstr "系统备份"

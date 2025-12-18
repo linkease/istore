@@ -25,6 +25,10 @@ msgstr[1] "%{ num } likes"
 msgid "all app"
 msgstr "all app"
 
+#: src/pages/maintance/update.vue:13
+msgid "Already the latest version."
+msgstr ""
+
 #: src/pages/maintance/index.vue:12
 msgid "app backup"
 msgstr "app backup"
@@ -104,8 +108,8 @@ msgid "Cancel"
 msgstr "Cancel"
 
 #: src/pages/maintance/update.vue:4
-msgid "checking for latest version"
-msgstr "checking for latest version"
+msgid "Checking the latest version..."
+msgstr ""
 
 #: src/pages/maintance/localBackup.vue:40
 msgid "choose"
@@ -120,8 +124,8 @@ msgid "click to download"
 msgstr "click to download"
 
 #: src/pages/maintance/update.vue:11
-msgid "click to update"
-msgstr "click to update"
+msgid "Click to update"
+msgstr ""
 
 #: src/components/toast/index.vue:3
 msgid "closed"
@@ -144,7 +148,7 @@ msgid "Delete"
 msgstr ""
 
 #: src/pages/upload/index.vue:156
-msgid "deleting"
+msgid "Deleting"
 msgstr ""
 
 #: src/components/app/index.vue:162
@@ -157,11 +161,11 @@ msgid "download"
 msgstr "Download"
 
 #: src/pages/maintance/config.vue:9
-msgid "download via any IP version"
+msgid "Download via any IP version"
 msgstr ""
 
 #: src/pages/maintance/config.vue:9
-msgid "download via IPv4 only"
+msgid "Download via IPv4 only"
 msgstr ""
 
 #: src/pages/maintance/lightBackup.vue:4 src/pages/maintance/localBackup.vue:4
@@ -177,12 +181,12 @@ msgid "Filename"
 msgstr ""
 
 #: src/pages/maintance/config.vue:5
-msgid "hide docker packages"
-msgstr "hide docker packages"
+msgid "Hide docker packages"
+msgstr ""
 
 #: src/pages/maintance/config.vue:7
-msgid "hide incompatible packages"
-msgstr "hide incompatible packages"
+msgid "Hide incompatible packages"
+msgstr ""
 
 #: src/components/app/index.vue:6
 msgid "Icon is gone"
@@ -216,8 +220,8 @@ msgstr ""
 "first"
 
 #: src/pages/upload/index.vue:7
-msgid "in this page, you can upload and install packages"
-msgstr "in this page, you can upload and install packages"
+msgid "In this page, you can upload and install packages"
+msgstr ""
 
 #: src/pages/maintance/localBackup.vue:15
 msgid "includes system configuration and installed packages"
@@ -242,13 +246,13 @@ msgstr "Install only"
 #: src/components/app/index.vue:168 src/components/app/index.vue:180
 #: src/components/Open/OpenQuickstartInstallApp/index.vue:229
 #: src/components/Open/OpenQuickstartInstallApp/index.vue:241
-msgid "installation failed, error code"
-msgstr "installation failed, error code"
+#: src/pages/upload/index.vue:141 src/pages/upload/index.vue:146
+msgid "Installation failed with error code"
+msgstr ""
 
 #: src/pages/upload/index.vue:45 src/pages/upload/index.vue:53
-#, fuzzy
 msgid "Installation time"
-msgstr "Install and setup"
+msgstr ""
 
 #: src/components/tabs/index.vue:23
 msgid "installed"
@@ -258,13 +262,13 @@ msgstr "installed"
 msgid "it is recommended to perform restore only on the same model"
 msgstr "it is recommended to perform restore only on the same model"
 
-#: src/pages/maintance/update.vue:9
-msgid "last version"
-msgstr "last version"
-
 #: src/pages/store/components/sort.vue:32
 msgid "Latest update"
 msgstr "Latest update"
+
+#: src/pages/maintance/update.vue:9
+msgid "Latest version"
+msgstr ""
 
 #: src/pages/maintance/index.vue:17
 msgid "light backup"
@@ -319,25 +323,20 @@ msgid "networking"
 msgstr "Networking"
 
 #: src/pages/upload/index.vue:21 src/pages/upload/index.vue:22
-msgid "no files selected"
-msgstr "no files selected"
+msgid "No file selected"
+msgstr ""
 
 #: src/pages/maintance/localBackup.vue:27
 msgid "no internet required for restore"
 msgstr "no internet required for restore"
 
 #: src/pages/upload/index.vue:3
-msgid "offline install"
-msgstr "offline install"
-
-#: src/pages/upload/index.vue:141 src/pages/upload/index.vue:146
-msgid "offline installation failed with error code"
-msgstr "offline installation failed with error code"
+msgid "Offline Installation"
+msgstr ""
 
 #: src/pages/upload/index.vue:34
-#, fuzzy
 msgid "Offline installation records"
-msgstr "offline installation failed with error code"
+msgstr "Offline installation records"
 
 #: src/components/app/index.vue:82
 msgid "open"
@@ -348,8 +347,8 @@ msgid "order"
 msgstr "order"
 
 #: src/pages/upload/index.vue:13
-msgid "packages installed offline may not appear in iStore"
-msgstr "packages installed offline may not appear in iStore"
+msgid "Packages installed offline may not appear in iStore"
+msgstr ""
 
 #: src/pages/maintance/localBackup.vue:47
 msgid "please enter an absolute path starting with %{name}"
@@ -396,8 +395,8 @@ msgstr "restore backup..."
 #: src/pages/maintance/lightBackup.vue:81
 #: src/pages/maintance/localBackup.vue:265
 #: src/pages/maintance/localBackup.vue:270
-msgid "restore failed with error code"
-msgstr "restore failed with error code"
+msgid "Restore failed with error code"
+msgstr ""
 
 #: src/pages/maintance/localBackup.vue:65
 msgid "restore now"
@@ -412,28 +411,28 @@ msgid "sandbox backups will not be listed in a non-sandbox environment"
 msgstr "sandbox backups will not be listed in a non-sandbox environment"
 
 #: src/pages/upload/index.vue:24
-msgid "select or drag and drop files"
-msgstr "select or drag and drop files"
+msgid "Select or drag and drop file to here"
+msgstr ""
 
 #: src/plugins/i18n/index.ts:39
 msgid "service"
 msgstr "Service"
 
 #: src/pages/maintance/config.vue:5
-msgid "show docker packages"
-msgstr "show docker packages"
+msgid "Show docker packages"
+msgstr ""
 
 #: src/pages/maintance/config.vue:7
-msgid "show incompatible packages"
-msgstr "show incompatible packages"
+msgid "Show incompatible packages"
+msgstr ""
 
 #: src/components/Open/OpenQuickstartInstallApp/index.vue:46
 msgid "Start"
-msgstr "Start"
+msgstr ""
 
 #: src/components/app/index.vue:106
 msgid "Stick to the top"
-msgstr "Stick to the top"
+msgstr ""
 
 #: src/components/Open/OpenQuickstartInstallApp/index.vue:42
 msgid "Stop"
@@ -444,9 +443,8 @@ msgid "Storage"
 msgstr "Storage"
 
 #: src/pages/upload/index.vue:10
-#, fuzzy
-msgid "supports .ipk packages, .run self-extracting installer"
-msgstr "supports .ipk packages, .run self-extracting packages"
+msgid "Supports .ipk packages, .run self-extracting installer"
+msgstr ""
 
 #: src/plugins/i18n/index.ts:43
 msgid "system"
@@ -459,10 +457,6 @@ msgstr "system backup"
 #: src/pages/store/components/tag.vue:4
 msgid "tag"
 msgstr "Tag"
-
-#: src/pages/maintance/update.vue:13
-msgid "the is last version"
-msgstr "the is last version"
 
 #: src/pages/maintance/localBackup.vue:259
 msgid ""
@@ -492,43 +486,40 @@ msgid "uninstall"
 msgstr "uninstall"
 
 #: src/pages/upload/index.vue:60
-#, fuzzy
 msgid "Uninstall"
-msgstr "uninstall"
+msgstr ""
 
 #: src/components/app/index.vue:193 src/components/app/index.vue:198
 msgid "uninstall failed, error code"
 msgstr "uninstall failed, error code"
 
 #: src/pages/upload/index.vue:173
-#, fuzzy
-msgid "uninstallation failed with error code"
-msgstr "offline installation failed with error code"
+msgid "Uninstallation failed with error code"
+msgstr ""
 
 #: src/pages/upload/index.vue:169
-#, fuzzy
-msgid "uninstalling"
-msgstr "uninstall"
+msgid "Uninstalling"
+msgstr ""
 
 #: src/components/app/index.vue:56
 msgid "update date"
 msgstr "update date"
 
 #: src/pages/maintance/update.vue:49
-msgid "update error"
-msgstr "update error"
+msgid "Update error"
+msgstr ""
 
 #: src/components/app/index.vue:152 src/components/app/index.vue:157
 msgid "update failed with error code"
 msgstr "update failed with error code"
 
 #: src/pages/maintance/update.vue:37
-msgid "update success, reloading"
-msgstr "update success, reloading"
+msgid "Update success, reloading"
+msgstr ""
 
 #: src/pages/maintance/update.vue:32
-msgid "updateing"
-msgstr "updateing"
+msgid "Updating"
+msgstr ""
 
 #: src/components/app/index.vue:75 src/components/app/index.vue:76
 #: src/pages/maintance/index.vue:4
@@ -540,8 +531,8 @@ msgid "upload software list and install from iStore when restoring"
 msgstr "upload software list and install from iStore when restoring"
 
 #: src/pages/maintance/lightBackup.vue:72 src/pages/upload/index.vue:137
-msgid "uploading"
-msgstr "uploading"
+msgid "Uploading"
+msgstr ""
 
 #: src/components/app/index.vue:66
 msgid "website"
