@@ -5,10 +5,16 @@
 IS_ROOT=/tmp/is-backup
 APP_LIST_FILE=/etc/istore/app.list
 BACKUP_CONFIG_FILE=/etc/config/istore
+USE_APK=false
+[[ -s /etc/apk/arch ]] && USE_APK=true
 
 action=${1}
 shift
 
+if $USE_APK; then
+    echo "does not support apk package manager" >&2
+    exit 1
+fi
 
 is_init() {
     mkdir -p ${IS_ROOT}
