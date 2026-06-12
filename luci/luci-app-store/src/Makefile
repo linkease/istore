@@ -10,7 +10,7 @@ include $(TOPDIR)/feeds/luci/luci.mk
 
 install:
 	[ -n "$(APP_STORE_VERSION)" ]
-	mkdir -p "$(DESTDIR)/www/luci-static"
+	mkdir -p "$(DESTDIR)/www/luci-static" "$(DESTDIR)/etc"
 	cp -a "$(FRONTEND_DIST)/luci-static/istore" "$(DESTDIR)/www/luci-static/"
 	$(SED) 's#\.js"#.js?v=$(APP_STORE_VERSION)"#g' "$(DESTDIR)/www/luci-static/istore/index.js"
 	echo "$(APP_STORE_VERSION)" > "$(DESTDIR)/etc/.app_store.version"

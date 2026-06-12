@@ -9,7 +9,7 @@ LUCI_TITLE:=LuCI based ipk store
 LUCI_DESCRIPTION:=luci-app-store is a ipk store developed by LinkEase team
 LUCI_DEPENDS:=+curl +tar +libuci-lua +mount-utils +luci-lib-taskd
 ifneq ($(CONFIG_USE_APK),)
-LUCI_DEPENDS+=+apk
+LUCI_DEPENDS+=+apk +luci-compat
 else
 LUCI_DEPENDS+=+opkg
 endif
