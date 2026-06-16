@@ -367,7 +367,7 @@ try_upgrade_depends() {
 
 if $USE_APK; then
     CMD_INSTALLED="apk --repositories-file /dev/null info | cut -d' ' -f1 | sort -u"
-    CMD_INSTALL="apk add"
+    CMD_INSTALL="apk add --allow-untrusted"
 else
     CMD_INSTALLED="opkg list-installed | cut -d' ' -f1 | sort -u"
     CMD_INSTALL="opkg install"
