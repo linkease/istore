@@ -1,6 +1,6 @@
 #!/bin/sh
 
-newpath=$(echo ":$PATH:" | sed -e 's#:/usr/libexec/istore/apk-bin:#:#g' -e 's/^:*//' -e 's/:*$//')
+newpath=$(echo ":$PATH:" | sed -e 's#:/usr/libexec/istore/mirror-bin:#:#g' -e 's/^:*//' -e 's/:*$//')
 [ -z "$newpath" ] && newpath="/usr/sbin:/usr/bin:/sbin:/bin"
 
 export PATH="$newpath"
