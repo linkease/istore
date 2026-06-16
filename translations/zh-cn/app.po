@@ -441,8 +441,8 @@ msgid "Storage"
 msgstr "存储位置"
 
 #: src/pages/upload/index.vue:10
-msgid "Supports .ipk packages, .run self-extracting installer"
-msgstr "支持 .ipk 包，.run 自解压安装器"
+msgid "Supports .ipk/.apk packages, .run self-extracting installer"
+msgstr "支持 .ipk/.apk 包，.run 自解压安装器"
 
 #: src/plugins/i18n/index.ts:43
 msgid "system"

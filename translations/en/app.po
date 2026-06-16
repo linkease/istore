@@ -443,7 +443,7 @@ msgid "Storage"
 msgstr "Storage"
 
 #: src/pages/upload/index.vue:10
-msgid "Supports .ipk packages, .run self-extracting installer"
+msgid "Supports .ipk/.apk packages, .run self-extracting installer"
 msgstr ""
 
 #: src/plugins/i18n/index.ts:43
