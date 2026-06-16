@@ -149,7 +149,7 @@ update() {
 
     echo "Fetch feed list for ${ARCH}"
     if $USE_APK; then
-        rm -rf ${IS_ROOT}/var/tmp ${IS_ROOT}/etc/arch
+        rm -rf ${IS_ROOT}/var/tmp ${IS_ROOT}/etc/arch ${IS_ROOT}/etc/istore.pem
         mkdir -p ${IS_ROOT}/var/tmp
         fcurl --no-progress-meter -o ${IS_ROOT}/var/tmp/meta.conf "${FEEDS_SERVER}/all/meta.conf" && \
           fcurl --no-progress-meter -o ${IS_ROOT}/var/tmp/all.conf "${FEEDS_SERVER}/all/isfeeds.conf" && \
@@ -165,6 +165,11 @@ update() {
             fi
         done < ${IS_ROOT}/etc/arch
         sync /etc/apk/arch
+        if [[ ! -s /etc/apk/keys/istore.pem && ! -s /etc/apk/keys/istore-tmp.pem ]]; then
+            fcurl --no-progress-meter -o ${IS_ROOT}/etc/istore.pem "${FEEDS_SERVER}/istore-apk.pem" && \
+              cp -a ${IS_ROOT}/etc/istore.pem /etc/apk/keys/istore-tmp.pem || \
+              return 1
+        fi
     else
         fcurl --no-progress-meter -o ${OPKG_CONF_DIR}/meta.conf "${FEEDS_SERVER}/all/meta.conf" && \
           fcurl --no-progress-meter -o ${OPKG_CONF_DIR}/all.conf "${FEEDS_SERVER}/all/isfeeds.conf" && \
