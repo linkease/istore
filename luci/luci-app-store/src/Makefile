@@ -15,9 +15,9 @@ install:
 	$(SED) 's#\.js"#.js?v=$(APP_STORE_VERSION)"#g' "$(DESTDIR)/www/luci-static/istore/index.js"
 	echo "$(APP_STORE_VERSION)" > "$(DESTDIR)/etc/.app_store.version"
 ifneq ($(USE_APK),)
-	cp -pR ../root-apk/* "$(DESTDIR)/"
+	cp -pR ./root-apk/* "$(DESTDIR)/"
 else
-	cp -pR ../root-opkg/* "$(DESTDIR)/"
+	cp -pR ./root-opkg/* "$(DESTDIR)/"
 	mkdir -p "$(DESTDIR)/etc/opkg/keys"
 	cp -a ./key-build.pub $(DESTDIR)/etc/opkg/keys/`$(STAGING_DIR_HOST)/bin/usign -F -p ./key-build.pub`
 endif
