@@ -543,6 +543,10 @@ msgstr "你可以在这里删除安装记录或卸载软件包。"
 msgid "you have already liked"
 msgstr "您已经点过赞啦"
 
+#: src/request/request.js:10
+msgid "Your session has expired. Please refresh the page and log in again."
+msgstr "会话已过期，请刷新页面重新登录。"
+
 #~ msgid "overlay backup"
 #~ msgstr "系统备份"
 

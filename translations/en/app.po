@@ -546,6 +546,10 @@ msgstr ""
 msgid "you have already liked"
 msgstr "you have already liked"
 
+#: src/request/request.js:10
+msgid "Your session has expired. Please refresh the page and log in again."
+msgstr ""
+
 #~ msgid "overlay backup"
 #~ msgstr "overlay backup"
 
